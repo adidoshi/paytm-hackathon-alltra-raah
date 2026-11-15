@@ -77,6 +77,11 @@ class ReapplyBody(UserBody):
     consent: bool = False
 
 
+class GapBody(UserBody):
+    gap: str
+    answer: str
+
+
 class ChatBody(UserBody):
     message: str
     speak: bool = False
@@ -134,6 +139,21 @@ def accept_offer(body: OfferBody):
     except ValueError as e:
         raise HTTPException(400, str(e))
     return journey.view(s, _lang(body.lang))
+
+
+@app.post("/api/statements/read")
+def read_statements(body: UserBody):
+    """Consent tap on the phone: fetch bank statements via Account Aggregator and read them."""
+    try:
+        s = journey.read_statements(body.user_id)
+    except ValueError as e:
+        raise HTTPException(409, str(e))
+    return journey.view(s, _lang(body.lang))
+
+
+@app.post("/api/statements/answer")
+def answer_gap(body: GapBody):
+    return journey.view(journey.answer_gap(body.user_id, body.gap, body.answer), _lang(body.lang))
 
 
 @app.post("/api/simulate/advance")

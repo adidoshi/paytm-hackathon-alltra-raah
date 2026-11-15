@@ -9,10 +9,10 @@ from ..agent import pipeline
 from ..config import PERSONA_DIR
 from ..rules import engine
 from ..rules.i18n import T, inr, t
-from . import clients
+from . import clients, statements
 
 UNITS = {"utilisation": "%", "foir": "%"}
-BINARY = {"fd_card_active", "bill_autopay", "emi_autopay"}
+BINARY = {"fd_card_active", "bill_autopay", "emi_autopay", "emi_after_salary"}
 
 
 def personas() -> list[dict]:
@@ -51,6 +51,7 @@ def _fresh(user_id: str) -> dict:
         "notifications": [],
         "explanation": {},
         "lender_ref": None,
+        "cashflow": None,
     }
 
 
@@ -128,6 +129,7 @@ def advance(user_id: str) -> dict:
     for e in month["events"]:
         s["feed"].append({**e, "day": s["day"]})
         db.trace(user_id, "event", f"Paytm event: {e['source']}", e["text"] + (f" ({inr(e['amount'])})" if e["amount"] else ""))
+    statements.refresh(s)
     _watch(s, before)
     db.save_state(s)
     return s
@@ -173,7 +175,7 @@ def accept_offer(user_id: str, offer_id: str) -> dict:
         before = engine.check_progress(s["plan"], s["profile"], s["application"])
         if offer_id == "fd_card":
             s["profile"]["fd_card_active"] = True
-            s["profile"]["cards"].append({"id": "fdcard", "name": "FD-backed card", "limit": offer["limit"], "balance": 0, "secured": True})
+            s["profile"]["cards"].append({"id": "fdcard", "name": "FD-backed card", "lender": "SBM Bank", "limit": offer["limit"], "balance": 0, "secured": True})
             s["feed"].append({"day": s["day"], "source": "FD", "text": "Fixed deposit opened, card issued", "amount": offer["fd_amount"], "dir": "out"})
         db.trace(user_id, "event", f"Offer accepted: {offer_id}", "Started with the user's consent")
         now = engine.check_progress(s["plan"], s["profile"], s["application"])
@@ -181,6 +183,25 @@ def accept_offer(user_id: str, offer_id: str) -> dict:
         for a in now["actions"]:
             if a["done"] and a["id"] not in was_done:
                 s["notifications"].append({"id": len(s["notifications"]) + 1, "day": s["day"], "kind": "done", "action_id": a["id"]})
+        db.save_state(s)
+    return s
+
+
+def read_statements(user_id: str) -> dict:
+    """Customer tapped consent: read their bank statements and re-run the rules on the evidence."""
+    s = state_of(user_id)
+    if s["status"] not in ("rejected", "eligible"):
+        raise ValueError("nothing to read for")
+    if not s.get("cashflow"):
+        statements.read(s)
+        db.save_state(s)
+    return s
+
+
+def answer_gap(user_id: str, gap: str, answer: str) -> dict:
+    s = state_of(user_id)
+    if s.get("cashflow"):
+        statements.answer_gap(s, gap, answer)
         db.save_state(s)
     return s
 
@@ -208,15 +229,18 @@ def reapply(user_id: str, consent: bool) -> dict:
 def _fmt_value(metric: str, v: float) -> str:
     if metric in BINARY:
         return "on" if v else "off"
+    if metric.startswith("hidden:"):
+        return inr(v)
     return f"{int(v)}{UNITS.get(metric, '')}"
 
 
 def _action_view(a: dict, lang: str) -> dict:
+    key = a.get("tkey", a["id"])
     return {
         "id": a["id"],
         "reason_code": a["reason_code"],
-        "title": t(lang, f"action.{a['id']}.title", **a["params"]),
-        "detail": t(lang, f"action.{a['id']}.detail", **a["params"]),
+        "title": t(lang, f"action.{key}.title", **a["params"]),
+        "detail": t(lang, f"action.{key}.detail", **a["params"]),
         "metric": a["metric"],
         "binary": a["metric"] in BINARY,
         "start": _fmt_value(a["metric"], a["start"]),
@@ -233,6 +257,9 @@ def _offer_view(o: dict, lang: str, accepted: list[str]) -> dict:
     if o["id"] == "fd_card":
         params = {"fd": o["fd_amount"], "limit": o["limit"]}
         facts = [["FD", inr(o["fd_amount"])], ["Card limit", inr(o["limit"])], ["FD interest", f"{o['fd_rate'] * 100:.1f}% p.a."]]
+    elif o["id"] == "cashflow_loan":
+        params = {"amount": o["amount"], "emi": o["emi"], "income": o["income"], "n": o["months"], "foir": o["foir"], "max": o["max_foir"]}
+        facts = [["Amount", inr(o["amount"])], ["EMI", inr(o["emi"])], ["Tenure", f"{o['tenure_months']} months"], ["Rate", f"{o['rate'] * 100:.0f}% p.a."]]
     else:
         params = {"amount": o["amount"], "emi": o["emi"], "foir": o["foir"], "max": o["max_foir"]}
         facts = [["Amount", inr(o["amount"])], ["EMI", inr(o["emi"])], ["Tenure", f"{o['tenure_months']} months"], ["Rate", f"{o['rate'] * 100:.0f}% p.a."]]
@@ -267,6 +294,9 @@ def view(s: dict, lang: str, lazy_explain: bool = True) -> dict:
     prog = engine.check_progress(s["plan"], s["profile"], app) if s["plan"] else None
     open_codes = set(prog["open_reasons"]) if prog else set()
     actions = [_action_view(a, lang) for a in prog["actions"]] if prog else []
+    funds = statements.funding(prog["actions"], s, lang) if prog else {}
+    for a in actions:
+        a["funding"] = funds.get(a["id"])
     by_id = {a["id"]: a for a in actions}
 
     explanation = None
@@ -299,6 +329,7 @@ def view(s: dict, lang: str, lazy_explain: bool = True) -> dict:
             "eligible": prog["eligible"] if prog else False,
             "actions": actions,
         },
+        "cashflow": statements.view(s, lang),
         "notifications": [_notification_view(n, s, by_id, lang) for n in reversed(s["notifications"])],
         "feed": sorted(s["feed"], key=lambda e: -e["day"]),
         "snapshot": {
@@ -306,6 +337,9 @@ def view(s: dict, lang: str, lazy_explain: bool = True) -> dict:
             "utilisation": engine.pct(m["utilisation"]) if m["card_limit"] else None,
             "foir": engine.pct(m["foir"]),
             "on_time_cycles": s["profile"]["on_time_cycles"],
+            "income": m["income"],
+            "income_verified": bool(s.get("cashflow")),
+            "hidden_emi": m["hidden_emi"],
         },
     }
 

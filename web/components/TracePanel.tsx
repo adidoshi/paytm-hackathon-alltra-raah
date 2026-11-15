@@ -14,6 +14,7 @@ const KIND: Record<string, { label: string; cls: string }> = {
   consent: { label: "CONSENT", cls: "bg-[#5fe0a8] text-navy" },
   voice: { label: "SARVAM", cls: "bg-[#fbbf24]/20 text-[#fcd34d]" },
   nudge: { label: "NUDGE", cls: "bg-brand/40 text-white" },
+  reader: { label: "READER", cls: "bg-[#a78bfa] text-navy" },
 };
 
 export default function TracePanel({ userId, epoch, health }: { userId: string; epoch: number; health: Health | null }) {

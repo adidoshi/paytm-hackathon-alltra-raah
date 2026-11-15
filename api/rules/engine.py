@@ -27,16 +27,21 @@ def emi(principal: float, annual_rate: float, months: int) -> int:
 
 def metrics(profile: dict, application: dict) -> dict:
     """All derived numbers the rules look at."""
-    income = profile["monthly_income"]
-    existing_emi = sum(l["emi"] for l in profile["loans"])
+    cf = profile.get("cashflow") or {}
+    # Once statements are read, verified income replaces declared income,
+    # and debts found in the statements but missing from the bureau count too.
+    income = cf.get("verified_income") or profile["monthly_income"]
+    hidden_emi = sum(h["monthly"] for h in cf.get("hidden", []))
+    existing_emi = sum(l["emi"] for l in profile["loans"]) + hidden_emi
     proposed_emi = emi(application["amount"], TH["pricing"]["personal_loan_rate"], application["tenure_months"])
     limit = sum(c["limit"] for c in profile["cards"] if not c.get("secured"))
     balance = sum(c["balance"] for c in profile["cards"] if not c.get("secured"))
-    inflow = profile.get("inflow_6m") or [income]
+    inflow = cf.get("income_windows") or profile.get("inflow_6m") or [income]
     mean = sum(inflow) / len(inflow)
     return {
         "income": income,
         "existing_emi": existing_emi,
+        "hidden_emi": hidden_emi,
         "proposed_emi": proposed_emi,
         "foir": (existing_emi + proposed_emi) / income,
         "emi_share": proposed_emi / income,
@@ -190,6 +195,40 @@ def match_offers(profile: dict, application: dict, reasons: list[dict]) -> tuple
     )
     if chosen:
         offers.insert(0, chosen)
+
+    # Cash-flow loan: for steady earners the bureau cannot score, decided on verified statements.
+    cf = profile.get("cashflow")
+    cl = PRODUCTS["cashflow_loan"]
+    if cf:
+        cap = min(application["amount"] * cl["max_share_of_request"], cf["verified_income"] * cl["max_income_multiple"])
+        basics = (
+            cf["months_with_income"] >= cl["min_months_income"]
+            and cf["income_variation"] <= cl["max_income_variation"]
+            and cf["bills_on_time_rate"] >= cl["min_bills_on_time"]
+            and not (cl["require_no_recent_dpd"] and "RECENT_DPD" in codes)
+        )
+        picked = None
+        if basics:
+            for amount in cl["amounts"]:
+                if amount > cap:
+                    continue
+                e = emi(amount, cl["rate"], cl["tenure_months"])
+                foir = (m["existing_emi"] + e) / m["income"]
+                if foir <= cl["max_foir"]:
+                    picked = {
+                        "id": "cashflow_loan", "amount": amount, "emi": e, "rate": cl["rate"],
+                        "tenure_months": cl["tenure_months"], "foir": pct(foir), "max_foir": pct(cl["max_foir"]),
+                        "income": cf["verified_income"], "months": cf["months_with_income"],
+                    }
+                    break
+        checks.append({
+            "code": "cashflow_loan",
+            "passed": picked is not None,
+            "expr": f"income in {cf['months_with_income']}/6 months >= {cl['min_months_income']}, variation {pct(cf['income_variation'])}% <= {pct(cl['max_income_variation'])}%, "
+                    f"bills on time {pct(cf['bills_on_time_rate'])}% >= {pct(cl['min_bills_on_time'])}%, EMI load incl. hidden debts <= {pct(cl['max_foir'])}%",
+        })
+        if picked:
+            offers.insert(0, picked)
     return offers, checks
 
 
@@ -214,6 +253,11 @@ def _metric(profile: dict, application: dict, name: str) -> float:
         return profile["enquiries_30d"]
     if name == "score":
         return profile.get("score") or 0
+    cf = profile.get("cashflow") or {}
+    if name.startswith("hidden:"):
+        return next((h["monthly"] for h in cf.get("hidden", []) if h["key"] == name[7:]), 0)
+    if name == "emi_after_salary":
+        return 1 if cf.get("emi_day") and cf.get("salary_day") and cf["emi_day"] > cf["salary_day"] else 0
     return 0
 
 
@@ -222,10 +266,11 @@ def build_plan(reasons: list[dict], profile: dict, application: dict) -> list[di
     m = metrics(profile, application)
     actions: list[dict] = []
 
-    def add(aid: str, code: str, metric: str, target: float, due: int, params: dict | None = None, pay: dict | None = None):
+    def add(aid: str, code: str, metric: str, target: float, due: int, params: dict | None = None, pay: dict | None = None, tkey: str | None = None):
         actions.append(
             {
                 "id": aid,
+                "tkey": tkey or aid,
                 "reason_code": code,
                 "metric": metric,
                 "start": _metric(profile, application, metric),
@@ -258,18 +303,31 @@ def build_plan(reasons: list[dict], profile: dict, application: dict) -> list[di
                 {"type": "pay_card", "amount": amount},
             )
         elif code == "HIGH_FOIR":
-            # Smallest loan whose closure brings the EMI load under the limit.
-            loans = sorted((l for l in profile["loans"] if l["emi"] > 0), key=lambda l: l["outstanding"])
-            for l in loans:
-                after = (m["existing_emi"] - l["emi"] + m["proposed_emi"]) / m["income"]
-                if after <= TH["foir"]["max"]:
-                    add(
-                        "close_loan", code, "foir", pct(TH["foir"]["max"]), 90,
-                        {"loan": l["name"], "amount": l["outstanding"], "emi": l["emi"], "max": pct(TH["foir"]["max"]), "after": pct(after)},
-                        {"type": "close_loan", "amount": l["outstanding"]},
-                    )
+            limit_ = TH["foir"]["max"]
+            remaining = m["existing_emi"]
+            # 1. Debts found in the statements but missing from the bureau: clear them first.
+            for h in (profile.get("cashflow") or {}).get("hidden", []):
+                add(f"clear_{h['key']}", code, f"hidden:{h['key']}", 0, 60,
+                    {"name": h["name"], "monthly": h["monthly"]}, {"type": "clear_debt", "amount": 0}, tkey="clear_hidden")
+                remaining -= h["monthly"]
+            # 2. Then close the smallest bureau loans until the EMI load fits.
+            for l in sorted((l for l in profile["loans"] if l["emi"] > 0), key=lambda l: l["outstanding"]):
+                if (remaining + m["proposed_emi"]) / m["income"] <= limit_:
                     break
+                remaining -= l["emi"]
+                after = (remaining + m["proposed_emi"]) / m["income"]
+                add(
+                    f"close_{l['id']}", code, "foir", pct(limit_), 90,
+                    {"loan": l["name"], "amount": l["outstanding"], "emi": l["emi"], "max": pct(limit_), "after": pct(after)},
+                    {"type": "close_loan", "amount": l["outstanding"]}, tkey="close_loan",
+                )
         elif code == "RECENT_DPD":
+            cf = profile.get("cashflow") or {}
+            if cf.get("salary_day") and cf.get("emi_day") and cf["emi_day"] <= cf["salary_day"]:
+                # The statements show the EMI is taken before salary arrives: a timing problem, not a money problem.
+                add("move_emi_date", code, "emi_after_salary", 1, 30,
+                    {"loan": ev["loan"], "emi_day": cf["emi_day"], "salary_day": cf["salary_day"], "new_day": min(28, cf["salary_day"] + 3)},
+                    {"type": "emi_date", "amount": 0})
             add("emi_autopay", code, "emi_autopay", 1, 7, {"loan": ev["loan"]}, {"type": "autopay", "amount": 0})
             add("clean_cycles", code, "clean_cycles", ev["need"], 90, {"target": ev["need"]})
         elif code == "ENQUIRY_SPIKE":

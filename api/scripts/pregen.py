@@ -29,6 +29,14 @@ def main() -> None:
             e = s["explanation"][lang]
             _, cached = sarvam.tts(e["text"], lang)
             print(f"{p['user_id']:7} {lang}  text: {e['source']:8} {e['model']:28} audio: {'cached' if cached else 'generated'}")
+        # Bank statements: the consent read, then each month of the demo clock.
+        s = journey.read_statements(p["user_id"])
+        for _ in range(3):
+            s = journey.advance(p["user_id"])
+        by = {v["by"] for v in s["cashflow"]["labels"].values()}
+        ev = s["cashflow"]["eval"]
+        print(f"{p['user_id']:7} statements: {len(s['cashflow']['labels'])} rows labelled by {', '.join(sorted(by))} "
+              f"(reader {ev['reader']}% vs keywords {ev['keywords']}%), final status {s['status']}")
     print("\nDone. Commit api/data/llm_cache and api/data/audio to ship these with the repo.")
 
 

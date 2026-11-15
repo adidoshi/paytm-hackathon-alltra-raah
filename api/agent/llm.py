@@ -95,6 +95,17 @@ def _gemini(system: str, user: str) -> str | None:
     return text or None
 
 
+def gemini_text(system: str, user: str) -> str | None:
+    """Uncached Gemini call, for callers that cache their own parsed results."""
+    llm = get_llm()
+    if llm is None:
+        return None
+    try:
+        return text_of(llm.invoke([("system", system), ("human", user)]))
+    except Exception:
+        return None
+
+
 def providers() -> list[str]:
     order = ["sarvam", "gemini"] if config.EXPLAIN_LLM == "sarvam" else ["gemini", "sarvam"]
     return [p for p in order if (p == "sarvam" and sarvam.enabled()) or (p == "gemini" and get_llm() is not None)]

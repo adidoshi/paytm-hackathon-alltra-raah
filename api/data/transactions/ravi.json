@@ -1,0 +1,1991 @@
+[
+ {
+  "day": -182,
+  "date": "2026-05-17",
+  "amount": 940,
+  "dir": "out",
+  "narration": "UPI/DR/548280421368/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R001"
+ },
+ {
+  "day": -181,
+  "date": "2026-05-18",
+  "amount": 3260,
+  "dir": "in",
+  "narration": "IMPS/P2A/646813087681/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R002"
+ },
+ {
+  "day": -179,
+  "date": "2026-05-20",
+  "amount": 710,
+  "dir": "out",
+  "narration": "UPI/DR/678654561133/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R003"
+ },
+ {
+  "day": -178,
+  "date": "2026-05-21",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-05-21",
+  "id": "R004"
+ },
+ {
+  "day": -178,
+  "date": "2026-05-21",
+  "amount": 3620,
+  "dir": "in",
+  "narration": "UPI/CR/615248762815/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R005"
+ },
+ {
+  "day": -178,
+  "date": "2026-05-21",
+  "amount": 350,
+  "dir": "out",
+  "narration": "UPI/DR/518238813365/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R006"
+ },
+ {
+  "day": -176,
+  "date": "2026-05-23",
+  "amount": 1300,
+  "dir": "in",
+  "narration": "UPI/CR/434430926581/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R007"
+ },
+ {
+  "day": -174,
+  "date": "2026-05-25",
+  "amount": 3310,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK2",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R008"
+ },
+ {
+  "day": -169,
+  "date": "2026-05-30",
+  "amount": 1290,
+  "dir": "in",
+  "narration": "UPI/CR/535058276826/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R009"
+ },
+ {
+  "day": -168,
+  "date": "2026-05-31",
+  "amount": 830,
+  "dir": "out",
+  "narration": "UPI/DR/624201447071/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R010"
+ },
+ {
+  "day": -167,
+  "date": "2026-06-01",
+  "amount": 3370,
+  "dir": "in",
+  "narration": "IMPS/P2A/659896668610/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R011"
+ },
+ {
+  "day": -165,
+  "date": "2026-06-03",
+  "amount": 840,
+  "dir": "out",
+  "narration": "UPI/DR/588739151000/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R012"
+ },
+ {
+  "day": -165,
+  "date": "2026-06-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/686155346697/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade JUN",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R013"
+ },
+ {
+  "day": -164,
+  "date": "2026-06-04",
+  "amount": 3430,
+  "dir": "in",
+  "narration": "UPI/CR/400914251117/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R014"
+ },
+ {
+  "day": -163,
+  "date": "2026-06-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/457752195154/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R015"
+ },
+ {
+  "day": -162,
+  "date": "2026-06-06",
+  "amount": 1100,
+  "dir": "in",
+  "narration": "UPI/CR/555375826879/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R016"
+ },
+ {
+  "day": -160,
+  "date": "2026-06-08",
+  "amount": 1130,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-06-10",
+  "id": "R017"
+ },
+ {
+  "day": -160,
+  "date": "2026-06-08",
+  "amount": 3400,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK4",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R018"
+ },
+ {
+  "day": -156,
+  "date": "2026-06-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/697837",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R019"
+ },
+ {
+  "day": -155,
+  "date": "2026-06-13",
+  "amount": 1380,
+  "dir": "in",
+  "narration": "UPI/CR/447809765706/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R020"
+ },
+ {
+  "day": -154,
+  "date": "2026-06-14",
+  "amount": 810,
+  "dir": "out",
+  "narration": "UPI/DR/402161116338/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R021"
+ },
+ {
+  "day": -153,
+  "date": "2026-06-15",
+  "amount": 3530,
+  "dir": "in",
+  "narration": "IMPS/P2A/645217393043/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R022"
+ },
+ {
+  "day": -151,
+  "date": "2026-06-17",
+  "amount": 740,
+  "dir": "out",
+  "narration": "UPI/DR/452419622175/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R023"
+ },
+ {
+  "day": -150,
+  "date": "2026-06-18",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-06-18",
+  "id": "R024"
+ },
+ {
+  "day": -150,
+  "date": "2026-06-18",
+  "amount": 3310,
+  "dir": "in",
+  "narration": "UPI/CR/412390401324/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R025"
+ },
+ {
+  "day": -148,
+  "date": "2026-06-20",
+  "amount": 1380,
+  "dir": "in",
+  "narration": "UPI/CR/648639695018/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R026"
+ },
+ {
+  "day": -147,
+  "date": "2026-06-21",
+  "amount": 390,
+  "dir": "out",
+  "narration": "UPI/DR/476694218329/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R027"
+ },
+ {
+  "day": -146,
+  "date": "2026-06-22",
+  "amount": 3140,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK6",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R028"
+ },
+ {
+  "day": -141,
+  "date": "2026-06-27",
+  "amount": 1930,
+  "dir": "in",
+  "narration": "UPI/CR/686436615677/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R029"
+ },
+ {
+  "day": -140,
+  "date": "2026-06-28",
+  "amount": 840,
+  "dir": "out",
+  "narration": "UPI/DR/692176985173/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R030"
+ },
+ {
+  "day": -139,
+  "date": "2026-06-29",
+  "amount": 2980,
+  "dir": "in",
+  "narration": "IMPS/P2A/618966853428/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R031"
+ },
+ {
+  "day": -137,
+  "date": "2026-07-01",
+  "amount": 820,
+  "dir": "out",
+  "narration": "UPI/DR/467506844064/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R032"
+ },
+ {
+  "day": -136,
+  "date": "2026-07-02",
+  "amount": 3260,
+  "dir": "in",
+  "narration": "UPI/CR/421905762397/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R033"
+ },
+ {
+  "day": -135,
+  "date": "2026-07-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/578037034524/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade JUL",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R034"
+ },
+ {
+  "day": -134,
+  "date": "2026-07-04",
+  "amount": 1580,
+  "dir": "in",
+  "narration": "UPI/CR/657774892754/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R035"
+ },
+ {
+  "day": -133,
+  "date": "2026-07-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/694763451925/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R036"
+ },
+ {
+  "day": -132,
+  "date": "2026-07-06",
+  "amount": 3670,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK8",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R037"
+ },
+ {
+  "day": -127,
+  "date": "2026-07-11",
+  "amount": 1870,
+  "dir": "in",
+  "narration": "UPI/CR/570514367851/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R038"
+ },
+ {
+  "day": -126,
+  "date": "2026-07-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/677113",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R039"
+ },
+ {
+  "day": -126,
+  "date": "2026-07-12",
+  "amount": 990,
+  "dir": "out",
+  "narration": "UPI/DR/698073238332/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R040"
+ },
+ {
+  "day": -125,
+  "date": "2026-07-13",
+  "amount": 3420,
+  "dir": "in",
+  "narration": "IMPS/P2A/436629118646/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R041"
+ },
+ {
+  "day": -123,
+  "date": "2026-07-15",
+  "amount": 660,
+  "dir": "out",
+  "narration": "UPI/DR/614318798235/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R042"
+ },
+ {
+  "day": -122,
+  "date": "2026-07-16",
+  "amount": 1190,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-07-10",
+  "id": "R043"
+ },
+ {
+  "day": -122,
+  "date": "2026-07-16",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-07-16",
+  "id": "R044"
+ },
+ {
+  "day": -122,
+  "date": "2026-07-16",
+  "amount": 3910,
+  "dir": "in",
+  "narration": "UPI/CR/641434041883/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R045"
+ },
+ {
+  "day": -120,
+  "date": "2026-07-18",
+  "amount": 1920,
+  "dir": "in",
+  "narration": "UPI/CR/441387097380/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R046"
+ },
+ {
+  "day": -118,
+  "date": "2026-07-20",
+  "amount": 2950,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK10",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R047"
+ },
+ {
+  "day": -117,
+  "date": "2026-07-21",
+  "amount": 270,
+  "dir": "out",
+  "narration": "UPI/DR/592459667431/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R048"
+ },
+ {
+  "day": -113,
+  "date": "2026-07-25",
+  "amount": 1480,
+  "dir": "in",
+  "narration": "UPI/CR/570641189493/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R049"
+ },
+ {
+  "day": -112,
+  "date": "2026-07-26",
+  "amount": 920,
+  "dir": "out",
+  "narration": "UPI/DR/466842003486/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R050"
+ },
+ {
+  "day": -111,
+  "date": "2026-07-27",
+  "amount": 3050,
+  "dir": "in",
+  "narration": "IMPS/P2A/578086242478/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R051"
+ },
+ {
+  "day": -109,
+  "date": "2026-07-29",
+  "amount": 890,
+  "dir": "out",
+  "narration": "UPI/DR/571701447445/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R052"
+ },
+ {
+  "day": -108,
+  "date": "2026-07-30",
+  "amount": 3300,
+  "dir": "in",
+  "narration": "UPI/CR/611726102672/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R053"
+ },
+ {
+  "day": -106,
+  "date": "2026-08-01",
+  "amount": 1340,
+  "dir": "in",
+  "narration": "UPI/CR/442946914008/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R054"
+ },
+ {
+  "day": -104,
+  "date": "2026-08-03",
+  "amount": 3250,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK12",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R055"
+ },
+ {
+  "day": -104,
+  "date": "2026-08-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/550459085755/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade AUG",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R056"
+ },
+ {
+  "day": -102,
+  "date": "2026-08-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/605331154718/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R057"
+ },
+ {
+  "day": -99,
+  "date": "2026-08-08",
+  "amount": 1040,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-08-10",
+  "id": "R058"
+ },
+ {
+  "day": -99,
+  "date": "2026-08-08",
+  "amount": 1120,
+  "dir": "in",
+  "narration": "UPI/CR/604208924621/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R059"
+ },
+ {
+  "day": -98,
+  "date": "2026-08-09",
+  "amount": 800,
+  "dir": "out",
+  "narration": "UPI/DR/493162078774/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R060"
+ },
+ {
+  "day": -97,
+  "date": "2026-08-10",
+  "amount": 3570,
+  "dir": "in",
+  "narration": "IMPS/P2A/526783672672/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R061"
+ },
+ {
+  "day": -95,
+  "date": "2026-08-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/489147",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R062"
+ },
+ {
+  "day": -95,
+  "date": "2026-08-12",
+  "amount": 760,
+  "dir": "out",
+  "narration": "UPI/DR/543110005653/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R063"
+ },
+ {
+  "day": -94,
+  "date": "2026-08-13",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-08-13",
+  "id": "R064"
+ },
+ {
+  "day": -94,
+  "date": "2026-08-13",
+  "amount": 3140,
+  "dir": "in",
+  "narration": "UPI/CR/512056200023/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R065"
+ },
+ {
+  "day": -92,
+  "date": "2026-08-15",
+  "amount": 1710,
+  "dir": "in",
+  "narration": "UPI/CR/471741804936/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R066"
+ },
+ {
+  "day": -90,
+  "date": "2026-08-17",
+  "amount": 3410,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK14",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R067"
+ },
+ {
+  "day": -86,
+  "date": "2026-08-21",
+  "amount": 400,
+  "dir": "out",
+  "narration": "UPI/DR/507042469069/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R068"
+ },
+ {
+  "day": -85,
+  "date": "2026-08-22",
+  "amount": 1760,
+  "dir": "in",
+  "narration": "UPI/CR/588613499879/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R069"
+ },
+ {
+  "day": -84,
+  "date": "2026-08-23",
+  "amount": 630,
+  "dir": "out",
+  "narration": "UPI/DR/651421868366/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R070"
+ },
+ {
+  "day": -83,
+  "date": "2026-08-24",
+  "amount": 3300,
+  "dir": "in",
+  "narration": "IMPS/P2A/445794872047/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R071"
+ },
+ {
+  "day": -81,
+  "date": "2026-08-26",
+  "amount": 870,
+  "dir": "out",
+  "narration": "UPI/DR/412265496585/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R072"
+ },
+ {
+  "day": -80,
+  "date": "2026-08-27",
+  "amount": 3570,
+  "dir": "in",
+  "narration": "UPI/CR/405338699864/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R073"
+ },
+ {
+  "day": -78,
+  "date": "2026-08-29",
+  "amount": 1370,
+  "dir": "in",
+  "narration": "UPI/CR/660640717220/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R074"
+ },
+ {
+  "day": -76,
+  "date": "2026-08-31",
+  "amount": 3270,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK16",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R075"
+ },
+ {
+  "day": -73,
+  "date": "2026-09-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/553367402019/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade SEP",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R076"
+ },
+ {
+  "day": -71,
+  "date": "2026-09-05",
+  "amount": 1860,
+  "dir": "in",
+  "narration": "UPI/CR/416280210984/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R077"
+ },
+ {
+  "day": -71,
+  "date": "2026-09-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/442771262838/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R078"
+ },
+ {
+  "day": -70,
+  "date": "2026-09-06",
+  "amount": 770,
+  "dir": "out",
+  "narration": "UPI/DR/623009385374/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R079"
+ },
+ {
+  "day": -69,
+  "date": "2026-09-07",
+  "amount": 3120,
+  "dir": "in",
+  "narration": "IMPS/P2A/446558371290/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R080"
+ },
+ {
+  "day": -67,
+  "date": "2026-09-09",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/417535374747/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R081"
+ },
+ {
+  "day": -66,
+  "date": "2026-09-10",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-09-10",
+  "id": "R082"
+ },
+ {
+  "day": -66,
+  "date": "2026-09-10",
+  "amount": 3590,
+  "dir": "in",
+  "narration": "UPI/CR/470665990721/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R083"
+ },
+ {
+  "day": -64,
+  "date": "2026-09-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/524151",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R084"
+ },
+ {
+  "day": -64,
+  "date": "2026-09-12",
+  "amount": 1830,
+  "dir": "in",
+  "narration": "UPI/CR/406755156776/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R085"
+ },
+ {
+  "day": -62,
+  "date": "2026-09-14",
+  "amount": 3460,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK18",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R086"
+ },
+ {
+  "day": -57,
+  "date": "2026-09-19",
+  "amount": 1080,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-09-10",
+  "id": "R087"
+ },
+ {
+  "day": -57,
+  "date": "2026-09-19",
+  "amount": 1610,
+  "dir": "in",
+  "narration": "UPI/CR/607800540207/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R088"
+ },
+ {
+  "day": -56,
+  "date": "2026-09-20",
+  "amount": 710,
+  "dir": "out",
+  "narration": "UPI/DR/672615152818/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R089"
+ },
+ {
+  "day": -55,
+  "date": "2026-09-21",
+  "amount": 3150,
+  "dir": "in",
+  "narration": "IMPS/P2A/680159281766/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R090"
+ },
+ {
+  "day": -55,
+  "date": "2026-09-21",
+  "amount": 270,
+  "dir": "out",
+  "narration": "UPI/DR/507367112141/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R091"
+ },
+ {
+  "day": -53,
+  "date": "2026-09-23",
+  "amount": 730,
+  "dir": "out",
+  "narration": "UPI/DR/629996795480/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R092"
+ },
+ {
+  "day": -52,
+  "date": "2026-09-24",
+  "amount": 3890,
+  "dir": "in",
+  "narration": "UPI/CR/475482208765/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R093"
+ },
+ {
+  "day": -50,
+  "date": "2026-09-26",
+  "amount": 1570,
+  "dir": "in",
+  "narration": "UPI/CR/441269769112/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R094"
+ },
+ {
+  "day": -48,
+  "date": "2026-09-28",
+  "amount": 3130,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK20",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R095"
+ },
+ {
+  "day": -43,
+  "date": "2026-10-03",
+  "amount": 1120,
+  "dir": "in",
+  "narration": "UPI/CR/462875762755/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R096"
+ },
+ {
+  "day": -43,
+  "date": "2026-10-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/595724159192/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade OCT",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R097"
+ },
+ {
+  "day": -42,
+  "date": "2026-10-04",
+  "amount": 650,
+  "dir": "out",
+  "narration": "UPI/DR/689809501279/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R098"
+ },
+ {
+  "day": -41,
+  "date": "2026-10-05",
+  "amount": 2960,
+  "dir": "in",
+  "narration": "IMPS/P2A/459125756272/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R099"
+ },
+ {
+  "day": -41,
+  "date": "2026-10-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/510314056355/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R100"
+ },
+ {
+  "day": -39,
+  "date": "2026-10-07",
+  "amount": 830,
+  "dir": "out",
+  "narration": "UPI/DR/516086138575/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R101"
+ },
+ {
+  "day": -38,
+  "date": "2026-10-08",
+  "amount": 1190,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-10-10",
+  "id": "R102"
+ },
+ {
+  "day": -38,
+  "date": "2026-10-08",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-10-08",
+  "id": "R103"
+ },
+ {
+  "day": -38,
+  "date": "2026-10-08",
+  "amount": 3810,
+  "dir": "in",
+  "narration": "UPI/CR/568165730705/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R104"
+ },
+ {
+  "day": -36,
+  "date": "2026-10-10",
+  "amount": 1940,
+  "dir": "in",
+  "narration": "UPI/CR/631411943830/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R105"
+ },
+ {
+  "day": -34,
+  "date": "2026-10-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/623712",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R106"
+ },
+ {
+  "day": -34,
+  "date": "2026-10-12",
+  "amount": 3220,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK22",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R107"
+ },
+ {
+  "day": -29,
+  "date": "2026-10-17",
+  "amount": 1710,
+  "dir": "in",
+  "narration": "UPI/CR/651603276781/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R108"
+ },
+ {
+  "day": -28,
+  "date": "2026-10-18",
+  "amount": 730,
+  "dir": "out",
+  "narration": "UPI/DR/628455545555/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R109"
+ },
+ {
+  "day": -27,
+  "date": "2026-10-19",
+  "amount": 3570,
+  "dir": "in",
+  "narration": "IMPS/P2A/436019801370/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R110"
+ },
+ {
+  "day": -25,
+  "date": "2026-10-21",
+  "amount": 390,
+  "dir": "out",
+  "narration": "UPI/DR/469747466318/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R111"
+ },
+ {
+  "day": -25,
+  "date": "2026-10-21",
+  "amount": 840,
+  "dir": "out",
+  "narration": "UPI/DR/632203356124/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R112"
+ },
+ {
+  "day": -24,
+  "date": "2026-10-22",
+  "amount": 3840,
+  "dir": "in",
+  "narration": "UPI/CR/486714533576/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R113"
+ },
+ {
+  "day": -22,
+  "date": "2026-10-24",
+  "amount": 1450,
+  "dir": "in",
+  "narration": "UPI/CR/699953515286/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R114"
+ },
+ {
+  "day": -20,
+  "date": "2026-10-26",
+  "amount": 3660,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK24",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R115"
+ },
+ {
+  "day": -15,
+  "date": "2026-10-31",
+  "amount": 1130,
+  "dir": "in",
+  "narration": "UPI/CR/682395002429/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R116"
+ },
+ {
+  "day": -14,
+  "date": "2026-11-01",
+  "amount": 850,
+  "dir": "out",
+  "narration": "UPI/DR/545707928071/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R117"
+ },
+ {
+  "day": -13,
+  "date": "2026-11-02",
+  "amount": 3580,
+  "dir": "in",
+  "narration": "IMPS/P2A/515966457474/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R118"
+ },
+ {
+  "day": -12,
+  "date": "2026-11-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/619626937219/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade NOV",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R119"
+ },
+ {
+  "day": -11,
+  "date": "2026-11-04",
+  "amount": 840,
+  "dir": "out",
+  "narration": "UPI/DR/692800360108/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R120"
+ },
+ {
+  "day": -10,
+  "date": "2026-11-05",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-11-05",
+  "id": "R121"
+ },
+ {
+  "day": -10,
+  "date": "2026-11-05",
+  "amount": 3700,
+  "dir": "in",
+  "narration": "UPI/CR/614534199935/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R122"
+ },
+ {
+  "day": -10,
+  "date": "2026-11-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/539479674135/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R123"
+ },
+ {
+  "day": -8,
+  "date": "2026-11-07",
+  "amount": 1080,
+  "dir": "in",
+  "narration": "UPI/CR/449827140817/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R124"
+ },
+ {
+  "day": -7,
+  "date": "2026-11-08",
+  "amount": 1240,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-11-10",
+  "id": "R125"
+ },
+ {
+  "day": -6,
+  "date": "2026-11-09",
+  "amount": 3070,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK26",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R126"
+ },
+ {
+  "day": -3,
+  "date": "2026-11-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/613555",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R127"
+ },
+ {
+  "day": -1,
+  "date": "2026-11-14",
+  "amount": 1480,
+  "dir": "in",
+  "narration": "UPI/CR/463128866781/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R128"
+ },
+ {
+  "day": 0,
+  "date": "2026-11-15",
+  "amount": 650,
+  "dir": "out",
+  "narration": "UPI/DR/417277734066/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R129"
+ },
+ {
+  "day": 1,
+  "date": "2026-11-16",
+  "amount": 3620,
+  "dir": "in",
+  "narration": "IMPS/P2A/608177010184/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R130"
+ },
+ {
+  "day": 2,
+  "date": "2026-11-17",
+  "amount": 10000,
+  "dir": "out",
+  "narration": "UPI/DR/587939842218/SBM BANK INDIA/SBMI/stepup.fd@sbmbank/FD booking",
+  "source": "SBI savings ••4821",
+  "truth": "savings",
+  "id": "R131"
+ },
+ {
+  "day": 3,
+  "date": "2026-11-18",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/658301481511/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R132"
+ },
+ {
+  "day": 4,
+  "date": "2026-11-19",
+  "amount": 3820,
+  "dir": "in",
+  "narration": "UPI/CR/445541832681/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R133"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-21",
+  "amount": 1500,
+  "dir": "in",
+  "narration": "UPI/CR/670241336310/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R134"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-21",
+  "amount": 360,
+  "dir": "out",
+  "narration": "UPI/DR/611567930847/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R135"
+ },
+ {
+  "day": 8,
+  "date": "2026-11-23",
+  "amount": 3680,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK28",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R136"
+ },
+ {
+  "day": 13,
+  "date": "2026-11-28",
+  "amount": 1280,
+  "dir": "in",
+  "narration": "UPI/CR/601912026999/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R137"
+ },
+ {
+  "day": 14,
+  "date": "2026-11-29",
+  "amount": 680,
+  "dir": "out",
+  "narration": "UPI/DR/405271038672/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R138"
+ },
+ {
+  "day": 15,
+  "date": "2026-11-30",
+  "amount": 3220,
+  "dir": "in",
+  "narration": "IMPS/P2A/510077670657/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R139"
+ },
+ {
+  "day": 17,
+  "date": "2026-12-02",
+  "amount": 640,
+  "dir": "out",
+  "narration": "UPI/DR/686575535495/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R140"
+ },
+ {
+  "day": 18,
+  "date": "2026-12-03",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-12-03",
+  "id": "R141"
+ },
+ {
+  "day": 18,
+  "date": "2026-12-03",
+  "amount": 3430,
+  "dir": "in",
+  "narration": "UPI/CR/456280562890/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R142"
+ },
+ {
+  "day": 18,
+  "date": "2026-12-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/505032705465/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade DEC",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R143"
+ },
+ {
+  "day": 20,
+  "date": "2026-12-05",
+  "amount": 1320,
+  "dir": "in",
+  "narration": "UPI/CR/684337892011/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R144"
+ },
+ {
+  "day": 20,
+  "date": "2026-12-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/694085857539/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R145"
+ },
+ {
+  "day": 22,
+  "date": "2026-12-07",
+  "amount": 3520,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK30",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R146"
+ },
+ {
+  "day": 23,
+  "date": "2026-12-08",
+  "amount": 1260,
+  "dir": "out",
+  "narration": "Paytm AutoPay: Electricity MSEDCL CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-12-10",
+  "id": "R147"
+ },
+ {
+  "day": 25,
+  "date": "2026-12-10",
+  "amount": 1900,
+  "dir": "out",
+  "narration": "ACH D- SBM BANK INDIA-STEPUPCRD-XX1190",
+  "source": "SBI savings ••4821",
+  "truth": "card_payment",
+  "id": "R148"
+ },
+ {
+  "day": 27,
+  "date": "2026-12-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/645371",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R149"
+ },
+ {
+  "day": 27,
+  "date": "2026-12-12",
+  "amount": 1200,
+  "dir": "in",
+  "narration": "UPI/CR/588573638381/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R150"
+ },
+ {
+  "day": 28,
+  "date": "2026-12-13",
+  "amount": 870,
+  "dir": "out",
+  "narration": "UPI/DR/534670190319/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R151"
+ },
+ {
+  "day": 29,
+  "date": "2026-12-14",
+  "amount": 3120,
+  "dir": "in",
+  "narration": "IMPS/P2A/567878006035/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R152"
+ },
+ {
+  "day": 31,
+  "date": "2026-12-16",
+  "amount": 850,
+  "dir": "out",
+  "narration": "UPI/DR/643478996806/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R153"
+ },
+ {
+  "day": 32,
+  "date": "2026-12-17",
+  "amount": 3110,
+  "dir": "in",
+  "narration": "UPI/CR/541573639072/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R154"
+ },
+ {
+  "day": 34,
+  "date": "2026-12-19",
+  "amount": 1640,
+  "dir": "in",
+  "narration": "UPI/CR/672481025202/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R155"
+ },
+ {
+  "day": 36,
+  "date": "2026-12-21",
+  "amount": 3170,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK32",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R156"
+ },
+ {
+  "day": 36,
+  "date": "2026-12-21",
+  "amount": 240,
+  "dir": "out",
+  "narration": "UPI/DR/698163633051/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R157"
+ },
+ {
+  "day": 41,
+  "date": "2026-12-26",
+  "amount": 1850,
+  "dir": "in",
+  "narration": "UPI/CR/620447617279/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R158"
+ },
+ {
+  "day": 42,
+  "date": "2026-12-27",
+  "amount": 850,
+  "dir": "out",
+  "narration": "UPI/DR/671033419480/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R159"
+ },
+ {
+  "day": 43,
+  "date": "2026-12-28",
+  "amount": 3670,
+  "dir": "in",
+  "narration": "IMPS/P2A/473521214449/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R160"
+ },
+ {
+  "day": 45,
+  "date": "2026-12-30",
+  "amount": 880,
+  "dir": "out",
+  "narration": "UPI/DR/641469135182/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R161"
+ },
+ {
+  "day": 46,
+  "date": "2026-12-31",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-12-31",
+  "id": "R162"
+ },
+ {
+  "day": 46,
+  "date": "2026-12-31",
+  "amount": 3280,
+  "dir": "in",
+  "narration": "UPI/CR/617774510531/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R163"
+ },
+ {
+  "day": 48,
+  "date": "2027-01-02",
+  "amount": 1650,
+  "dir": "in",
+  "narration": "UPI/CR/511300732554/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R164"
+ },
+ {
+  "day": 49,
+  "date": "2027-01-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/549592286857/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade JAN",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R165"
+ },
+ {
+  "day": 50,
+  "date": "2027-01-04",
+  "amount": 3100,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK34",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R166"
+ },
+ {
+  "day": 51,
+  "date": "2027-01-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/420247210105/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R167"
+ },
+ {
+  "day": 54,
+  "date": "2027-01-08",
+  "amount": 1060,
+  "dir": "out",
+  "narration": "Paytm AutoPay: Electricity MSEDCL CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2027-01-10",
+  "id": "R168"
+ },
+ {
+  "day": 55,
+  "date": "2027-01-09",
+  "amount": 2300,
+  "dir": "out",
+  "narration": "ACH D- SBM BANK INDIA-STEPUPCRD-XX1190",
+  "source": "SBI savings ••4821",
+  "truth": "card_payment",
+  "id": "R169"
+ },
+ {
+  "day": 55,
+  "date": "2027-01-09",
+  "amount": 1840,
+  "dir": "in",
+  "narration": "UPI/CR/521910149972/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R170"
+ },
+ {
+  "day": 56,
+  "date": "2027-01-10",
+  "amount": 890,
+  "dir": "out",
+  "narration": "UPI/DR/410465873297/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R171"
+ },
+ {
+  "day": 57,
+  "date": "2027-01-11",
+  "amount": 2980,
+  "dir": "in",
+  "narration": "IMPS/P2A/653660310676/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R172"
+ },
+ {
+  "day": 58,
+  "date": "2027-01-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/509322",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R173"
+ },
+ {
+  "day": 59,
+  "date": "2027-01-13",
+  "amount": 760,
+  "dir": "out",
+  "narration": "UPI/DR/492938243897/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R174"
+ },
+ {
+  "day": 60,
+  "date": "2027-01-14",
+  "amount": 3300,
+  "dir": "in",
+  "narration": "UPI/CR/668849775633/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R175"
+ },
+ {
+  "day": 62,
+  "date": "2027-01-16",
+  "amount": 1570,
+  "dir": "in",
+  "narration": "UPI/CR/513028450361/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R176"
+ },
+ {
+  "day": 64,
+  "date": "2027-01-18",
+  "amount": 3540,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK36",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R177"
+ },
+ {
+  "day": 67,
+  "date": "2027-01-21",
+  "amount": 380,
+  "dir": "out",
+  "narration": "UPI/DR/507915362355/Swiggy/ICIC/swiggy.stores@icici/Order",
+  "source": "SBI savings ••4821",
+  "truth": "food_delivery",
+  "id": "R178"
+ },
+ {
+  "day": 69,
+  "date": "2027-01-23",
+  "amount": 1170,
+  "dir": "in",
+  "narration": "UPI/CR/591110870739/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R179"
+ },
+ {
+  "day": 70,
+  "date": "2027-01-24",
+  "amount": 750,
+  "dir": "out",
+  "narration": "UPI/DR/692743804819/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R180"
+ },
+ {
+  "day": 71,
+  "date": "2027-01-25",
+  "amount": 3040,
+  "dir": "in",
+  "narration": "IMPS/P2A/505481369440/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R181"
+ },
+ {
+  "day": 73,
+  "date": "2027-01-27",
+  "amount": 760,
+  "dir": "out",
+  "narration": "UPI/DR/539844010980/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R182"
+ },
+ {
+  "day": 74,
+  "date": "2027-01-28",
+  "amount": 299,
+  "dir": "out",
+  "narration": "Recharge of Jio Prepaid Mobile 98XXXXXX21",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2027-01-28",
+  "id": "R183"
+ },
+ {
+  "day": 74,
+  "date": "2027-01-28",
+  "amount": 3330,
+  "dir": "in",
+  "narration": "UPI/CR/469014867941/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R184"
+ },
+ {
+  "day": 76,
+  "date": "2027-01-30",
+  "amount": 1800,
+  "dir": "in",
+  "narration": "UPI/CR/425120062451/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R185"
+ },
+ {
+  "day": 78,
+  "date": "2027-02-01",
+  "amount": 3260,
+  "dir": "in",
+  "narration": "NEFT CR-ICIC0000104-BUNDL TECHNOLOGIES PVT LTD-PTR PAYOUT WK38",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R186"
+ },
+ {
+  "day": 80,
+  "date": "2027-02-03",
+  "amount": 7000,
+  "dir": "out",
+  "narration": "UPI/DR/462831851003/VITTHAL GAIKWAD/MAHB/vitthalg@okaxis/kholi bhade FEB",
+  "source": "SBI savings ••4821",
+  "truth": "rent",
+  "id": "R187"
+ },
+ {
+  "day": 82,
+  "date": "2027-02-05",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "UPI/DR/521028307810/SUNITA JADHAV/BKID/sunitaj@oksbi/aai la",
+  "source": "SBI savings ••4821",
+  "truth": "transfer_family",
+  "id": "R188"
+ },
+ {
+  "day": 83,
+  "date": "2027-02-06",
+  "amount": 1690,
+  "dir": "in",
+  "narration": "UPI/CR/460855945305/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R189"
+ },
+ {
+  "day": 84,
+  "date": "2027-02-07",
+  "amount": 680,
+  "dir": "out",
+  "narration": "UPI/DR/694769253402/SHREE SAMARTH KIRANA/SBIN/9850xxxx12@ybl/NA",
+  "source": "SBI savings ••4821",
+  "truth": "groceries",
+  "id": "R190"
+ },
+ {
+  "day": 85,
+  "date": "2027-02-08",
+  "amount": 2100,
+  "dir": "out",
+  "narration": "ACH D- SBM BANK INDIA-STEPUPCRD-XX1190",
+  "source": "SBI savings ••4821",
+  "truth": "card_payment",
+  "id": "R191"
+ },
+ {
+  "day": 85,
+  "date": "2027-02-08",
+  "amount": 3060,
+  "dir": "in",
+  "narration": "IMPS/P2A/628195766027/BUNDL TECH/ICIC/de payout",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R192"
+ },
+ {
+  "day": 85,
+  "date": "2027-02-08",
+  "amount": 1150,
+  "dir": "out",
+  "narration": "Paytm AutoPay: Electricity MSEDCL CA 170019XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2027-02-10",
+  "id": "R193"
+ },
+ {
+  "day": 87,
+  "date": "2027-02-10",
+  "amount": 690,
+  "dir": "out",
+  "narration": "UPI/DR/564103139419/HPCL WAKAD COCO/HDFC/hpcl.wakad@hdfcbank/NA",
+  "source": "SBI savings ••4821",
+  "truth": "fuel",
+  "id": "R194"
+ },
+ {
+  "day": 88,
+  "date": "2027-02-11",
+  "amount": 3270,
+  "dir": "in",
+  "narration": "UPI/CR/441293117040/ZOMATO LIMITED/YESB/zomato.payout@ybl/Delivery partner settlement",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R195"
+ },
+ {
+  "day": 89,
+  "date": "2027-02-12",
+  "amount": 2000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI HINJEWADI PH1/403908",
+  "source": "SBI savings ••4821",
+  "truth": "cash_withdrawal",
+  "id": "R196"
+ },
+ {
+  "day": 90,
+  "date": "2027-02-13",
+  "amount": 1460,
+  "dir": "in",
+  "narration": "UPI/CR/607936481382/ROPPEN TRANSPORTATION/UTIB/rapido@axl/captain wkly",
+  "source": "SBI savings ••4821",
+  "truth": "income_gig",
+  "id": "R197"
+ }
+]

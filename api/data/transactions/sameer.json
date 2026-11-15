@@ -1,0 +1,881 @@
+[
+ {
+  "day": -182,
+  "date": "2026-05-17",
+  "amount": 750,
+  "dir": "out",
+  "narration": "UPI/DR/575269714538/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S001"
+ },
+ {
+  "day": -174,
+  "date": "2026-05-25",
+  "amount": 770,
+  "dir": "out",
+  "narration": "UPI/DR/624006980261/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S002"
+ },
+ {
+  "day": -173,
+  "date": "2026-05-26",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-05-26",
+  "id": "S003"
+ },
+ {
+  "day": -168,
+  "date": "2026-05-31",
+  "amount": 720,
+  "dir": "out",
+  "narration": "UPI/DR/552084751577/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S004"
+ },
+ {
+  "day": -166,
+  "date": "2026-06-02",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S005"
+ },
+ {
+  "day": -161,
+  "date": "2026-06-07",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/527269471645/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S006"
+ },
+ {
+  "day": -159,
+  "date": "2026-06-09",
+  "amount": 1470,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-06-12",
+  "id": "S007"
+ },
+ {
+  "day": -158,
+  "date": "2026-06-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/401374850824/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S008"
+ },
+ {
+  "day": -154,
+  "date": "2026-06-14",
+  "amount": 850,
+  "dir": "out",
+  "narration": "UPI/DR/506803296272/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S009"
+ },
+ {
+  "day": -153,
+  "date": "2026-06-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/681994",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S010"
+ },
+ {
+  "day": -145,
+  "date": "2026-06-23",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-06-23",
+  "id": "S011"
+ },
+ {
+  "day": -143,
+  "date": "2026-06-25",
+  "amount": 370,
+  "dir": "out",
+  "narration": "UPI/DR/476686356354/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S012"
+ },
+ {
+  "day": -140,
+  "date": "2026-06-28",
+  "amount": 960,
+  "dir": "out",
+  "narration": "UPI/DR/650776905929/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S013"
+ },
+ {
+  "day": -136,
+  "date": "2026-07-02",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S014"
+ },
+ {
+  "day": -130,
+  "date": "2026-07-08",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/501049244494/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S015"
+ },
+ {
+  "day": -129,
+  "date": "2026-07-09",
+  "amount": 1340,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-07-12",
+  "id": "S016"
+ },
+ {
+  "day": -128,
+  "date": "2026-07-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/689282677859/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S017"
+ },
+ {
+  "day": -126,
+  "date": "2026-07-12",
+  "amount": 940,
+  "dir": "out",
+  "narration": "UPI/DR/596665278747/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S018"
+ },
+ {
+  "day": -123,
+  "date": "2026-07-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/524609",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S019"
+ },
+ {
+  "day": -117,
+  "date": "2026-07-21",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-07-21",
+  "id": "S020"
+ },
+ {
+  "day": -113,
+  "date": "2026-07-25",
+  "amount": 580,
+  "dir": "out",
+  "narration": "UPI/DR/411941848678/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S021"
+ },
+ {
+  "day": -112,
+  "date": "2026-07-26",
+  "amount": 930,
+  "dir": "out",
+  "narration": "UPI/DR/571201450411/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S022"
+ },
+ {
+  "day": -105,
+  "date": "2026-08-02",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S023"
+ },
+ {
+  "day": -99,
+  "date": "2026-08-08",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/664261891208/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S024"
+ },
+ {
+  "day": -98,
+  "date": "2026-08-09",
+  "amount": 1500,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-08-12",
+  "id": "S025"
+ },
+ {
+  "day": -98,
+  "date": "2026-08-09",
+  "amount": 890,
+  "dir": "out",
+  "narration": "UPI/DR/662034649662/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S026"
+ },
+ {
+  "day": -97,
+  "date": "2026-08-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/566037006520/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S027"
+ },
+ {
+  "day": -92,
+  "date": "2026-08-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/449308",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S028"
+ },
+ {
+  "day": -89,
+  "date": "2026-08-18",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-08-18",
+  "id": "S029"
+ },
+ {
+  "day": -84,
+  "date": "2026-08-23",
+  "amount": 860,
+  "dir": "out",
+  "narration": "UPI/DR/461682357136/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S030"
+ },
+ {
+  "day": -82,
+  "date": "2026-08-25",
+  "amount": 640,
+  "dir": "out",
+  "narration": "UPI/DR/526944127624/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S031"
+ },
+ {
+  "day": -74,
+  "date": "2026-09-02",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S032"
+ },
+ {
+  "day": -70,
+  "date": "2026-09-06",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/563512722806/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S033"
+ },
+ {
+  "day": -70,
+  "date": "2026-09-06",
+  "amount": 960,
+  "dir": "out",
+  "narration": "UPI/DR/405342036323/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S034"
+ },
+ {
+  "day": -67,
+  "date": "2026-09-09",
+  "amount": 1410,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-09-12",
+  "id": "S035"
+ },
+ {
+  "day": -66,
+  "date": "2026-09-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/617132273993/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S036"
+ },
+ {
+  "day": -61,
+  "date": "2026-09-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/549451",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S037"
+ },
+ {
+  "day": -61,
+  "date": "2026-09-15",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-09-15",
+  "id": "S038"
+ },
+ {
+  "day": -56,
+  "date": "2026-09-20",
+  "amount": 1060,
+  "dir": "out",
+  "narration": "UPI/DR/643244163504/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S039"
+ },
+ {
+  "day": -51,
+  "date": "2026-09-25",
+  "amount": 680,
+  "dir": "out",
+  "narration": "UPI/DR/599005418047/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S040"
+ },
+ {
+  "day": -44,
+  "date": "2026-10-02",
+  "amount": 590,
+  "dir": "out",
+  "narration": "ACH RTN CHGS INCL GST-TVS CREDIT",
+  "source": "SBI savings ••7730",
+  "truth": "bank_charges",
+  "id": "S041"
+ },
+ {
+  "day": -42,
+  "date": "2026-10-04",
+  "amount": 980,
+  "dir": "out",
+  "narration": "UPI/DR/489606950024/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S042"
+ },
+ {
+  "day": -37,
+  "date": "2026-10-09",
+  "amount": 1490,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-10-12",
+  "id": "S043"
+ },
+ {
+  "day": -36,
+  "date": "2026-10-10",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/569280849762/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S044"
+ },
+ {
+  "day": -36,
+  "date": "2026-10-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/500455172043/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S045"
+ },
+ {
+  "day": -33,
+  "date": "2026-10-13",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-10-13",
+  "id": "S046"
+ },
+ {
+  "day": -31,
+  "date": "2026-10-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/507878",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S047"
+ },
+ {
+  "day": -28,
+  "date": "2026-10-18",
+  "amount": 1050,
+  "dir": "out",
+  "narration": "UPI/DR/419256044817/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S048"
+ },
+ {
+  "day": -21,
+  "date": "2026-10-25",
+  "amount": 400,
+  "dir": "out",
+  "narration": "UPI/DR/412441316804/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S049"
+ },
+ {
+  "day": -18,
+  "date": "2026-10-28",
+  "amount": 5000,
+  "dir": "in",
+  "narration": "UPI/CR/536449254350/KREDITBEE/RATN/kreditbee.disb@rbl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "loan_disbursal",
+  "id": "S050"
+ },
+ {
+  "day": -14,
+  "date": "2026-11-01",
+  "amount": 970,
+  "dir": "out",
+  "narration": "UPI/DR/654613063731/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S051"
+ },
+ {
+  "day": -13,
+  "date": "2026-11-02",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S052"
+ },
+ {
+  "day": -9,
+  "date": "2026-11-06",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/429630360224/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S053"
+ },
+ {
+  "day": -9,
+  "date": "2026-11-06",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "UPI/DR/578900469259/TVS CREDIT SERVICES/HDFC/tvscs.collect@hdfcbank/overdue",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S054"
+ },
+ {
+  "day": -6,
+  "date": "2026-11-09",
+  "amount": 1330,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-11-12",
+  "id": "S055"
+ },
+ {
+  "day": -5,
+  "date": "2026-11-10",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-11-10",
+  "id": "S056"
+ },
+ {
+  "day": -5,
+  "date": "2026-11-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/463081950307/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S057"
+ },
+ {
+  "day": 0,
+  "date": "2026-11-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/506782",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S058"
+ },
+ {
+  "day": 0,
+  "date": "2026-11-15",
+  "amount": 820,
+  "dir": "out",
+  "narration": "UPI/DR/678944450829/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S059"
+ },
+ {
+  "day": 10,
+  "date": "2026-11-25",
+  "amount": 750,
+  "dir": "out",
+  "narration": "UPI/DR/577506490281/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S060"
+ },
+ {
+  "day": 12,
+  "date": "2026-11-27",
+  "amount": 5600,
+  "dir": "out",
+  "narration": "UPI/DR/548231319553/FINNOVATION TECH/RATN/kreditbee@rbl/repay",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S061"
+ },
+ {
+  "day": 14,
+  "date": "2026-11-29",
+  "amount": 870,
+  "dir": "out",
+  "narration": "UPI/DR/665246670956/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S062"
+ },
+ {
+  "day": 21,
+  "date": "2026-12-06",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/465479434546/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S063"
+ },
+ {
+  "day": 23,
+  "date": "2026-12-08",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-12-08",
+  "id": "S064"
+ },
+ {
+  "day": 24,
+  "date": "2026-12-09",
+  "amount": 1310,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-12-12",
+  "id": "S065"
+ },
+ {
+  "day": 25,
+  "date": "2026-12-10",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S066"
+ },
+ {
+  "day": 25,
+  "date": "2026-12-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/420955948802/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S067"
+ },
+ {
+  "day": 28,
+  "date": "2026-12-13",
+  "amount": 860,
+  "dir": "out",
+  "narration": "UPI/DR/618008433162/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S068"
+ },
+ {
+  "day": 30,
+  "date": "2026-12-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/441270",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S069"
+ },
+ {
+  "day": 40,
+  "date": "2026-12-25",
+  "amount": 610,
+  "dir": "out",
+  "narration": "UPI/DR/583476726648/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S070"
+ },
+ {
+  "day": 42,
+  "date": "2026-12-27",
+  "amount": 830,
+  "dir": "out",
+  "narration": "UPI/DR/580204047312/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S071"
+ },
+ {
+  "day": 51,
+  "date": "2027-01-05",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2027-01-05",
+  "id": "S072"
+ },
+ {
+  "day": 53,
+  "date": "2027-01-07",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/558431265904/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S073"
+ },
+ {
+  "day": 55,
+  "date": "2027-01-09",
+  "amount": 1410,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2027-01-12",
+  "id": "S074"
+ },
+ {
+  "day": 56,
+  "date": "2027-01-10",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S075"
+ },
+ {
+  "day": 56,
+  "date": "2027-01-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/468084088294/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S076"
+ },
+ {
+  "day": 56,
+  "date": "2027-01-10",
+  "amount": 780,
+  "dir": "out",
+  "narration": "UPI/DR/502899114027/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S077"
+ },
+ {
+  "day": 61,
+  "date": "2027-01-15",
+  "amount": 3000,
+  "dir": "out",
+  "narration": "ATM WDL/SBI PIMPRI CAMP/401595",
+  "source": "SBI savings ••7730",
+  "truth": "cash_withdrawal",
+  "id": "S078"
+ },
+ {
+  "day": 70,
+  "date": "2027-01-24",
+  "amount": 1050,
+  "dir": "out",
+  "narration": "UPI/DR/558709175973/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S079"
+ },
+ {
+  "day": 71,
+  "date": "2027-01-25",
+  "amount": 410,
+  "dir": "out",
+  "narration": "UPI/DR/672244141758/AMAZON PAY/YESB/amazon@apl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "shopping",
+  "id": "S080"
+ },
+ {
+  "day": 79,
+  "date": "2027-02-02",
+  "amount": 349,
+  "dir": "out",
+  "narration": "Recharge of Airtel Prepaid Mobile 97XXXXXX40",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2027-02-02",
+  "id": "S081"
+ },
+ {
+  "day": 84,
+  "date": "2027-02-07",
+  "amount": 32000,
+  "dir": "in",
+  "narration": "UPI/CR/465995813943/SHAIKH TRADERS/BARB/shaikhtraders@okbizaxis/pagaar",
+  "source": "SBI savings ••7730",
+  "truth": "income_salary",
+  "id": "S082"
+ },
+ {
+  "day": 84,
+  "date": "2027-02-07",
+  "amount": 1050,
+  "dir": "out",
+  "narration": "UPI/DR/638061782305/AL FALAH GENERAL STORE/SBIN/q81236@ybl/NA",
+  "source": "SBI savings ••7730",
+  "truth": "groceries",
+  "id": "S083"
+ },
+ {
+  "day": 86,
+  "date": "2027-02-09",
+  "amount": 1300,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170087XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2027-02-12",
+  "id": "S084"
+ },
+ {
+  "day": 87,
+  "date": "2027-02-10",
+  "amount": 4200,
+  "dir": "out",
+  "narration": "ACH D- TVS CREDIT SERVICES-TW10293",
+  "source": "SBI savings ••7730",
+  "truth": "emi",
+  "id": "S085"
+ },
+ {
+  "day": 87,
+  "date": "2027-02-10",
+  "amount": 5000,
+  "dir": "out",
+  "narration": "UPI/DR/481876350388/AMMI/SBIN/9890xxxx77@ybl/ghar kharch",
+  "source": "SBI savings ••7730",
+  "truth": "transfer_family",
+  "id": "S086"
+ }
+]

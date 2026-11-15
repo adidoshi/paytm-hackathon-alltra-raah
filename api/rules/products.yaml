@@ -13,3 +13,15 @@ fd_card:
   fd_rate: 0.065
   # offered when the blocker is history or repayment record
   for_reasons: [THIN_FILE, RECENT_DPD, LOW_SCORE]
+cashflow_loan:
+  # Partner lender that underwrites on Account Aggregator statements, not only the bureau.
+  rate: 0.22
+  tenure_months: 18
+  amounts: [50000, 40000, 25000]
+  max_share_of_request: 0.5
+  max_income_multiple: 1.5       # amount <= 1.5 x verified monthly income
+  min_months_income: 6           # income seen in 6 of the last 6 months
+  max_income_variation: 0.40
+  min_bills_on_time: 0.80
+  max_foir: 0.40                 # EMI load including hidden debts
+  require_no_recent_dpd: true

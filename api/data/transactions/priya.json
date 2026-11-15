@@ -1,0 +1,1950 @@
+[
+ {
+  "day": -182,
+  "date": "2026-05-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-05-18",
+  "id": "P001"
+ },
+ {
+  "day": -182,
+  "date": "2026-05-17",
+  "amount": 1160,
+  "dir": "out",
+  "narration": "UPI/DR/513127924469/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P002"
+ },
+ {
+  "day": -179,
+  "date": "2026-05-20",
+  "amount": 2050,
+  "dir": "out",
+  "narration": "HDFC BANK CC AUTOPAY 4XXX MIN AMT DUE",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P003"
+ },
+ {
+  "day": -177,
+  "date": "2026-05-22",
+  "amount": 900,
+  "dir": "out",
+  "narration": "UPI/DR/488041498167/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P004"
+ },
+ {
+  "day": -176,
+  "date": "2026-05-23",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/511463664643/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P005"
+ },
+ {
+  "day": -170,
+  "date": "2026-05-29",
+  "amount": 1210,
+  "dir": "out",
+  "narration": "UPI/DR/550452042565/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P006"
+ },
+ {
+  "day": -169,
+  "date": "2026-05-30",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/531048014106/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P007"
+ },
+ {
+  "day": -168,
+  "date": "2026-05-31",
+  "amount": 1330,
+  "dir": "out",
+  "narration": "UPI/DR/638194507906/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P008"
+ },
+ {
+  "day": -167,
+  "date": "2026-06-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL JUN26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P009"
+ },
+ {
+  "day": -166,
+  "date": "2026-06-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/649102221881/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P010"
+ },
+ {
+  "day": -166,
+  "date": "2026-06-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/533746864702/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P011"
+ },
+ {
+  "day": -165,
+  "date": "2026-06-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/681968365554/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 JUN",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P012"
+ },
+ {
+  "day": -163,
+  "date": "2026-06-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P013"
+ },
+ {
+  "day": -163,
+  "date": "2026-06-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P014"
+ },
+ {
+  "day": -163,
+  "date": "2026-06-05",
+  "amount": 1300,
+  "dir": "out",
+  "narration": "UPI/DR/515981592925/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P015"
+ },
+ {
+  "day": -162,
+  "date": "2026-06-06",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/401720817577/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P016"
+ },
+ {
+  "day": -161,
+  "date": "2026-06-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/502720428826/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P017"
+ },
+ {
+  "day": -159,
+  "date": "2026-06-09",
+  "amount": 890,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-06-11",
+  "id": "P018"
+ },
+ {
+  "day": -159,
+  "date": "2026-06-09",
+  "amount": 1960,
+  "dir": "out",
+  "narration": "UPI/DR/616530123631/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P019"
+ },
+ {
+  "day": -156,
+  "date": "2026-06-12",
+  "amount": 1230,
+  "dir": "out",
+  "narration": "UPI/DR/649046028935/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P020"
+ },
+ {
+  "day": -155,
+  "date": "2026-06-13",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/649522850306/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P021"
+ },
+ {
+  "day": -154,
+  "date": "2026-06-14",
+  "amount": 1470,
+  "dir": "out",
+  "narration": "UPI/DR/614957234654/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P022"
+ },
+ {
+  "day": -153,
+  "date": "2026-06-15",
+  "amount": 1330,
+  "dir": "out",
+  "narration": "UPI/DR/409365835380/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P023"
+ },
+ {
+  "day": -151,
+  "date": "2026-06-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-06-18",
+  "id": "P024"
+ },
+ {
+  "day": -149,
+  "date": "2026-06-19",
+  "amount": 1350,
+  "dir": "out",
+  "narration": "UPI/DR/641520269445/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P025"
+ },
+ {
+  "day": -148,
+  "date": "2026-06-20",
+  "amount": 2050,
+  "dir": "out",
+  "narration": "HDFC BANK CC AUTOPAY 4XXX MIN AMT DUE",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P026"
+ },
+ {
+  "day": -148,
+  "date": "2026-06-20",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/506925360046/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P027"
+ },
+ {
+  "day": -142,
+  "date": "2026-06-26",
+  "amount": 1170,
+  "dir": "out",
+  "narration": "UPI/DR/593874161057/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P028"
+ },
+ {
+  "day": -141,
+  "date": "2026-06-27",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/413621041683/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P029"
+ },
+ {
+  "day": -140,
+  "date": "2026-06-28",
+  "amount": 1500,
+  "dir": "out",
+  "narration": "UPI/DR/643398897674/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P030"
+ },
+ {
+  "day": -137,
+  "date": "2026-07-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL JUL26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P031"
+ },
+ {
+  "day": -136,
+  "date": "2026-07-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/547024210186/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P032"
+ },
+ {
+  "day": -136,
+  "date": "2026-07-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/446770265176/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P033"
+ },
+ {
+  "day": -135,
+  "date": "2026-07-03",
+  "amount": 1060,
+  "dir": "out",
+  "narration": "UPI/DR/458584360788/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P034"
+ },
+ {
+  "day": -135,
+  "date": "2026-07-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/550934700175/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 JUL",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P035"
+ },
+ {
+  "day": -134,
+  "date": "2026-07-04",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/608506171111/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P036"
+ },
+ {
+  "day": -133,
+  "date": "2026-07-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P037"
+ },
+ {
+  "day": -133,
+  "date": "2026-07-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P038"
+ },
+ {
+  "day": -131,
+  "date": "2026-07-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/616353731106/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P039"
+ },
+ {
+  "day": -129,
+  "date": "2026-07-09",
+  "amount": 1000,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-07-11",
+  "id": "P040"
+ },
+ {
+  "day": -129,
+  "date": "2026-07-09",
+  "amount": 1770,
+  "dir": "out",
+  "narration": "UPI/DR/622536272873/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P041"
+ },
+ {
+  "day": -128,
+  "date": "2026-07-10",
+  "amount": 960,
+  "dir": "out",
+  "narration": "UPI/DR/551878930461/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P042"
+ },
+ {
+  "day": -127,
+  "date": "2026-07-11",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/495988820154/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P043"
+ },
+ {
+  "day": -126,
+  "date": "2026-07-12",
+  "amount": 1320,
+  "dir": "out",
+  "narration": "UPI/DR/460481834704/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P044"
+ },
+ {
+  "day": -123,
+  "date": "2026-07-15",
+  "amount": 1120,
+  "dir": "out",
+  "narration": "UPI/DR/619935454199/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P045"
+ },
+ {
+  "day": -121,
+  "date": "2026-07-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-07-18",
+  "id": "P046"
+ },
+ {
+  "day": -121,
+  "date": "2026-07-17",
+  "amount": 1350,
+  "dir": "out",
+  "narration": "UPI/DR/543936509879/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P047"
+ },
+ {
+  "day": -120,
+  "date": "2026-07-18",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/641339625459/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P048"
+ },
+ {
+  "day": -118,
+  "date": "2026-07-20",
+  "amount": 2050,
+  "dir": "out",
+  "narration": "HDFC BANK CC AUTOPAY 4XXX MIN AMT DUE",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P049"
+ },
+ {
+  "day": -114,
+  "date": "2026-07-24",
+  "amount": 970,
+  "dir": "out",
+  "narration": "UPI/DR/688955809538/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P050"
+ },
+ {
+  "day": -113,
+  "date": "2026-07-25",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/434518545826/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P051"
+ },
+ {
+  "day": -112,
+  "date": "2026-07-26",
+  "amount": 1210,
+  "dir": "out",
+  "narration": "UPI/DR/446292378267/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P052"
+ },
+ {
+  "day": -107,
+  "date": "2026-07-31",
+  "amount": 950,
+  "dir": "out",
+  "narration": "UPI/DR/672772786696/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P053"
+ },
+ {
+  "day": -106,
+  "date": "2026-08-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL AUG26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P054"
+ },
+ {
+  "day": -106,
+  "date": "2026-08-01",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/475314195023/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P055"
+ },
+ {
+  "day": -105,
+  "date": "2026-08-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/497071166992/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P056"
+ },
+ {
+  "day": -105,
+  "date": "2026-08-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/429890760750/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P057"
+ },
+ {
+  "day": -104,
+  "date": "2026-08-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/549573206569/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 AUG",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P058"
+ },
+ {
+  "day": -102,
+  "date": "2026-08-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P059"
+ },
+ {
+  "day": -102,
+  "date": "2026-08-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P060"
+ },
+ {
+  "day": -100,
+  "date": "2026-08-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/415387123496/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P061"
+ },
+ {
+  "day": -100,
+  "date": "2026-08-07",
+  "amount": 1260,
+  "dir": "out",
+  "narration": "UPI/DR/476524972681/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P062"
+ },
+ {
+  "day": -99,
+  "date": "2026-08-08",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/454518828546/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P063"
+ },
+ {
+  "day": -98,
+  "date": "2026-08-09",
+  "amount": 940,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-08-11",
+  "id": "P064"
+ },
+ {
+  "day": -98,
+  "date": "2026-08-09",
+  "amount": 1690,
+  "dir": "out",
+  "narration": "UPI/DR/526878637933/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P065"
+ },
+ {
+  "day": -98,
+  "date": "2026-08-09",
+  "amount": 1240,
+  "dir": "out",
+  "narration": "UPI/DR/548760023096/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P066"
+ },
+ {
+  "day": -93,
+  "date": "2026-08-14",
+  "amount": 1420,
+  "dir": "out",
+  "narration": "UPI/DR/671401121939/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P067"
+ },
+ {
+  "day": -92,
+  "date": "2026-08-15",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/503302948899/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P068"
+ },
+ {
+  "day": -92,
+  "date": "2026-08-15",
+  "amount": 1140,
+  "dir": "out",
+  "narration": "UPI/DR/691735911954/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P069"
+ },
+ {
+  "day": -90,
+  "date": "2026-08-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-08-18",
+  "id": "P070"
+ },
+ {
+  "day": -87,
+  "date": "2026-08-20",
+  "amount": 2050,
+  "dir": "out",
+  "narration": "HDFC BANK CC AUTOPAY 4XXX MIN AMT DUE",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P071"
+ },
+ {
+  "day": -86,
+  "date": "2026-08-21",
+  "amount": 1100,
+  "dir": "out",
+  "narration": "UPI/DR/441926122828/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P072"
+ },
+ {
+  "day": -85,
+  "date": "2026-08-22",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/466188652807/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P073"
+ },
+ {
+  "day": -84,
+  "date": "2026-08-23",
+  "amount": 1470,
+  "dir": "out",
+  "narration": "UPI/DR/489853105821/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P074"
+ },
+ {
+  "day": -79,
+  "date": "2026-08-28",
+  "amount": 1080,
+  "dir": "out",
+  "narration": "UPI/DR/690579319532/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P075"
+ },
+ {
+  "day": -78,
+  "date": "2026-08-29",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/480866076987/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P076"
+ },
+ {
+  "day": -75,
+  "date": "2026-09-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL SEP26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P077"
+ },
+ {
+  "day": -74,
+  "date": "2026-09-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/412375378715/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P078"
+ },
+ {
+  "day": -74,
+  "date": "2026-09-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/640191103235/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P079"
+ },
+ {
+  "day": -73,
+  "date": "2026-09-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/637017892066/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 SEP",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P080"
+ },
+ {
+  "day": -72,
+  "date": "2026-09-04",
+  "amount": 970,
+  "dir": "out",
+  "narration": "UPI/DR/443644379163/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P081"
+ },
+ {
+  "day": -71,
+  "date": "2026-09-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P082"
+ },
+ {
+  "day": -71,
+  "date": "2026-09-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P083"
+ },
+ {
+  "day": -71,
+  "date": "2026-09-05",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/423452995088/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P084"
+ },
+ {
+  "day": -70,
+  "date": "2026-09-06",
+  "amount": 1450,
+  "dir": "out",
+  "narration": "UPI/DR/693360212498/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P085"
+ },
+ {
+  "day": -69,
+  "date": "2026-09-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/690095493676/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P086"
+ },
+ {
+  "day": -67,
+  "date": "2026-09-09",
+  "amount": 1030,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-09-11",
+  "id": "P087"
+ },
+ {
+  "day": -67,
+  "date": "2026-09-09",
+  "amount": 2600,
+  "dir": "out",
+  "narration": "UPI/DR/653576971437/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P088"
+ },
+ {
+  "day": -65,
+  "date": "2026-09-11",
+  "amount": 890,
+  "dir": "out",
+  "narration": "UPI/DR/586314416464/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P089"
+ },
+ {
+  "day": -64,
+  "date": "2026-09-12",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/468060341865/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P090"
+ },
+ {
+  "day": -61,
+  "date": "2026-09-15",
+  "amount": 1320,
+  "dir": "out",
+  "narration": "UPI/DR/529013438636/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P091"
+ },
+ {
+  "day": -59,
+  "date": "2026-09-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-09-18",
+  "id": "P092"
+ },
+ {
+  "day": -58,
+  "date": "2026-09-18",
+  "amount": 1000,
+  "dir": "out",
+  "narration": "UPI/DR/689986217067/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P093"
+ },
+ {
+  "day": -57,
+  "date": "2026-09-19",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/475264815755/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P094"
+ },
+ {
+  "day": -56,
+  "date": "2026-09-20",
+  "amount": 2050,
+  "dir": "out",
+  "narration": "HDFC BANK CC AUTOPAY 4XXX MIN AMT DUE",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P095"
+ },
+ {
+  "day": -56,
+  "date": "2026-09-20",
+  "amount": 1250,
+  "dir": "out",
+  "narration": "UPI/DR/510333280165/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P096"
+ },
+ {
+  "day": -51,
+  "date": "2026-09-25",
+  "amount": 1420,
+  "dir": "out",
+  "narration": "UPI/DR/508030739316/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P097"
+ },
+ {
+  "day": -50,
+  "date": "2026-09-26",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/557129416394/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P098"
+ },
+ {
+  "day": -45,
+  "date": "2026-10-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL OCT26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P099"
+ },
+ {
+  "day": -44,
+  "date": "2026-10-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/628967632295/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P100"
+ },
+ {
+  "day": -44,
+  "date": "2026-10-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/544266043734/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P101"
+ },
+ {
+  "day": -44,
+  "date": "2026-10-02",
+  "amount": 1180,
+  "dir": "out",
+  "narration": "UPI/DR/402570121936/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P102"
+ },
+ {
+  "day": -43,
+  "date": "2026-10-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/584894584464/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 OCT",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P103"
+ },
+ {
+  "day": -43,
+  "date": "2026-10-03",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/659729718934/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P104"
+ },
+ {
+  "day": -42,
+  "date": "2026-10-04",
+  "amount": 1640,
+  "dir": "out",
+  "narration": "UPI/DR/646522842077/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P105"
+ },
+ {
+  "day": -41,
+  "date": "2026-10-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P106"
+ },
+ {
+  "day": -41,
+  "date": "2026-10-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P107"
+ },
+ {
+  "day": -39,
+  "date": "2026-10-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/634197010580/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P108"
+ },
+ {
+  "day": -37,
+  "date": "2026-10-09",
+  "amount": 910,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-10-11",
+  "id": "P109"
+ },
+ {
+  "day": -37,
+  "date": "2026-10-09",
+  "amount": 1170,
+  "dir": "out",
+  "narration": "UPI/DR/460223286055/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P110"
+ },
+ {
+  "day": -37,
+  "date": "2026-10-09",
+  "amount": 2720,
+  "dir": "out",
+  "narration": "UPI/DR/698560987172/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P111"
+ },
+ {
+  "day": -36,
+  "date": "2026-10-10",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/437483270514/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P112"
+ },
+ {
+  "day": -31,
+  "date": "2026-10-15",
+  "amount": 1160,
+  "dir": "out",
+  "narration": "UPI/DR/511810765079/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P113"
+ },
+ {
+  "day": -30,
+  "date": "2026-10-16",
+  "amount": 1410,
+  "dir": "out",
+  "narration": "UPI/DR/428718159394/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P114"
+ },
+ {
+  "day": -29,
+  "date": "2026-10-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-10-18",
+  "id": "P115"
+ },
+ {
+  "day": -29,
+  "date": "2026-10-17",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/463497545659/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P116"
+ },
+ {
+  "day": -28,
+  "date": "2026-10-18",
+  "amount": 1430,
+  "dir": "out",
+  "narration": "UPI/DR/648754128675/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P117"
+ },
+ {
+  "day": -26,
+  "date": "2026-10-20",
+  "amount": 2050,
+  "dir": "out",
+  "narration": "HDFC BANK CC AUTOPAY 4XXX MIN AMT DUE",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P118"
+ },
+ {
+  "day": -23,
+  "date": "2026-10-23",
+  "amount": 1330,
+  "dir": "out",
+  "narration": "UPI/DR/437904019419/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P119"
+ },
+ {
+  "day": -22,
+  "date": "2026-10-24",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/544347012561/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P120"
+ },
+ {
+  "day": -16,
+  "date": "2026-10-30",
+  "amount": 920,
+  "dir": "out",
+  "narration": "UPI/DR/538205019308/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P121"
+ },
+ {
+  "day": -15,
+  "date": "2026-10-31",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/468473494655/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P122"
+ },
+ {
+  "day": -14,
+  "date": "2026-11-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL NOV26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P123"
+ },
+ {
+  "day": -14,
+  "date": "2026-11-01",
+  "amount": 1430,
+  "dir": "out",
+  "narration": "UPI/DR/635463131650/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P124"
+ },
+ {
+  "day": -13,
+  "date": "2026-11-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/463779441772/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P125"
+ },
+ {
+  "day": -13,
+  "date": "2026-11-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/499600862038/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P126"
+ },
+ {
+  "day": -12,
+  "date": "2026-11-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/627771840935/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 NOV",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P127"
+ },
+ {
+  "day": -10,
+  "date": "2026-11-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P128"
+ },
+ {
+  "day": -10,
+  "date": "2026-11-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P129"
+ },
+ {
+  "day": -9,
+  "date": "2026-11-06",
+  "amount": 1150,
+  "dir": "out",
+  "narration": "UPI/DR/575828854797/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P130"
+ },
+ {
+  "day": -8,
+  "date": "2026-11-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/447623067492/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P131"
+ },
+ {
+  "day": -8,
+  "date": "2026-11-07",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/498862370982/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P132"
+ },
+ {
+  "day": -6,
+  "date": "2026-11-09",
+  "amount": 1020,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-11-11",
+  "id": "P133"
+ },
+ {
+  "day": -6,
+  "date": "2026-11-09",
+  "amount": 1550,
+  "dir": "out",
+  "narration": "UPI/DR/641114033182/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P134"
+ },
+ {
+  "day": -2,
+  "date": "2026-11-13",
+  "amount": 1390,
+  "dir": "out",
+  "narration": "UPI/DR/690436057393/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P135"
+ },
+ {
+  "day": -1,
+  "date": "2026-11-14",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/591126081142/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P136"
+ },
+ {
+  "day": 0,
+  "date": "2026-11-15",
+  "amount": 1090,
+  "dir": "out",
+  "narration": "UPI/DR/427412332582/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P137"
+ },
+ {
+  "day": 0,
+  "date": "2026-11-15",
+  "amount": 1270,
+  "dir": "out",
+  "narration": "UPI/DR/515400206164/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P138"
+ },
+ {
+  "day": 2,
+  "date": "2026-11-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-11-18",
+  "id": "P139"
+ },
+ {
+  "day": 5,
+  "date": "2026-11-20",
+  "amount": 1290,
+  "dir": "out",
+  "narration": "UPI/DR/577521280089/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P140"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-21",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/437085225076/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P141"
+ },
+ {
+  "day": 13,
+  "date": "2026-11-28",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/453002360859/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P142"
+ },
+ {
+  "day": 14,
+  "date": "2026-11-29",
+  "amount": 1560,
+  "dir": "out",
+  "narration": "UPI/DR/548305200704/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P143"
+ },
+ {
+  "day": 16,
+  "date": "2026-12-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL DEC26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P144"
+ },
+ {
+  "day": 17,
+  "date": "2026-12-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/432497066537/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P145"
+ },
+ {
+  "day": 17,
+  "date": "2026-12-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/690266018377/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P146"
+ },
+ {
+  "day": 18,
+  "date": "2026-12-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/541412145670/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 DEC",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P147"
+ },
+ {
+  "day": 19,
+  "date": "2026-12-04",
+  "amount": 1420,
+  "dir": "out",
+  "narration": "UPI/DR/428892060364/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P148"
+ },
+ {
+  "day": 20,
+  "date": "2026-12-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P149"
+ },
+ {
+  "day": 20,
+  "date": "2026-12-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P150"
+ },
+ {
+  "day": 20,
+  "date": "2026-12-05",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "BIL/ONL/461120559/HDFC CC 4XXX/PAYMENT",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P151"
+ },
+ {
+  "day": 20,
+  "date": "2026-12-05",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/495644612492/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P152"
+ },
+ {
+  "day": 22,
+  "date": "2026-12-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/644798035416/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P153"
+ },
+ {
+  "day": 24,
+  "date": "2026-12-09",
+  "amount": 1020,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2026-12-11",
+  "id": "P154"
+ },
+ {
+  "day": 24,
+  "date": "2026-12-09",
+  "amount": 1280,
+  "dir": "out",
+  "narration": "UPI/DR/537414953380/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P155"
+ },
+ {
+  "day": 27,
+  "date": "2026-12-12",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/438834523531/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P156"
+ },
+ {
+  "day": 28,
+  "date": "2026-12-13",
+  "amount": 1500,
+  "dir": "out",
+  "narration": "UPI/DR/423935282474/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P157"
+ },
+ {
+  "day": 30,
+  "date": "2026-12-15",
+  "amount": 1290,
+  "dir": "out",
+  "narration": "UPI/DR/630717634925/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/bill",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P158"
+ },
+ {
+  "day": 32,
+  "date": "2026-12-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2026-12-18",
+  "id": "P159"
+ },
+ {
+  "day": 33,
+  "date": "2026-12-18",
+  "amount": 1380,
+  "dir": "out",
+  "narration": "UPI/DR/682612400053/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P160"
+ },
+ {
+  "day": 34,
+  "date": "2026-12-19",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/507233025729/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P161"
+ },
+ {
+  "day": 40,
+  "date": "2026-12-25",
+  "amount": 2400,
+  "dir": "out",
+  "narration": "UPI/DR/539433801280/SIMPL TECHNOLOGIES/YESB/simpl@yesbank/settle all",
+  "source": "Kotak savings ••4410",
+  "truth": "bnpl",
+  "id": "P162"
+ },
+ {
+  "day": 41,
+  "date": "2026-12-26",
+  "amount": 700,
+  "dir": "out",
+  "narration": "UPI/DR/692986979497/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P163"
+ },
+ {
+  "day": 42,
+  "date": "2026-12-27",
+  "amount": 1460,
+  "dir": "out",
+  "narration": "UPI/DR/531228062364/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P164"
+ },
+ {
+  "day": 47,
+  "date": "2027-01-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL JAN26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P165"
+ },
+ {
+  "day": 47,
+  "date": "2027-01-01",
+  "amount": 1240,
+  "dir": "out",
+  "narration": "UPI/DR/401208488578/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P166"
+ },
+ {
+  "day": 48,
+  "date": "2027-01-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/583018540660/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P167"
+ },
+ {
+  "day": 48,
+  "date": "2027-01-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/579093201197/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P168"
+ },
+ {
+  "day": 49,
+  "date": "2027-01-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/556793277364/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 JAN",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P169"
+ },
+ {
+  "day": 50,
+  "date": "2027-01-04",
+  "amount": 8000,
+  "dir": "out",
+  "narration": "BIL/ONL/495166997/HDFC CC 4XXX/PAYMENT",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P170"
+ },
+ {
+  "day": 51,
+  "date": "2027-01-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P171"
+ },
+ {
+  "day": 51,
+  "date": "2027-01-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P172"
+ },
+ {
+  "day": 52,
+  "date": "2027-01-06",
+  "amount": 2100,
+  "dir": "out",
+  "narration": "UPI/DR/667382966381/LAXMI ENTERPRISES/BARB/9370xxxx45@ybl/hapta purna",
+  "source": "Kotak savings ••4410",
+  "truth": "informal_loan",
+  "id": "P173"
+ },
+ {
+  "day": 53,
+  "date": "2027-01-07",
+  "amount": 3500,
+  "dir": "out",
+  "narration": "UPI/DR/453067326052/LAZYPAY/ICIC/lazypay.emi@icici/EMI",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P174"
+ },
+ {
+  "day": 55,
+  "date": "2027-01-09",
+  "amount": 930,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2027-01-11",
+  "id": "P175"
+ },
+ {
+  "day": 55,
+  "date": "2027-01-09",
+  "amount": 2510,
+  "dir": "out",
+  "narration": "UPI/DR/578158385246/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P176"
+ },
+ {
+  "day": 56,
+  "date": "2027-01-10",
+  "amount": 1320,
+  "dir": "out",
+  "narration": "UPI/DR/468631277176/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P177"
+ },
+ {
+  "day": 61,
+  "date": "2027-01-15",
+  "amount": 1000,
+  "dir": "out",
+  "narration": "UPI/DR/464670918589/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P178"
+ },
+ {
+  "day": 63,
+  "date": "2027-01-17",
+  "amount": 599,
+  "dir": "out",
+  "narration": "Airtel Postpaid bill payment 99XXXXXX07",
+  "source": "Paytm app",
+  "truth": "mobile_bill",
+  "due_date": "2027-01-18",
+  "id": "P179"
+ },
+ {
+  "day": 70,
+  "date": "2027-01-24",
+  "amount": 1450,
+  "dir": "out",
+  "narration": "UPI/DR/589956759982/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P180"
+ },
+ {
+  "day": 75,
+  "date": "2027-01-29",
+  "amount": 1390,
+  "dir": "out",
+  "narration": "UPI/DR/461487180241/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P181"
+ },
+ {
+  "day": 78,
+  "date": "2027-02-01",
+  "amount": 45000,
+  "dir": "in",
+  "narration": "NEFT CR-CITI0000002-CITIUSTECH LIMITED-SAL FEB26-PRIYA KULKARNI",
+  "source": "HDFC salary ••0917",
+  "truth": "income_salary",
+  "id": "P182"
+ },
+ {
+  "day": 78,
+  "date": "2027-02-01",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "UPI/DR/431794797479/LAZYPAY/ICIC/lazypay.emi@icici/foreclosure",
+  "source": "HDFC salary ••0917",
+  "truth": "bnpl",
+  "id": "P183"
+ },
+ {
+  "day": 79,
+  "date": "2027-02-02",
+  "amount": 12000,
+  "dir": "in",
+  "narration": "IMPS/618857433120/PRIYA S KULKARNI/HDFC0000917/from hdfc",
+  "source": "Kotak savings ••4410",
+  "truth": "self_transfer",
+  "id": "P184"
+ },
+ {
+  "day": 79,
+  "date": "2027-02-02",
+  "amount": 12000,
+  "dir": "out",
+  "narration": "IMPS/P2A/499894114211/PRIYA KULKARNI/KKBK/self",
+  "source": "HDFC salary ••0917",
+  "truth": "self_transfer",
+  "id": "P185"
+ },
+ {
+  "day": 80,
+  "date": "2027-02-03",
+  "amount": 6000,
+  "dir": "out",
+  "narration": "BIL/ONL/574573035/HDFC CC 4XXX/PAYMENT",
+  "source": "HDFC salary ••0917",
+  "truth": "card_payment",
+  "id": "P186"
+ },
+ {
+  "day": 80,
+  "date": "2027-02-03",
+  "amount": 9000,
+  "dir": "out",
+  "narration": "UPI/DR/616506905338/SANJAY KADAM/SBIN/sanjaykadam@okicici/flat 302 FEB",
+  "source": "Kotak savings ••4410",
+  "truth": "rent",
+  "id": "P187"
+ },
+ {
+  "day": 82,
+  "date": "2027-02-05",
+  "amount": 6500,
+  "dir": "out",
+  "narration": "ACH D- BAJAJ FINANCE LTD-P400TW8812",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P188"
+ },
+ {
+  "day": 82,
+  "date": "2027-02-05",
+  "amount": 4500,
+  "dir": "out",
+  "narration": "ACH D- HDB FINANCIAL SERV-PL55190",
+  "source": "HDFC salary ••0917",
+  "truth": "emi",
+  "id": "P189"
+ },
+ {
+  "day": 84,
+  "date": "2027-02-07",
+  "amount": 1350,
+  "dir": "out",
+  "narration": "UPI/DR/476177180630/BLINK COMMERCE PVT LTD/YESB/blinkit@yesbank/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "groceries",
+  "id": "P190"
+ },
+ {
+  "day": 86,
+  "date": "2027-02-09",
+  "amount": 910,
+  "dir": "out",
+  "narration": "Electricity bill paid - MSEDCL - CA 170044XXXX",
+  "source": "Paytm app",
+  "truth": "utility_bill",
+  "due_date": "2027-02-11",
+  "id": "P191"
+ },
+ {
+  "day": 86,
+  "date": "2027-02-09",
+  "amount": 2480,
+  "dir": "out",
+  "narration": "UPI/DR/608325190120/MYNTRA DESIGNS/ICIC/myntra@icici/NA",
+  "source": "Kotak savings ••4410",
+  "truth": "shopping",
+  "id": "P192"
+ },
+ {
+  "day": 89,
+  "date": "2027-02-12",
+  "amount": 920,
+  "dir": "out",
+  "narration": "UPI/DR/486653027021/ZOMATO/HDFC/zomato-order@ptybl/Payment from Ph",
+  "source": "HDFC salary ••0917",
+  "truth": "food_delivery",
+  "id": "P193"
+ }
+]

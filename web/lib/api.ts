@@ -14,6 +14,28 @@ export type Persona = {
   application: { product: string; amount: number; tenure_months: number };
 };
 
+export type Cashflow = {
+  model: string;
+  rows: number;
+  sources: { name: string; rows: number }[];
+  verified_income: number;
+  keyword_income: number;
+  accuracy: { reader: number; keywords: number };
+  findings: { kind: "income" | "bills" | "hidden" | "borrowed" | "timing" | "spend"; text: string; sub?: string }[];
+  gap: { id: string; question: string; options: string[] } | null;
+  feed: {
+    id: string;
+    day: number;
+    narration: string;
+    amount: number;
+    dir: "in" | "out";
+    source: string;
+    label: string;
+    keyword: string;
+    by: string;
+  }[];
+};
+
 export type Action = {
   id: string;
   reason_code: string;
@@ -27,6 +49,7 @@ export type Action = {
   done: boolean;
   due_day: number;
   paytm_action: { type: string; amount: number } | null;
+  funding?: { title: string; parts: string[]; covered: boolean } | null;
 };
 
 export type Offer = {
@@ -51,7 +74,16 @@ export type Journey = {
   plan: { readiness: number; eligible: boolean; actions: Action[] };
   notifications: { id: number; day: number; kind: "month" | "done" | "eligible"; title: string; body: string }[];
   feed: { day: number; source: string; text: string; amount: number; dir: "in" | "out" }[];
-  snapshot: { score: number | null; utilisation: number | null; foir: number; on_time_cycles: number };
+  snapshot: {
+    score: number | null;
+    utilisation: number | null;
+    foir: number;
+    on_time_cycles: number;
+    income: number;
+    income_verified: boolean;
+    hidden_emi: number;
+  };
+  cashflow: Cashflow | null;
 };
 
 export type Health = {
@@ -106,6 +138,9 @@ export const api = {
     post<Journey>("/api/offers/accept", { user_id, offer_id, lang }),
   advance: (user_id: string, lang: Lang) => post<Journey>("/api/simulate/advance", { user_id, lang }),
   reapply: (user_id: string, lang: Lang) => post<Journey>("/api/reapply", { user_id, lang, consent: true }),
+  readStatements: (user_id: string, lang: Lang) => post<Journey>("/api/statements/read", { user_id, lang }),
+  answerGap: (user_id: string, gap: string, answer: string, lang: Lang) =>
+    post<Journey>("/api/statements/answer", { user_id, gap, answer, lang }),
   trace: (user_id: string, after: number) =>
     call<{ entries: TraceEntry[]; consents: { ts: number; scope: string; detail: string }[] }>(
       `/api/trace/${user_id}?after=${after}`,
