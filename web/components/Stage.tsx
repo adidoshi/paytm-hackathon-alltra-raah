@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDownLeft, ArrowUpRight, FastForward, RotateCcw } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import { api, inr, type Journey, type Lang, type Persona } from "@/lib/api";
+import { api, inr, type Health, type Journey, type Lang, type Persona } from "@/lib/api";
 import { LANG_LABEL } from "@/lib/strings";
 import Phone, { RaahMark, type Screen } from "./Phone";
 import TracePanel from "./TracePanel";
@@ -29,7 +29,7 @@ export default function Stage() {
   const [screen, setScreen] = useState<Screen>("home");
   const [step, setStep] = useState(0);
   const [banner, setBanner] = useState<Journey["notifications"][number] | null>(null);
-  const [health, setHealth] = useState<{ llm: boolean; voice: boolean } | null>(null);
+  const [health, setHealth] = useState<Health | null>(null);
   const [epoch, setEpoch] = useState(0);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,7 +38,10 @@ export default function Stage() {
 
   useEffect(() => {
     api.personas().then(setPersonas).catch(() => setError("Cannot reach the Raah API. Start it with: uvicorn api.main:app --port 8000"));
-    api.health().then(setHealth).catch(() => {});
+    const load = () => api.health().then(setHealth).catch(() => {});
+    void load();
+    const id = setInterval(load, 5000);
+    return () => clearInterval(id);
   }, []);
 
   const sync = useCallback((j: Journey) => {

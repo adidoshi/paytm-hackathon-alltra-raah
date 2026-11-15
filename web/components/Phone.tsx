@@ -429,6 +429,11 @@ export default function Phone(p: Props) {
                       {journey.explanation && (
                         <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-line">
                           <p className="text-[14.5px] leading-relaxed text-ink">{journey.explanation.text}</p>
+                          {journey.explanation.source === "llm" && (
+                            <p className="mt-2 flex items-center gap-1 text-[10.5px] text-mute">
+                              <ShieldCheck size={11} className="text-good" /> {journey.explanation.model} · figures checked against lender rules
+                            </p>
+                          )}
                           <button
                             onClick={() => speak(journey.explanation!.text)}
                             className="mt-3 flex items-center gap-2.5 rounded-full bg-sky-soft py-2 pl-3 pr-4 text-[13px] font-semibold text-brand"

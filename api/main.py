@@ -1,6 +1,7 @@
 """Raah API. Run from the repo root:  uvicorn api.main:app --reload --port 8000"""
 from __future__ import annotations
 
+import asyncio
 import base64
 from contextlib import asynccontextmanager
 
@@ -22,10 +23,16 @@ from .services import journey, sarvam
 async def lifespan(app: FastAPI):
     db.init()
     journey.reset()  # every start is a clean demo
-    n = await chat_agent.load_mcp_tools()
-    print(f"[raah] LLM: {'Gemini ' + config.GEMINI_MODEL if llm.get_llm() else 'off (templates)'} | "
-          f"Sarvam voice: {'on' if sarvam.enabled() else 'off (cached audio only)'} | Sarvam MCP tools: {n}")
+    mcp_task = asyncio.create_task(chat_agent.run_mcp())  # starts in the background
+    print(f"[raah] Explanation LLM: {', then '.join(llm.model_name(p) for p in llm.providers()) or 'templates only'} | "
+          f"Agent LLM: {', then '.join(llm.model_name(p) for p in llm.agent_providers()) or 'off (intent router)'} | "
+          f"Sarvam voice: {'on' if sarvam.enabled() else 'off (cached audio only)'}")
     yield
+    chat_agent.stop_mcp()
+    try:
+        await asyncio.wait_for(mcp_task, timeout=5)
+    except Exception:
+        pass
 
 
 app = FastAPI(title="Raah API", lifespan=lifespan)
@@ -82,7 +89,17 @@ class TtsBody(BaseModel):
 
 @app.get("/api/health")
 def health():
-    return {"ok": True, "llm": llm.get_llm() is not None, "voice": sarvam.enabled(), "model": config.GEMINI_MODEL}
+    return {
+        "ok": True,
+        "llm": bool(llm.providers()),
+        "voice": sarvam.enabled(),
+        "explain_models": [llm.model_name(p) for p in llm.providers()],
+        "agent_models": [llm.model_name(p) for p in llm.agent_providers()],
+        "tts": f"{config.SARVAM_TTS_MODEL}" if sarvam.enabled() else None,
+        "stt": f"{config.SARVAM_STT_MODEL}" if sarvam.enabled() else None,
+        "speakers": config.SARVAM_SPEAKERS,
+        "mcp": chat_agent.mcp_status(),
+    }
 
 
 @app.get("/api/personas")
@@ -154,7 +171,7 @@ def _speak(user_id: str, text: str, lang: str) -> dict | None:
             db.trace(user_id, "voice", "Sarvam TTS unavailable", str(e)[:160])
         return None
     if user_id:
-        db.trace(user_id, "voice", f"Sarvam TTS ({config.SARVAM_TTS_MODEL}, {lang})", "served from cache" if cached else f"{len(text)} characters")
+        db.trace(user_id, "voice", f"Sarvam TTS ({config.SARVAM_TTS_MODEL}, {sarvam.speaker_for(lang)})", "served from cache" if cached else f"{len(text)} characters")
     return {"audio_b64": base64.b64encode(audio).decode(), "mime": "audio/wav", "cached": cached}
 
 

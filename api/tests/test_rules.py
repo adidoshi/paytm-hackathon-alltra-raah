@@ -4,6 +4,8 @@ import tempfile
 os.environ["RAAH_DB"] = os.path.join(tempfile.mkdtemp(), "test.db")
 os.environ["GEMINI_API_KEY"] = ""
 os.environ["GOOGLE_API_KEY"] = ""
+os.environ["SARVAM_API_KEY"] = ""
+os.environ["SARVAM_MCP"] = "0"
 
 import pytest  # noqa: E402
 

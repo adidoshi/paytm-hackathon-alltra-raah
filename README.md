@@ -17,15 +17,32 @@ api/.venv/Scripts/python -m uvicorn api.main:app --reload --port 8000     # macO
 cd web && npm install && npm run dev
 ```
 
-The app works with no keys at all: explanations come from fixed templates and the browser's own voice reads them. To turn on the LLM and Sarvam voice, copy `.env.example` to `.env` and fill in:
+The app works with no keys at all: explanations come from fixed templates and the browser's own voice reads them. To turn on the LLMs and Sarvam voice, copy `.env.example` to `.env` and fill in:
 
 | Key | Turns on |
 |---|---|
-| `GEMINI_API_KEY` | Gemini wording for the explanation and the "Ask Raah" tool-calling agent |
-| `SARVAM_API_KEY` | Sarvam text-to-speech (Bulbul) and speech-to-text (Saaras) |
-| `SARVAM_MCP_URL` | Optional: attaches Sarvam's MCP translate tools to the chat agent |
+| `SARVAM_API_KEY` | Sarvam-105B (explanation wording and the "Ask Raah" tool-calling agent), Bulbul v4 text-to-speech, Saaras v4 speech-to-text, and the Sarvam MCP tools |
+| `GEMINI_API_KEY` | Gemini as the fallback model if Sarvam-105B fails |
 
 Tests: `api/.venv/Scripts/python -m pytest api/tests -q`
+
+**Before a demo**, pre-generate every explanation and its audio, so the live run is served from disk with no credits used and no network needed:
+
+```bash
+api/.venv/Scripts/python -m api.scripts.pregen
+```
+
+### Where Sarvam AI is used
+
+| Step | Sarvam | Model |
+|---|---|---|
+| Explain the rejection in Marathi, Hindi or English | Chat completion, number-checked against the rules | `sarvam-105b-conversations` |
+| Read the explanation and answers aloud | Text-to-speech, one voice per language | `bulbul:v4-flash` (`nilesh_mr_conversation`, `shubh_enhi_banking`) |
+| Customer asks by voice | Speech-to-text with automatic language detection | `saaras:v4` |
+| "Ask Raah" agent | Tool calling inside the LangGraph agent (about 1 s per answer) | `sarvam-105b-conversations` |
+| Agent tools | Sarvam MCP server (`uvx sarvam-mcp`): `translate`, `identify_language` | MCP over stdio |
+
+Fallback order everywhere: Sarvam → Gemini → fixed template. The Agent trace panel shows which one answered.
 
 ## How it works
 
@@ -39,7 +56,7 @@ All rules pass ──> consent sheet ──> lender re-apply ──> approved
 ```
 
 - **Rules decide.** `api/rules/thresholds.yaml` and `products.yaml` hold every number. `api/rules/engine.py` is pure Python with no LLM.
-- **The LLM explains.** It receives rule output as JSON and phrases it. `numbers_ok` in `api/agent/llm.py` rejects any reply containing a figure the rules did not produce, and the fixed template is used instead.
+- **The LLM explains.** Sarvam-105B receives rule output as JSON and phrases it. `numbers_ok` in `api/agent/llm.py` rejects any reply containing a figure the rules did not produce, and the fixed template is used instead.
 - **The user consents.** The agent's `request_reapply` tool cannot submit anything. Only the consent sheet calls `/api/reapply`, and every consent is written to `consent_log`.
 - **Everything is audited.** Each rule, tool call, LLM call, guard result and consent is logged and shown live in the Agent trace panel.
 

@@ -85,17 +85,20 @@ def template_explanation(name: str, application: dict, reasons: list, lang: str)
 def explain(user_id: str, name: str, application: dict, reasons: list, offers: list, lang: str) -> dict:
     """LLM wording when available and clean; fixed template otherwise."""
     facts = explanation_facts(name, application, reasons, offers)
-    text = llm.compose_explanation(facts, lang)
-    if text:
+    for provider in llm.providers():
+        model = llm.model_name(provider)
+        text = llm.compose(provider, facts, lang)
+        if not text:
+            db.trace(user_id, "llm", f"compose_explanation ({lang}) via {model}", "no answer, trying the next option")
+            continue
         ok, bad = llm.numbers_ok(text, facts)
         if ok:
-            db.trace(user_id, "llm", f"compose_explanation ({lang})", "Gemini phrased the rule output")
+            db.trace(user_id, "llm", f"compose_explanation ({lang}) via {model}", "phrased the rule output")
             db.trace(user_id, "guard", "Number check passed", "Every figure in the text exists in the rule output")
-            return {"text": text, "source": "llm"}
-        db.trace(user_id, "guard", "Number check FAILED, template used", f"Unverified figures: {', '.join(bad)}")
-    else:
-        db.trace(user_id, "llm", f"compose_explanation ({lang})", "LLM off or unavailable, fixed template used")
-    return {"text": template_explanation(name, application, reasons, lang), "source": "template"}
+            return {"text": text, "source": "llm", "model": model}
+        db.trace(user_id, "guard", f"Number check FAILED for {model}", f"Unverified figures: {', '.join(bad)}")
+    db.trace(user_id, "llm", f"compose_explanation ({lang})", "fixed template used")
+    return {"text": template_explanation(name, application, reasons, lang), "source": "template", "model": "template"}
 
 
 def compose_explanation(s: S) -> S:
