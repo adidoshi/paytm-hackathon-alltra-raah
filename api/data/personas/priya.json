@@ -1,0 +1,61 @@
+{
+  "user_id": "priya",
+  "name": "Priya Kulkarni",
+  "first_name": "Priya",
+  "age": 31,
+  "city": "Pune",
+  "occupation": "Salaried, IT support",
+  "language": "en",
+  "application": { "product": "Personal loan", "amount": 300000, "tenure_months": 36 },
+  "profile": {
+    "monthly_income": 45000,
+    "score": 712,
+    "on_time_cycles": 28,
+    "fd_card_active": false,
+    "loans": [
+      { "id": "twl", "name": "two-wheeler loan", "emi": 6500, "outstanding": 91000, "autopay": true },
+      { "id": "cdl", "name": "phone EMI", "emi": 4500, "outstanding": 27000, "autopay": true },
+      { "id": "bnpl", "name": "BNPL loan", "emi": 3500, "outstanding": 8000, "autopay": false }
+    ],
+    "cards": [ { "id": "cc1", "name": "Credit card", "limit": 50000, "balance": 41000, "secured": false } ],
+    "last_dpd": null,
+    "clean_cycles_since_dpd": null,
+    "enquiries_30d": 2,
+    "inflow_6m": [45000, 45000, 45000, 45000, 45000, 45000],
+    "bills": [
+      { "biller": "Credit card", "amount": 41000, "autopay": false, "on_time_streak": 9 }
+    ]
+  },
+  "history": [
+    { "day": -27, "source": "UPI", "text": "Salary credited", "amount": 45000, "dir": "in" },
+    { "day": -25, "source": "EMI", "text": "Two-wheeler loan EMI", "amount": 6500, "dir": "out" },
+    { "day": -25, "source": "EMI", "text": "Phone EMI", "amount": 4500, "dir": "out" },
+    { "day": -20, "source": "EMI", "text": "BNPL loan EMI", "amount": 3500, "dir": "out" },
+    { "day": -14, "source": "Card", "text": "Credit card minimum due paid", "amount": 2050, "dir": "out" }
+  ],
+  "simulation": [
+    {
+      "set": { "cards.0.balance": 29000, "enquiries_30d": 0 },
+      "events": [
+        { "source": "Card", "text": "Paid towards credit card", "amount": 12000, "dir": "out" },
+        { "source": "EMI", "text": "All three EMIs paid on time", "amount": 14500, "dir": "out" }
+      ]
+    },
+    {
+      "set": { "cards.0.balance": 21000, "loans.2.outstanding": 4500, "score": 731 },
+      "events": [
+        { "source": "Card", "text": "Paid towards credit card", "amount": 8000, "dir": "out" },
+        { "source": "EMI", "text": "All three EMIs paid on time", "amount": 14500, "dir": "out" },
+        { "source": "Bureau", "text": "Credit score updated: 731", "amount": 0, "dir": "in" }
+      ]
+    },
+    {
+      "set": { "cards.0.balance": 15000, "loans.2.outstanding": 0, "loans.2.emi": 0, "score": 748 },
+      "events": [
+        { "source": "Card", "text": "Paid towards credit card", "amount": 6000, "dir": "out" },
+        { "source": "Loan", "text": "BNPL loan closed in full", "amount": 4500, "dir": "out" },
+        { "source": "Bureau", "text": "Credit score updated: 748", "amount": 0, "dir": "in" }
+      ]
+    }
+  ]
+}

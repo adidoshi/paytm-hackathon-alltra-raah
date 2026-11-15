@@ -1,0 +1,63 @@
+{
+  "user_id": "sameer",
+  "name": "Sameer Shaikh",
+  "first_name": "Sameer",
+  "age": 34,
+  "city": "Pimpri-Chinchwad",
+  "occupation": "Shop employee",
+  "language": "hi",
+  "application": { "product": "Personal loan", "amount": 150000, "tenure_months": 36 },
+  "profile": {
+    "monthly_income": 32000,
+    "score": 668,
+    "on_time_cycles": 14,
+    "fd_card_active": false,
+    "loans": [
+      { "id": "twl", "name": "two-wheeler loan", "emi": 4200, "outstanding": 58000, "autopay": false }
+    ],
+    "cards": [],
+    "last_dpd": { "loan": "two-wheeler loan", "months_ago": 1 },
+    "clean_cycles_since_dpd": 0,
+    "enquiries_30d": 5,
+    "inflow_6m": [32000, 32000, 31500, 32000, 32000, 32000],
+    "bills": [
+      { "biller": "MSEDCL electricity", "amount": 1400, "autopay": false, "on_time_streak": 2 }
+    ]
+  },
+  "history": [
+    { "day": -29, "source": "UPI", "text": "Salary received", "amount": 32000, "dir": "in" },
+    { "day": -22, "source": "EMI", "text": "Two-wheeler loan EMI missed (paid 34 days late)", "amount": 4200, "dir": "out" },
+    { "day": -15, "source": "Enquiry", "text": "Loan applications on 5 apps in 30 days", "amount": 0, "dir": "out" },
+    { "day": -6, "source": "Bill", "text": "MSEDCL electricity paid on time", "amount": 1400, "dir": "out" }
+  ],
+  "simulation": [
+    {
+      "set": {
+        "loans.0.autopay": true,
+        "clean_cycles_since_dpd": 1,
+        "enquiries_30d": 0,
+        "fd_card_active": true,
+        "cards": [ { "id": "fdcard", "name": "FD-backed card", "limit": 9000, "balance": 1500, "secured": true } ]
+      },
+      "events": [
+        { "source": "AutoPay", "text": "UPI AutoPay set up for two-wheeler loan EMI", "amount": 0, "dir": "out" },
+        { "source": "EMI", "text": "Two-wheeler loan EMI paid on time by AutoPay", "amount": 4200, "dir": "out" },
+        { "source": "Bureau", "text": "No new loan enquiries in 30 days", "amount": 0, "dir": "in" }
+      ]
+    },
+    {
+      "set": { "clean_cycles_since_dpd": 2, "score": 684 },
+      "events": [
+        { "source": "EMI", "text": "Two-wheeler loan EMI paid on time by AutoPay", "amount": 4200, "dir": "out" },
+        { "source": "Bureau", "text": "Credit score updated: 684", "amount": 0, "dir": "in" }
+      ]
+    },
+    {
+      "set": { "clean_cycles_since_dpd": 3, "score": 705 },
+      "events": [
+        { "source": "EMI", "text": "Two-wheeler loan EMI paid on time by AutoPay", "amount": 4200, "dir": "out" },
+        { "source": "Bureau", "text": "Credit score updated: 705", "amount": 0, "dir": "in" }
+      ]
+    }
+  ]
+}

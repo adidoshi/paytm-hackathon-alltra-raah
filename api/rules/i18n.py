@@ -1,0 +1,237 @@
+"""Fixed wording in English, Hindi and Marathi for everything the rules engine produces.
+
+These templates are the always-available fallback. When the LLM is on, it rewrites the
+explanation from the same facts, and a guard checks its numbers against them.
+"""
+from __future__ import annotations
+
+LANGS = {"en": "en-IN", "hi": "hi-IN", "mr": "mr-IN"}
+
+
+def inr(n: float) -> str:
+    """Indian digit grouping: 100000 -> ₹1,00,000."""
+    n = int(round(n))
+    s = str(abs(n))
+    if len(s) > 3:
+        head, tail = s[:-3], s[-3:]
+        parts = []
+        while len(head) > 2:
+            parts.insert(0, head[-2:])
+            head = head[:-2]
+        if head:
+            parts.insert(0, head)
+        s = ",".join(parts) + "," + tail
+    return ("-" if n < 0 else "") + "₹" + s
+
+
+T: dict[str, dict[str, str]] = {
+    "en": {
+        # reasons
+        "reason.THIN_FILE.title": "No credit history yet",
+        "reason.THIN_FILE.detail": "The lender found no past loan or card in your name, so it could not see how you repay. It needs at least {need} on-time monthly payments on record.",
+        "reason.LOW_SCORE.title": "Credit score is below the cut-off",
+        "reason.LOW_SCORE.detail": "Your score is {score}. This lender needs {min} or more.",
+        "reason.HIGH_FOIR.title": "Too much of your income already goes to EMIs",
+        "reason.HIGH_FOIR.detail": "With this loan, {foir}% of your {income} monthly income would go to EMIs. The lender's limit is {max}%.",
+        "reason.HIGH_UTILISATION.title": "Your credit card is nearly full",
+        "reason.HIGH_UTILISATION.detail": "You are using {bal} of your {limit} card limit, which is {util}%. The lender wants this under {max}%.",
+        "reason.RECENT_DPD.title": "A recently missed EMI",
+        "reason.RECENT_DPD.detail": "An EMI on your {loan} was missed recently. After a miss, the lender wants {need} on-time payments in a row.",
+        "reason.ENQUIRY_SPIKE.title": "Too many loan applications recently",
+        "reason.ENQUIRY_SPIKE.detail": "You applied for credit {n} times in the last 30 days. More than {max} looks like urgent need for money to a lender.",
+        "reason.INCOME_LOW.title": "This loan is too large for your income",
+        "reason.INCOME_LOW.detail": "The EMI would be {emi}, which is {share}% of your income. The limit is {max}%.",
+        "reason.INCOME_UNSTABLE.title": "Income changes a lot month to month",
+        "reason.INCOME_UNSTABLE.detail": "Your monthly inflow moved by {var}% over six months. The lender prefers steadier income.",
+        # actions
+        "action.open_fd_card.title": "Open an FD-backed credit card",
+        "action.open_fd_card.detail": "Put {amount} in a fixed deposit and get a card with a {limit} limit. The money stays yours and earns interest.",
+        "action.card_cycles.title": "Pay the card bill in full, {target} months in a row",
+        "action.card_cycles.detail": "Spend a little each month and pay it all back. Every on-time month is reported to the credit bureau.",
+        "action.bill_autopay.title": "Put your {biller} bill on UPI AutoPay",
+        "action.bill_autopay.detail": "A bill that is never late shows discipline, and you do not have to remember the date.",
+        "action.reduce_util.title": "Bring card use down from {start}% to {target}%",
+        "action.reduce_util.detail": "Pay {amount} towards your card over the next 90 days. Part payments count.",
+        "action.close_loan.title": "Close your {loan} ({amount} left)",
+        "action.close_loan.detail": "This removes an EMI of {emi} a month and brings your EMI load to {after}%, under the {max}% limit.",
+        "action.emi_autopay.title": "Turn on AutoPay for your {loan} EMI",
+        "action.emi_autopay.detail": "So an EMI is never missed again.",
+        "action.clean_cycles.title": "Pay {target} EMIs on time, in a row",
+        "action.clean_cycles.detail": "Each on-time EMI moves the missed one further into the past.",
+        "action.no_enquiries.title": "No new loan or card applications for 30 days",
+        "action.no_enquiries.detail": "Each application leaves a mark on your report. Raah will apply for you when you are ready.",
+        "action.raise_score.title": "Lift your score from {start} to {target}",
+        "action.raise_score.detail": "On-time payments and lower card use raise it month by month.",
+        "action.lower_amount.title": "Apply for a smaller amount",
+        "action.lower_amount.detail": "Keep the EMI under {max}% of your income.",
+        "action.steady_income.title": "Receive your income in one account for 3 months",
+        "action.steady_income.detail": "This lets the lender see a steady pattern.",
+        # offers
+        "offer.fd_card.name": "FD-backed credit card",
+        "offer.fd_card.tagline": "Available today. No credit history needed.",
+        "offer.fd_card.why": "Your {fd} fixed deposit secures the card, so you can get a {limit} limit right away. Every bill paid on time builds the record the lender could not find.",
+        "offer.small_loan.name": "Personal loan of {amount}",
+        "offer.small_loan.tagline": "You qualify for this today",
+        "offer.small_loan.why": "At {amount} the EMI is {emi}. That keeps your total EMIs at {foir}% of income, inside the {max}% limit.",
+        # nudges
+        "nudge.month.title": "Day {day}: you are {pct}% ready",
+        "nudge.month.body": "{done} of {total} steps done. Next: {next}.",
+        "nudge.done.title": "Step done",
+        "nudge.eligible.title": "You now qualify for your {amount} loan",
+        "nudge.eligible.body": "Every rule that blocked you has cleared. Re-apply with one tap. Nothing is sent without your OK.",
+        # explanation and chat
+        "explain.intro": "{name}, your {amount} loan was not approved, and you deserve a clear reason.",
+        "explain.outro": "This can be fixed. There is a step you can take today, and a 90-day plan to get you to a yes.",
+        "chat.offers.none": "There is no product you qualify for today, but your plan will get you there.",
+        "chat.offers.intro": "Here is what you qualify for today:",
+        "chat.plan.intro": "Your plan has {total} steps. You are {pct}% ready.",
+        "chat.reapply.ready": "You now pass every rule. I can re-apply for {amount}, but only with your consent. Tap the consent card to continue.",
+        "chat.reapply.notyet": "Not yet. You are {pct}% ready. Still open: {open}.",
+        "chat.approved": "Your {amount} loan is approved. Well done.",
+        "chat.fallback": "I can explain why the loan was rejected, show what you qualify for today, or go through your plan. Which one?",
+        "term.foir": "EMI load (FOIR) is the share of your monthly income that goes to EMIs. Lenders want it at or under {max}%.",
+        "term.utilisation": "Card utilisation is how much of your card limit you are using. Under {target}% is healthy; above {max}% worries lenders.",
+        "term.score": "A credit score is a number from 300 to 900 that sums up how you have repaid loans and cards. This lender needs {min} or more.",
+        "term.dpd": "DPD means days past due: how late a payment was. A payment 30 or more days late stays visible to lenders.",
+    },
+    "hi": {
+        "reason.THIN_FILE.title": "अभी तक कोई क्रेडिट हिस्ट्री नहीं",
+        "reason.THIN_FILE.detail": "लेंडर को आपके नाम पर पहले का कोई लोन या कार्ड नहीं मिला, इसलिए वह नहीं देख पाया कि आप भुगतान कैसे करते हैं। उसे रिकॉर्ड में कम से कम {need} महीने समय पर भुगतान चाहिए।",
+        "reason.LOW_SCORE.title": "क्रेडिट स्कोर ज़रूरत से कम है",
+        "reason.LOW_SCORE.detail": "आपका स्कोर {score} है। इस लेंडर को {min} या उससे ज़्यादा चाहिए।",
+        "reason.HIGH_FOIR.title": "आमदनी का बड़ा हिस्सा पहले से EMI में जा रहा है",
+        "reason.HIGH_FOIR.detail": "इस लोन के साथ आपकी {income} की मासिक आमदनी का {foir}% EMI में जाएगा। लेंडर की सीमा {max}% है।",
+        "reason.HIGH_UTILISATION.title": "आपका क्रेडिट कार्ड लगभग भर चुका है",
+        "reason.HIGH_UTILISATION.detail": "आप अपनी {limit} की कार्ड लिमिट में से {bal} इस्तेमाल कर रहे हैं, यानी {util}%। लेंडर इसे {max}% से कम देखना चाहता है।",
+        "reason.RECENT_DPD.title": "हाल ही में एक EMI छूट गई",
+        "reason.RECENT_DPD.detail": "आपके {loan} की एक EMI हाल ही में छूट गई थी। उसके बाद लेंडर लगातार {need} EMI समय पर देखना चाहता है।",
+        "reason.ENQUIRY_SPIKE.title": "हाल में बहुत सारे लोन आवेदन",
+        "reason.ENQUIRY_SPIKE.detail": "पिछले 30 दिनों में आपने {n} बार क्रेडिट के लिए आवेदन किया। {max} से ज़्यादा आवेदन लेंडर को पैसों की जल्दबाज़ी जैसे लगते हैं।",
+        "reason.INCOME_LOW.title": "आपकी आमदनी के हिसाब से लोन बड़ा है",
+        "reason.INCOME_LOW.detail": "EMI {emi} होगी, जो आपकी आमदनी का {share}% है। सीमा {max}% है।",
+        "reason.INCOME_UNSTABLE.title": "हर महीने आमदनी काफ़ी बदलती है",
+        "reason.INCOME_UNSTABLE.detail": "छह महीनों में आपकी मासिक आमदनी {var}% तक ऊपर-नीचे हुई। लेंडर को स्थिर आमदनी पसंद है।",
+        "action.open_fd_card.title": "FD पर मिलने वाला क्रेडिट कार्ड लें",
+        "action.open_fd_card.detail": "{amount} की फिक्स्ड डिपॉज़िट करें और {limit} लिमिट का कार्ड पाएं। पैसा आपका ही रहता है और उस पर ब्याज मिलता है।",
+        "action.card_cycles.title": "लगातार {target} महीने कार्ड का पूरा बिल भरें",
+        "action.card_cycles.detail": "हर महीने थोड़ा खर्च करें और पूरा चुका दें। समय पर भरा हर महीना क्रेडिट ब्यूरो में दर्ज होता है।",
+        "action.bill_autopay.title": "{biller} का बिल UPI AutoPay पर डालें",
+        "action.bill_autopay.detail": "जो बिल कभी लेट नहीं होता, वह अनुशासन दिखाता है। तारीख याद रखने की ज़रूरत भी नहीं।",
+        "action.reduce_util.title": "कार्ड का इस्तेमाल {start}% से घटाकर {target}% करें",
+        "action.reduce_util.detail": "अगले 90 दिनों में कार्ड पर {amount} चुकाएं। थोड़ा-थोड़ा भुगतान भी गिना जाता है।",
+        "action.close_loan.title": "अपना {loan} बंद करें ({amount} बाकी)",
+        "action.close_loan.detail": "इससे हर महीने {emi} की EMI हटेगी और आपका EMI बोझ {after}% हो जाएगा, जो {max}% की सीमा के अंदर है।",
+        "action.emi_autopay.title": "{loan} की EMI के लिए AutoPay चालू करें",
+        "action.emi_autopay.detail": "ताकि EMI फिर कभी न छूटे।",
+        "action.clean_cycles.title": "लगातार {target} EMI समय पर भरें",
+        "action.clean_cycles.detail": "समय पर भरी हर EMI छूटी हुई EMI को और पीछे छोड़ देती है।",
+        "action.no_enquiries.title": "30 दिन तक कोई नया लोन या कार्ड आवेदन नहीं",
+        "action.no_enquiries.detail": "हर आवेदन आपकी रिपोर्ट पर निशान छोड़ता है। जब आप तैयार होंगे, राह आपके लिए आवेदन करेगा।",
+        "action.raise_score.title": "स्कोर {start} से {target} तक ले जाएं",
+        "action.raise_score.detail": "समय पर भुगतान और कार्ड का कम इस्तेमाल इसे हर महीने बढ़ाते हैं।",
+        "action.lower_amount.title": "कम रकम के लिए आवेदन करें",
+        "action.lower_amount.detail": "EMI को अपनी आमदनी के {max}% से कम रखें।",
+        "action.steady_income.title": "3 महीने तक आमदनी एक ही खाते में लें",
+        "action.steady_income.detail": "इससे लेंडर को स्थिर पैटर्न दिखता है।",
+        "offer.fd_card.name": "FD पर मिलने वाला क्रेडिट कार्ड",
+        "offer.fd_card.tagline": "आज ही उपलब्ध। क्रेडिट हिस्ट्री ज़रूरी नहीं।",
+        "offer.fd_card.why": "आपकी {fd} की फिक्स्ड डिपॉज़िट कार्ड की गारंटी है, इसलिए आपको तुरंत {limit} की लिमिट मिल सकती है। समय पर भरा हर बिल वही रिकॉर्ड बनाता है जो लेंडर को नहीं मिला था।",
+        "offer.small_loan.name": "{amount} का पर्सनल लोन",
+        "offer.small_loan.tagline": "इसके लिए आप आज ही पात्र हैं",
+        "offer.small_loan.why": "{amount} पर EMI {emi} होगी। इससे आपकी कुल EMI आमदनी का {foir}% रहती है, जो {max}% की सीमा के अंदर है।",
+        "nudge.month.title": "दिन {day}: आप {pct}% तैयार हैं",
+        "nudge.month.body": "{total} में से {done} कदम पूरे। अगला: {next}।",
+        "nudge.done.title": "कदम पूरा हुआ",
+        "nudge.eligible.title": "अब आप {amount} के लोन के लिए पात्र हैं",
+        "nudge.eligible.body": "जो भी नियम आपको रोक रहे थे, सब पूरे हो गए। एक टैप में दोबारा आवेदन करें। आपकी मंज़ूरी के बिना कुछ नहीं भेजा जाएगा।",
+        "explain.intro": "{name} जी, आपका {amount} का लोन इस बार मंज़ूर नहीं हुआ, और आपको इसकी साफ़ वजह जानने का हक़ है।",
+        "explain.outro": "इसे ठीक किया जा सकता है। एक कदम आप आज ही उठा सकते हैं, और 90 दिन की योजना आपको मंज़ूरी तक ले जाएगी।",
+        "chat.offers.none": "आज आपके लिए कोई प्रोडक्ट उपलब्ध नहीं है, लेकिन आपकी योजना आपको वहां तक पहुंचाएगी।",
+        "chat.offers.intro": "आज आप इसके लिए पात्र हैं:",
+        "chat.plan.intro": "आपकी योजना में {total} कदम हैं। आप {pct}% तैयार हैं।",
+        "chat.reapply.ready": "अब आप हर नियम पर खरे उतरते हैं। मैं {amount} के लिए दोबारा आवेदन कर सकता हूं, लेकिन सिर्फ़ आपकी सहमति से। आगे बढ़ने के लिए सहमति कार्ड पर टैप करें।",
+        "chat.reapply.notyet": "अभी नहीं। आप {pct}% तैयार हैं। बाकी है: {open}।",
+        "chat.approved": "आपका {amount} का लोन मंज़ूर हो गया है। बहुत बढ़िया।",
+        "chat.fallback": "मैं बता सकता हूं कि लोन क्यों रिजेक्ट हुआ, आज आपको क्या मिल सकता है, या आपकी योजना क्या है। क्या जानना चाहेंगे?",
+        "term.foir": "EMI बोझ (FOIR) यानी आपकी मासिक आमदनी का वह हिस्सा जो EMI में जाता है। लेंडर इसे {max}% या उससे कम चाहते हैं।",
+        "term.utilisation": "कार्ड यूटिलाइज़ेशन यानी आप अपनी कार्ड लिमिट का कितना हिस्सा इस्तेमाल कर रहे हैं। {target}% से कम अच्छा है; {max}% से ज़्यादा लेंडर को चिंता में डालता है।",
+        "term.score": "क्रेडिट स्कोर 300 से 900 के बीच की एक संख्या है जो बताती है कि आपने लोन और कार्ड कैसे चुकाए हैं। इस लेंडर को {min} या उससे ज़्यादा चाहिए।",
+        "term.dpd": "DPD यानी भुगतान कितने दिन लेट हुआ। 30 या उससे ज़्यादा दिन लेट भुगतान लेंडर को दिखता रहता है।",
+    },
+    "mr": {
+        "reason.THIN_FILE.title": "अजून क्रेडिट हिस्ट्री नाही",
+        "reason.THIN_FILE.detail": "लेंडरला तुमच्या नावावर आधीचं कोणतंही कर्ज किंवा कार्ड सापडलं नाही, त्यामुळे तुम्ही परतफेड कशी करता हे त्याला पाहता आलं नाही. त्याला रेकॉर्डवर किमान {need} महिने वेळेवर भरणा हवा.",
+        "reason.LOW_SCORE.title": "क्रेडिट स्कोअर आवश्यकतेपेक्षा कमी आहे",
+        "reason.LOW_SCORE.detail": "तुमचा स्कोअर {score} आहे. या लेंडरला {min} किंवा त्याहून जास्त हवा.",
+        "reason.HIGH_FOIR.title": "उत्पन्नाचा मोठा भाग आधीच EMI मध्ये जातो",
+        "reason.HIGH_FOIR.detail": "या कर्जासह तुमच्या {income} मासिक उत्पन्नाचा {foir}% EMI मध्ये जाईल. लेंडरची मर्यादा {max}% आहे.",
+        "reason.HIGH_UTILISATION.title": "तुमचं क्रेडिट कार्ड जवळजवळ भरलं आहे",
+        "reason.HIGH_UTILISATION.detail": "तुम्ही {limit} च्या कार्ड लिमिटपैकी {bal} वापरत आहात, म्हणजे {util}%. लेंडरला हे {max}% पेक्षा कमी हवं.",
+        "reason.RECENT_DPD.title": "नुकताच एक EMI चुकला",
+        "reason.RECENT_DPD.detail": "तुमच्या {loan} चा एक EMI नुकताच चुकला. त्यानंतर लेंडरला सलग {need} EMI वेळेवर भरलेले हवेत.",
+        "reason.ENQUIRY_SPIKE.title": "अलीकडे खूप कर्ज अर्ज केले",
+        "reason.ENQUIRY_SPIKE.detail": "गेल्या 30 दिवसांत तुम्ही {n} वेळा क्रेडिटसाठी अर्ज केला. {max} पेक्षा जास्त अर्ज लेंडरला पैशांची घाई असल्यासारखे वाटतात.",
+        "reason.INCOME_LOW.title": "तुमच्या उत्पन्नाच्या मानाने कर्ज मोठं आहे",
+        "reason.INCOME_LOW.detail": "EMI {emi} होईल, म्हणजे तुमच्या उत्पन्नाचा {share}%. मर्यादा {max}% आहे.",
+        "reason.INCOME_UNSTABLE.title": "दर महिन्याला उत्पन्न बरंच बदलतं",
+        "reason.INCOME_UNSTABLE.detail": "सहा महिन्यांत तुमचं मासिक उत्पन्न {var}% ने वर-खाली झालं. लेंडरला स्थिर उत्पन्न आवडतं.",
+        "action.open_fd_card.title": "FD वर मिळणारं क्रेडिट कार्ड घ्या",
+        "action.open_fd_card.detail": "{amount} ची मुदत ठेव करा आणि {limit} लिमिटचं कार्ड मिळवा. पैसे तुमचेच राहतात आणि त्यावर व्याज मिळतं.",
+        "action.card_cycles.title": "सलग {target} महिने कार्डचं पूर्ण बिल भरा",
+        "action.card_cycles.detail": "दर महिन्याला थोडा खर्च करा आणि पूर्ण परत भरा. वेळेवर भरलेला प्रत्येक महिना क्रेडिट ब्युरोकडे नोंदवला जातो.",
+        "action.bill_autopay.title": "{biller} चं बिल UPI AutoPay वर टाका",
+        "action.bill_autopay.detail": "कधीही उशीर न होणारं बिल शिस्त दाखवतं, आणि तारीख लक्षात ठेवावी लागत नाही.",
+        "action.reduce_util.title": "कार्डचा वापर {start}% वरून {target}% वर आणा",
+        "action.reduce_util.detail": "पुढच्या 90 दिवसांत कार्डवर {amount} भरा. थोडं थोडं भरलं तरी चालतं.",
+        "action.close_loan.title": "तुमचं {loan} बंद करा ({amount} बाकी)",
+        "action.close_loan.detail": "यामुळे दरमहा {emi} चा EMI कमी होईल आणि तुमचा EMI भार {after}% होईल, जो {max}% मर्यादेच्या आत आहे.",
+        "action.emi_autopay.title": "{loan} च्या EMI साठी AutoPay सुरू करा",
+        "action.emi_autopay.detail": "म्हणजे EMI पुन्हा कधी चुकणार नाही.",
+        "action.clean_cycles.title": "सलग {target} EMI वेळेवर भरा",
+        "action.clean_cycles.detail": "वेळेवर भरलेला प्रत्येक EMI चुकलेल्या EMI ला आणखी मागे टाकतो.",
+        "action.no_enquiries.title": "30 दिवस नवीन कर्ज किंवा कार्डसाठी अर्ज नको",
+        "action.no_enquiries.detail": "प्रत्येक अर्ज तुमच्या रिपोर्टवर खूण सोडतो. तुम्ही तयार झालात की राह तुमच्यासाठी अर्ज करेल.",
+        "action.raise_score.title": "स्कोअर {start} वरून {target} पर्यंत न्या",
+        "action.raise_score.detail": "वेळेवर भरणा आणि कार्डचा कमी वापर यामुळे तो दर महिन्याला वाढतो.",
+        "action.lower_amount.title": "कमी रकमेसाठी अर्ज करा",
+        "action.lower_amount.detail": "EMI तुमच्या उत्पन्नाच्या {max}% पेक्षा कमी ठेवा.",
+        "action.steady_income.title": "3 महिने उत्पन्न एकाच खात्यात घ्या",
+        "action.steady_income.detail": "यामुळे लेंडरला स्थिर पॅटर्न दिसतो.",
+        "offer.fd_card.name": "FD वर मिळणारं क्रेडिट कार्ड",
+        "offer.fd_card.tagline": "आजच उपलब्ध. क्रेडिट हिस्ट्रीची गरज नाही.",
+        "offer.fd_card.why": "तुमची {fd} ची मुदत ठेव कार्डची हमी आहे, त्यामुळे तुम्हाला लगेच {limit} ची लिमिट मिळू शकते. वेळेवर भरलेलं प्रत्येक बिल तोच रेकॉर्ड तयार करतं जो लेंडरला सापडला नव्हता.",
+        "offer.small_loan.name": "{amount} चं पर्सनल लोन",
+        "offer.small_loan.tagline": "यासाठी तुम्ही आजच पात्र आहात",
+        "offer.small_loan.why": "{amount} वर EMI {emi} होईल. त्यामुळे तुमचे एकूण EMI उत्पन्नाच्या {foir}% राहतात, जे {max}% मर्यादेच्या आत आहे.",
+        "nudge.month.title": "दिवस {day}: तुम्ही {pct}% तयार आहात",
+        "nudge.month.body": "{total} पैकी {done} पावलं पूर्ण. पुढचं: {next}.",
+        "nudge.done.title": "पाऊल पूर्ण झालं",
+        "nudge.eligible.title": "आता तुम्ही {amount} च्या कर्जासाठी पात्र आहात",
+        "nudge.eligible.body": "तुम्हाला अडवणारे सगळे नियम पूर्ण झाले. एका टॅपमध्ये पुन्हा अर्ज करा. तुमच्या संमतीशिवाय काहीही पाठवलं जाणार नाही.",
+        "explain.intro": "{name}, तुमचं {amount} चं कर्ज यावेळी मंजूर झालं नाही, आणि त्याचं स्पष्ट कारण जाणून घेण्याचा तुम्हाला हक्क आहे.",
+        "explain.outro": "हे सुधारता येतं. एक पाऊल तुम्ही आजच उचलू शकता, आणि 90 दिवसांची योजना तुम्हाला मंजुरीपर्यंत घेऊन जाईल.",
+        "chat.offers.none": "आज तुमच्यासाठी कोणतंही प्रॉडक्ट उपलब्ध नाही, पण तुमची योजना तुम्हाला तिथपर्यंत नेईल.",
+        "chat.offers.intro": "आज तुम्ही यासाठी पात्र आहात:",
+        "chat.plan.intro": "तुमच्या योजनेत {total} पावलं आहेत. तुम्ही {pct}% तयार आहात.",
+        "chat.reapply.ready": "आता तुम्ही प्रत्येक नियमात बसता. मी {amount} साठी पुन्हा अर्ज करू शकतो, पण फक्त तुमच्या संमतीने. पुढे जाण्यासाठी संमती कार्डवर टॅप करा.",
+        "chat.reapply.notyet": "अजून नाही. तुम्ही {pct}% तयार आहात. बाकी आहे: {open}.",
+        "chat.approved": "तुमचं {amount} चं कर्ज मंजूर झालं आहे. अभिनंदन.",
+        "chat.fallback": "कर्ज का नाकारलं गेलं, आज तुम्हाला काय मिळू शकतं, किंवा तुमची योजना काय आहे हे मी सांगू शकतो. काय जाणून घ्यायचं आहे?",
+        "term.foir": "EMI भार (FOIR) म्हणजे तुमच्या मासिक उत्पन्नाचा EMI मध्ये जाणारा भाग. लेंडरला तो {max}% किंवा त्याहून कमी हवा असतो.",
+        "term.utilisation": "कार्ड युटिलायझेशन म्हणजे तुम्ही कार्ड लिमिटचा किती भाग वापरत आहात. {target}% पेक्षा कमी चांगलं; {max}% पेक्षा जास्त असेल तर लेंडरला काळजी वाटते.",
+        "term.score": "क्रेडिट स्कोअर हा 300 ते 900 मधला एक आकडा आहे, जो तुम्ही कर्ज आणि कार्ड कसे फेडले हे सांगतो. या लेंडरला {min} किंवा त्याहून जास्त हवा.",
+        "term.dpd": "DPD म्हणजे भरणा किती दिवस उशिरा झाला. 30 किंवा त्याहून जास्त दिवस उशीर झालेला भरणा लेंडरला दिसत राहतो.",
+    },
+}
+
+MONEY_KEYS = {"amount", "limit", "bal", "income", "emi", "fd", "existing_emi", "proposed_emi"}
+
+
+def t(lang: str, key: str, **params) -> str:
+    table = T.get(lang) or T["en"]
+    text = table.get(key) or T["en"].get(key, key)
+    fmt = {k: (inr(v) if k in MONEY_KEYS and isinstance(v, (int, float)) else v) for k, v in params.items()}
+    try:
+        return text.format(**fmt)
+    except (KeyError, IndexError):
+        return text

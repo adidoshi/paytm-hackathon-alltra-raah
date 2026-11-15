@@ -1,0 +1,76 @@
+{
+  "user_id": "ravi",
+  "name": "Ravi Jadhav",
+  "first_name": "Ravi",
+  "age": 27,
+  "city": "Pune",
+  "occupation": "Delivery partner",
+  "language": "mr",
+  "application": { "product": "Personal loan", "amount": 100000, "tenure_months": 24 },
+  "profile": {
+    "monthly_income": 28000,
+    "score": null,
+    "on_time_cycles": 0,
+    "fd_card_active": false,
+    "loans": [],
+    "cards": [],
+    "last_dpd": null,
+    "clean_cycles_since_dpd": null,
+    "enquiries_30d": 1,
+    "inflow_6m": [27000, 29500, 26500, 28000, 30000, 27500],
+    "bills": [
+      { "biller": "MSEDCL electricity", "amount": 1150, "autopay": false, "on_time_streak": 0 },
+      { "biller": "Jio mobile", "amount": 299, "autopay": false, "on_time_streak": 4 }
+    ]
+  },
+  "history": [
+    { "day": -24, "source": "UPI", "text": "Received from Swiggy payouts", "amount": 6800, "dir": "in" },
+    { "day": -19, "source": "Bill", "text": "MSEDCL electricity paid 6 days late", "amount": 1150, "dir": "out" },
+    { "day": -12, "source": "UPI", "text": "Received from Swiggy payouts", "amount": 7200, "dir": "in" },
+    { "day": -8, "source": "Bill", "text": "Jio mobile recharge", "amount": 299, "dir": "out" },
+    { "day": -3, "source": "UPI", "text": "Rent to landlord", "amount": 7000, "dir": "out" }
+  ],
+  "simulation": [
+    {
+      "set": {
+        "fd_card_active": true,
+        "cards": [ { "id": "fdcard", "name": "FD-backed card", "limit": 9000, "balance": 1900, "secured": true } ],
+        "on_time_cycles": 1,
+        "bills.0.autopay": true,
+        "bills.0.on_time_streak": 1
+      },
+      "events": [
+        { "source": "FD", "text": "Fixed deposit opened, card issued", "amount": 10000, "dir": "out" },
+        { "source": "AutoPay", "text": "UPI AutoPay set up for MSEDCL electricity", "amount": 0, "dir": "out" },
+        { "source": "Card", "text": "FD-backed card bill paid in full, on time", "amount": 1900, "dir": "out" },
+        { "source": "Bill", "text": "MSEDCL electricity paid on time by AutoPay", "amount": 1150, "dir": "out" }
+      ]
+    },
+    {
+      "set": {
+        "on_time_cycles": 2,
+        "cards.0.balance": 2300,
+        "bills.0.on_time_streak": 2,
+        "score": 668
+      },
+      "events": [
+        { "source": "Card", "text": "FD-backed card bill paid in full, on time", "amount": 2300, "dir": "out" },
+        { "source": "Bill", "text": "MSEDCL electricity paid on time by AutoPay", "amount": 1210, "dir": "out" },
+        { "source": "Bureau", "text": "First credit score reported: 668", "amount": 0, "dir": "in" }
+      ]
+    },
+    {
+      "set": {
+        "on_time_cycles": 3,
+        "cards.0.balance": 2100,
+        "bills.0.on_time_streak": 3,
+        "score": 702
+      },
+      "events": [
+        { "source": "Card", "text": "FD-backed card bill paid in full, on time", "amount": 2100, "dir": "out" },
+        { "source": "Bill", "text": "MSEDCL electricity paid on time by AutoPay", "amount": 1090, "dir": "out" },
+        { "source": "Bureau", "text": "Credit score updated: 702", "amount": 0, "dir": "in" }
+      ]
+    }
+  ]
+}

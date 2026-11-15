@@ -1,0 +1,20 @@
+# Every number the engine uses lives here. The LLM never sees or sets these.
+# In production this file is the partner lender's published policy.
+thin_file:
+  min_on_time_cycles: 3      # reported on-time monthly payments needed
+low_score:
+  min_score: 650
+foir:
+  max: 0.50                  # (existing EMIs + new EMI) / monthly income
+utilisation:
+  max: 0.50                  # card balance / card limit that blocks approval
+  target: 0.30               # level the plan aims for
+dpd:
+  min_clean_cycles: 3        # on-time EMIs in a row needed after a miss
+enquiries:
+  max_30d: 3
+income:
+  max_emi_share: 0.40        # new EMI / monthly income
+  max_variation: 0.40        # (max - min) / mean of 6-month inflow
+pricing:
+  personal_loan_rate: 0.18   # annual, used only to compute the EMI

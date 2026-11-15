@@ -1,0 +1,15 @@
+# Offer catalogue. Amounts, rates and eligibility come from here only.
+small_loan:
+  rate: 0.18
+  tenure_months: 24
+  amounts: [75000, 50000, 25000]   # tried largest first
+  max_share_of_request: 0.5
+  min_score: 680
+  max_foir: 0.50
+  require_no_recent_dpd: true
+fd_card:
+  fd_amount: 10000
+  limit_ratio: 0.9
+  fd_rate: 0.065
+  # offered when the blocker is history or repayment record
+  for_reasons: [THIN_FILE, RECENT_DPD, LOW_SCORE]
