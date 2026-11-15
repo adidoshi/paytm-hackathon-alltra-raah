@@ -3,7 +3,19 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
+
+# Ensure root and api are on sys.path and set __package__ for Vercel Serverless
+_this_dir = Path(__file__).resolve().parent
+_repo_root = _this_dir.parent
+for _p in [str(_repo_root), str(_this_dir)]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
+
+if not __package__:
+    __package__ = "api"
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.concurrency import run_in_threadpool
