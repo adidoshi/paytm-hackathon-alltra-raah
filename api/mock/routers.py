@@ -39,6 +39,13 @@ def bureau_report(user_id: str):
     return clients.BureauClient().report(user_id)
 
 
+@router.get("/aa/{user_id}/statements")
+def aa_statements(user_id: str, as_of_day: int = 0):
+    """Account Aggregator financial information (mocked): all linked bank accounts."""
+    _state(user_id)
+    return {"transactions": clients.AccountAggregatorClient().fetch(user_id, as_of_day)}
+
+
 @router.get("/paytm/{user_id}/transactions")
 def paytm_transactions(user_id: str):
     s = _state(user_id)

@@ -2,8 +2,13 @@
 replaces the body of each method and nothing else changes."""
 from __future__ import annotations
 
+import json
+
 from .. import db
+from ..config import DATA_DIR
 from ..rules import engine
+
+TX_DIR = DATA_DIR / "transactions"
 
 
 class LenderClient:
@@ -32,6 +37,23 @@ class BureauClient:
             "loans": p.get("loans", []),
             "cards": p.get("cards", []),
         }
+
+
+class AccountAggregatorClient:
+    """Bank statements shared with consent through RBI's Account Aggregator framework (mocked).
+    Covers every linked bank account, whichever UPI app made the payment, plus Paytm app records.
+    `truth` is the hand label used only to score the reader; it is never sent to the LLM."""
+
+    _cache: dict[str, list[dict]] = {}
+
+    def fetch(self, user_id: str, as_of_day: int, with_truth: bool = False) -> list[dict]:
+        if user_id not in self._cache:
+            path = TX_DIR / f"{user_id}.json"
+            self._cache[user_id] = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+        rows = [r for r in self._cache[user_id] if r["day"] <= as_of_day]
+        if with_truth:
+            return rows
+        return [{k: v for k, v in r.items() if k != "truth"} for r in rows]
 
 
 class PaytmClient:

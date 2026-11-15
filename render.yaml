@@ -1,0 +1,34 @@
+# Render Blueprint for the Raah API. Render dashboard -> New -> Blueprint -> pick this repo.
+services:
+  - type: web
+    name: raah-api
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r api/requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: SARVAM_API_KEY
+        sync: false            # entered in the dashboard, never committed
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.1-flash-lite
+      - key: SARVAM_CHAT_MODEL
+        value: sarvam-105b-conversations
+      - key: SARVAM_TTS_MODEL
+        value: bulbul:v4-flash
+      - key: SARVAM_STT_MODEL
+        value: saaras:v4
+      - key: EXPLAIN_LLM
+        value: sarvam
+      - key: AGENT_LLM
+        value: sarvam
+      # The Sarvam MCP server runs through uvx, which Render's Python runtime does not have.
+      - key: SARVAM_MCP
+        value: "0"
+      - key: CORS_ORIGINS
+        value: https://paytm-hackathon-alltra-raah.vercel.app,http://localhost:3000

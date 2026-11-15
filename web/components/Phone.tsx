@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import { api, emi, inr, type ChatReply, type Journey, type Lang, type Persona } from "@/lib/api";
 import { tr, type StringKey } from "@/lib/strings";
 import { useRecorder, useSpeaker } from "@/lib/useVoice";
+import ProofStep from "./ProofStep";
 
 export type Screen = "home" | "apply" | "checking" | "rejected" | "raah" | "approved";
 
@@ -23,6 +24,8 @@ type Props = {
   onApply: (amount: number, tenure: number) => void;
   onAcceptOffer: (id: string) => void;
   onReapply: () => Promise<void>;
+  onReadStatements: () => Promise<void>;
+  onAnswerGap: (gap: string, answer: string) => Promise<void>;
   onRestart: () => void;
   banner: Journey["notifications"][number] | null;
   dismissBanner: () => void;
@@ -198,7 +201,8 @@ export default function Phone(p: Props) {
   }
 
   const estEmi = emi(amount, 0.18, tenure);
-  const steps: StringKey[] = ["step_why", "step_today", "step_plan", "step_reapply"];
+  const steps: StringKey[] = ["step_why", "step_proof", "step_today", "step_plan", "step_reapply"];
+  const LAST = steps.length - 1;
   const eligible = journey?.status === "eligible";
 
   return (
@@ -217,7 +221,7 @@ export default function Phone(p: Props) {
             <motion.button
               initial={{ y: -90, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -90, opacity: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 24 }}
-              onClick={() => { p.dismissBanner(); if (p.banner?.kind === "eligible") p.setStep(3); }}
+              onClick={() => { p.dismissBanner(); if (p.banner?.kind === "eligible") p.setStep(LAST); }}
               className="absolute inset-x-3 top-11 z-40 flex items-start gap-3 rounded-2xl bg-white/95 p-3 text-left shadow-xl ring-1 ring-black/5 backdrop-blur"
             >
               <span className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl ${p.banner.kind === "eligible" ? "bg-good text-white" : "bg-brand text-white"}`}>
@@ -405,14 +409,15 @@ export default function Phone(p: Props) {
                     {inr(journey.application.amount)} · Day {journey.day}
                   </span>
                 </div>
-                <div className="mt-2 grid grid-cols-4 gap-1.5">
+                <div className="mt-2 grid grid-cols-5 gap-1.5">
                   {steps.map((k, i) => {
-                    const complete = i === 3 ? journey.status === "approved" : i < step;
+                    const complete = i === LAST ? journey.status === "approved" : i === 1 ? !!journey.cashflow : i < step;
                     return (
                       <button key={k} onClick={() => p.setStep(i)} className="group text-left">
                         <span className={`block h-1 rounded-full transition-colors ${i === step ? "bg-sky" : complete ? "bg-sky/50" : "bg-white/15"}`} />
                         <span className={`mt-1.5 flex items-center gap-1 text-[11px] font-medium ${i === step ? "text-white" : "text-white/55"}`}>
-                          {i === 3 && eligible && <span className="h-1.5 w-1.5 rounded-full bg-[#5fe0a8]" />}
+                          {i === LAST && eligible && <span className="h-1.5 w-1.5 rounded-full bg-[#5fe0a8]" />}
+                          {i === 1 && !journey.cashflow && <span className="h-1.5 w-1.5 rounded-full bg-amber" />}
                           {t(k)}
                         </span>
                       </button>
@@ -461,6 +466,15 @@ export default function Phone(p: Props) {
                   )}
 
                   {step === 1 && (
+                    <motion.div key="proof" {...slide}>
+                      <ProofStep
+                        lang={lang} cashflow={journey.cashflow}
+                        onRead={p.onReadStatements} onAnswer={p.onAnswerGap} onNext={() => p.setStep(2)}
+                      />
+                    </motion.div>
+                  )}
+
+                  {step === 2 && (
                     <motion.div key="today" {...slide} className="space-y-3">
                       <h2 className="font-display text-[19px] font-semibold">{t("today_title")}</h2>
                       {journey.offers.length === 0 && <p className="rounded-2xl bg-white p-4 text-[13px] text-mute shadow-sm">{t("today_none")}</p>}
@@ -495,7 +509,7 @@ export default function Phone(p: Props) {
                     </motion.div>
                   )}
 
-                  {step === 2 && (
+                  {step === 3 && (
                     <motion.div key="plan" {...slide} className="space-y-3">
                       <div className="flex items-center gap-4 rounded-3xl bg-navy p-4 text-white">
                         <Ring value={journey.plan.readiness} label={t("ready")} />
@@ -532,6 +546,18 @@ export default function Phone(p: Props) {
                                 {a.binary ? <span /> : <span>{t("now")} <b className="text-ink">{a.current}</b> · {t("target")} <b className="text-ink">{a.target}</b></span>}
                                 <span className={a.done ? "font-semibold text-good" : ""}>{a.done ? t("done") : t("by_day", { day: a.due_day })}</span>
                               </div>
+                              {a.funding && (
+                                <div className="mt-2.5 rounded-xl bg-good-soft/70 px-3 py-2">
+                                  <p className="text-[11.5px] font-semibold text-good">{a.funding.title}</p>
+                                  <ul className="mt-1 space-y-0.5">
+                                    {a.funding.parts.map((x) => (
+                                      <li key={x} className="flex items-start gap-1.5 text-[11.5px] leading-snug text-ink/80">
+                                        <span className="mt-[5px] h-1 w-1 shrink-0 rounded-full bg-good" /> {x}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </motion.div>
@@ -539,7 +565,7 @@ export default function Phone(p: Props) {
                     </motion.div>
                   )}
 
-                  {step === 3 && (
+                  {step === LAST && (
                     <motion.div key="reapply" {...slide} className="space-y-3">
                       <h2 className="font-display text-[19px] font-semibold">{t("reapply_title")}</h2>
                       <div className={`rounded-3xl p-5 ${eligible ? "bg-good-soft ring-1 ring-good/30" : "bg-white ring-1 ring-line"}`}>

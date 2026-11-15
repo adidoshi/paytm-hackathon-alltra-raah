@@ -222,7 +222,17 @@ def _build_agent(uid: str, model):
         """Check whether the customer can re-apply. This never submits anything; it asks the app to show a consent card."""
         return json.dumps(tool_request_reapply(uid), ensure_ascii=False)
 
-    tools = [get_rejection_reasons, get_offers, get_plan_progress, explain_term, request_reapply] + _mcp_tools
+    @tool
+    def get_statement_findings() -> str:
+        """What Raah found in the customer's bank statements (verified income, bills, debts not on the credit report,
+        salary and EMI dates, biggest spends). Empty if the customer has not shared statements yet."""
+        cf = journey.facts(uid).get("cashflow")
+        if not cf:
+            return json.dumps({"shared": False, "note": "The customer has not shared bank statements yet; they can do it on the Proof tab."})
+        return json.dumps({"shared": True, "findings": [f["text"] for f in cf["findings"]],
+                           "sources": [s["name"] for s in cf["sources"]]}, ensure_ascii=False)
+
+    tools = [get_rejection_reasons, get_offers, get_plan_progress, explain_term, request_reapply, get_statement_findings] + _mcp_tools
     return create_react_agent(model, tools)
 
 

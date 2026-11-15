@@ -96,24 +96,25 @@ def stt(audio: bytes, filename: str, content_type: str) -> dict:
 _THINK = re.compile(r"<think>.*?</think>", re.S)
 
 
-def chat(system: str, user: str) -> str | None:
+def chat(system: str, user: str, max_tokens: int = 600, cache: bool = True) -> str | None:
     """One chat completion. Cached by prompt, so the same facts always give the same wording."""
     if not enabled():
         return None
     path = config.LLM_CACHE_DIR / f"sarvam-{_key(config.SARVAM_CHAT_MODEL, system, user)}.json"
-    if path.exists():
+    if cache and path.exists():
         return json.loads(path.read_text(encoding="utf-8"))["text"]
     try:
         r = _client().chat.completions(
             model=config.SARVAM_CHAT_MODEL,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
-            temperature=0.3,
-            max_tokens=600,
+            temperature=0.2,
+            max_tokens=max_tokens,
+            reasoning_effort="low",
         )
         text = _THINK.sub("", r.choices[0].message.content or "").strip()
     except Exception:
         return None
-    if text:
+    if text and cache:
         config.LLM_CACHE_DIR.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps({"text": text}, ensure_ascii=False), encoding="utf-8")
     return text or None

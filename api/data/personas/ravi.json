@@ -34,7 +34,7 @@
     {
       "set": {
         "fd_card_active": true,
-        "cards": [ { "id": "fdcard", "name": "FD-backed card", "limit": 9000, "balance": 1900, "secured": true } ],
+        "cards": [ { "id": "fdcard", "name": "FD-backed card", "lender": "SBM Bank", "limit": 9000, "balance": 1900, "secured": true } ],
         "on_time_cycles": 1,
         "bills.0.autopay": true,
         "bills.0.on_time_streak": 1

@@ -12,9 +12,9 @@ const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 function Metric({ label, value, good }: { label: string; value: string; good?: boolean }) {
   return (
-    <div className="rounded-2xl bg-white/[0.05] p-3">
-      <p className="text-[11px] text-white/50">{label}</p>
-      <motion.p key={value} initial={{ opacity: 0.3, y: 4 }} animate={{ opacity: 1, y: 0 }} className={`font-display text-[19px] font-semibold ${good ? "text-[#5fe0a8]" : "text-white"}`}>
+    <div className="rounded-2xl bg-white/[0.05] px-2.5 py-2">
+      <p className="truncate text-[10.5px] text-white/50">{label}</p>
+      <motion.p key={value} initial={{ opacity: 0.3, y: 4 }} animate={{ opacity: 1, y: 0 }} className={`font-display text-[15px] font-semibold ${good ? "text-[#5fe0a8]" : "text-white"}`}>
         {value}
       </motion.p>
     </div>
@@ -94,7 +94,7 @@ export default function Stage() {
       const j = await api.advance(userId, lang);
       setJourney(j);
       setScreen("raah");
-      setStep(2);
+      setStep(3);
       const top = j.notifications[0];
       if (top) {
         setBanner(top);
@@ -199,12 +199,53 @@ export default function Stage() {
 
           <div className="flex min-h-[220px] flex-1 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-4">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">What the rules see</p>
-            <div className="mt-2.5 grid grid-cols-2 gap-2">
+            <div className="mt-2.5 grid grid-cols-3 gap-2">
               <Metric label="Credit score" value={snap?.score ? String(snap.score) : "none"} good={!!snap?.score && snap.score >= 700} />
               <Metric label="On-time months" value={String(snap?.on_time_cycles ?? "–")} />
-              <Metric label="Card use" value={snap?.utilisation != null ? `${snap.utilisation}%` : "no card"} good={snap?.utilisation != null && snap.utilisation <= 30} />
+              <Metric label="Card use" value={snap?.utilisation != null ? `${snap.utilisation}%` : "none"} good={snap?.utilisation != null && snap.utilisation <= 30} />
+              <Metric label={snap?.income_verified ? "Income ✓ verified" : "Income (declared)"} value={snap ? inr(snap.income) : "–"} good={!!snap?.income_verified} />
               <Metric label="EMI load with loan" value={snap ? `${snap.foir}%` : "–"} good={!!snap && snap.foir <= 50} />
+              <Metric label="Hidden debts" value={snap?.income_verified ? (snap.hidden_emi ? inr(snap.hidden_emi) : "none") : "?"} />
             </div>
+
+            {journey?.cashflow ? (
+              <>
+                <div className="mt-4 flex items-center justify-between">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Statement reader (AA, mock data)</p>
+                  <span className="text-[10.5px] text-[#c4b5fd]">{journey.cashflow.model}</span>
+                </div>
+                <div className="mt-2 grid grid-cols-2 gap-2">
+                  <div className="rounded-2xl bg-[#a78bfa]/15 p-2.5">
+                    <p className="text-[10.5px] text-white/55">Raah&apos;s reader</p>
+                    <p className="font-display text-[18px] font-semibold text-[#c4b5fd]">{journey.cashflow.accuracy.reader}% right</p>
+                    <p className="text-[10.5px] text-white/50">income {inr(journey.cashflow.verified_income)}</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/[0.05] p-2.5">
+                    <p className="text-[10.5px] text-white/55">Keyword rules</p>
+                    <p className="font-display text-[18px] font-semibold text-white/70">{journey.cashflow.accuracy.keywords}% right</p>
+                    <p className="text-[10.5px] text-white/50">income {inr(journey.cashflow.keyword_income)}</p>
+                  </div>
+                </div>
+                <div className="thin-scroll mt-2 flex-1 space-y-1.5 overflow-y-auto pr-1">
+                  {journey.cashflow.feed.map((r) => (
+                    <motion.div key={r.id} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-xl bg-white/[0.04] px-2.5 py-2">
+                      <div className="flex items-center gap-2">
+                        <span className="min-w-0 flex-1 truncate font-mono text-[10.5px] text-white/60">{r.narration}</span>
+                        <span className={`shrink-0 font-mono text-[11px] ${r.dir === "in" ? "text-[#5fe0a8]" : "text-white/70"}`}>
+                          {r.dir === "in" ? "+" : "−"}{inr(r.amount)}
+                        </span>
+                      </div>
+                      <div className="mt-1 flex items-center gap-1.5 text-[10.5px]">
+                        <span className="rounded bg-[#a78bfa]/20 px-1.5 py-px font-semibold text-[#c4b5fd]">{r.label}</span>
+                        {r.keyword !== r.label && <span className="rounded bg-white/5 px-1.5 py-px text-white/35 line-through">{r.keyword}</span>}
+                        <span className="ml-auto truncate text-white/30">{r.source} · day {r.day}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </>
+            ) : (
+            <>
             <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-white/45">Paytm activity (mock data)</p>
             <div className="thin-scroll mt-2 flex-1 space-y-1.5 overflow-y-auto pr-1">
               {(journey?.feed ?? []).map((e, i) => (
@@ -220,6 +261,8 @@ export default function Stage() {
                 </motion.div>
               ))}
             </div>
+            </>
+            )}
           </div>
         </section>
 
@@ -231,6 +274,8 @@ export default function Stage() {
               setStep={setStep} setScreen={setScreen} onApply={onApply}
               onAcceptOffer={async (id) => setJourney(await api.acceptOffer(userId, id, lang))}
               onReapply={async () => { const j = await api.reapply(userId, lang); setBanner(null); sync(j); }}
+              onReadStatements={async () => setJourney(await api.readStatements(userId, lang))}
+              onAnswerGap={async (gap, answer) => setJourney(await api.answerGap(userId, gap, answer, lang))}
               onRestart={onReset} banner={banner} dismissBanner={() => setBanner(null)}
             />
           )}
