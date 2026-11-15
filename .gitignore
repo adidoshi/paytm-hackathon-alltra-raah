@@ -6,3 +6,4 @@ api/data/raah.db
 node_modules/
 .next/
 .pytest_cache/
+demo/out/
