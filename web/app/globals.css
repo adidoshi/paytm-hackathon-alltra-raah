@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #0d1829;
+  --color-navy-2: #14233d;
+  --color-navy-3: #1d3154;
+  --color-brand: #1565c0;
+  --color-brand-dark: #0f4c96;
+  --color-sky: #7cb9f7;
+  --color-sky-soft: #e8f1fc;
+  --color-amber: #f39a3d;
+  --color-rust: #b8510b;
+  --color-rust-soft: #fdf1e6;
+  --color-good: #12805a;
+  --color-good-soft: #e5f5ee;
+  --color-paper: #f3f4f1;
+  --color-ink: #0f1b2d;
+  --color-mute: #5a6577;
+  --color-line: #dde2e8;
+  --font-sans: var(--font-inter), var(--font-deva), system-ui, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-deva), system-ui, sans-serif;
+  --font-mono: var(--font-jb), ui-monospace, monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #0d1829;
+  color: #0f1b2d;
+  font-family: var(--font-sans);
+}
+
+.stage-bg {
+  background:
+    radial-gradient(900px 500px at 50% -10%, rgba(21, 101, 192, 0.35), transparent 60%),
+    radial-gradient(600px 400px at 100% 100%, rgba(124, 185, 247, 0.12), transparent 60%),
+    #0d1829;
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 140, 170, 0.45) transparent;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+input[type="range"] {
+  accent-color: #1565c0;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.wave-bar {
+  animation: wave 0.9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(var(--dx), 640px, 0) rotate(720deg);
+    opacity: 0;
+  }
+}
+.confetti {
+  animation: fall 2.6s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-bar,
+  .confetti {
+    animation: none;
+  }
+}
