@@ -5,9 +5,10 @@ import asyncio
 import base64
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from . import config, db
@@ -36,13 +37,54 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Raah API", lifespan=lifespan)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=config.CORS_ORIGINS,
-    allow_origin_regex=r"https://.*\.vercel\.app|http://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_origin_regex=r"^https?://.*$",
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def ensure_cors_headers(request: Request, call_next):
+    origin = request.headers.get("origin") or "*"
+    if request.method == "OPTIONS":
+        response = JSONResponse(content={"ok": True}, status_code=200)
+    else:
+        try:
+            response = await call_next(request)
+        except Exception as exc:
+            import traceback
+            traceback.print_exc()
+            response = JSONResponse(
+                status_code=500,
+                content={"detail": str(exc)},
+            )
+    response.headers["Access-Control-Allow-Origin"] = origin
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    return response
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    import traceback
+    traceback.print_exc()
+    origin = request.headers.get("origin") or "*"
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc)},
+        headers={
+            "Access-Control-Allow-Origin": origin,
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Methods": "*",
+        },
+    )
 app.include_router(mock_router)
 
 

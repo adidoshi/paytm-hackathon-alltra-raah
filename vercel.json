@@ -1,0 +1,30 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "frontend": {
+      "root": "web"
+    },
+    "backend": {
+      "root": "api",
+      "entrypoint": "main:app"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/emi-detox/:path*",
+      "destination": { "service": "frontend" }
+    },
+    {
+      "source": "/api/chat-voice/:path*",
+      "destination": { "service": "frontend" }
+    },
+    {
+      "source": "/api/:path*",
+      "destination": { "service": "backend" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "frontend" }
+    }
+  ]
+}

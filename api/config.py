@@ -12,9 +12,17 @@ load_dotenv(API_DIR / ".env")
 
 DATA_DIR = API_DIR / "data"
 PERSONA_DIR = DATA_DIR / "personas"
-AUDIO_DIR = DATA_DIR / "audio"
-LLM_CACHE_DIR = DATA_DIR / "llm_cache"
-DB_PATH = Path(os.getenv("RAAH_DB", str(DATA_DIR / "raah.db")))
+
+if os.getenv("VERCEL"):
+    TMP_DIR = Path("/tmp/raah")
+    TMP_DIR.mkdir(parents=True, exist_ok=True)
+    AUDIO_DIR = TMP_DIR / "audio"
+    LLM_CACHE_DIR = TMP_DIR / "llm_cache"
+    DB_PATH = Path(os.getenv("RAAH_DB", str(TMP_DIR / "raah.db")))
+else:
+    AUDIO_DIR = DATA_DIR / "audio"
+    LLM_CACHE_DIR = DATA_DIR / "llm_cache"
+    DB_PATH = Path(os.getenv("RAAH_DB", str(DATA_DIR / "raah.db")))
 
 
 def env(name: str, default: str = "") -> str:
@@ -38,5 +46,5 @@ EXPLAIN_LLM = env("EXPLAIN_LLM", "sarvam")
 # Ask Raah tool-calling agent: "sarvam" (Sarvam-105B, about 1 s) or "gemini"; the other is the fallback
 AGENT_LLM = env("AGENT_LLM", "sarvam")
 # Attach Sarvam's MCP tools (translate, identify language) to the chat agent: "1" to enable
-SARVAM_MCP = env("SARVAM_MCP", "1") == "1"
+SARVAM_MCP = env("SARVAM_MCP", "0" if os.getenv("VERCEL") else "1") == "1"
 CORS_ORIGINS = [o.strip() for o in env("CORS_ORIGINS", "http://localhost:3000").split(",") if o.strip()]

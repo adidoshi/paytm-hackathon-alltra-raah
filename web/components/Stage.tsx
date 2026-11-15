@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDownLeft, ArrowUpRight, FastForward, RotateCcw } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight, FastForward, RotateCcw, ShieldCheck, Zap } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { api, inr, type Health, type Journey, type Lang, type Persona } from "@/lib/api";
 import { LANG_LABEL } from "@/lib/strings";
 import Phone, { RaahMark, type Screen } from "./Phone";
 import TracePanel from "./TracePanel";
+import EMIDetoxView from "./EMIDetoxView";
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -33,6 +34,7 @@ export default function Stage() {
   const [epoch, setEpoch] = useState(0);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<"recovery" | "detox">("recovery");
 
   const persona = personas.find((p) => p.user_id === userId);
 
@@ -148,144 +150,184 @@ export default function Stage() {
 
       {error && <p className="bg-rust px-5 py-2 text-center text-[13px]">{error}</p>}
 
-      <main className="mx-auto grid w-full max-w-[1480px] flex-1 grid-cols-1 gap-5 p-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:p-6 xl:grid-cols-[minmax(280px,360px)_auto_minmax(300px,1fr)]">
-        {/* left: customer and data */}
-        <section className="order-2 flex flex-col gap-4 xl:order-1 xl:h-[780px]">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Customer</p>
-            <div className="mt-2.5 space-y-2">
-              {personas.map((p) => (
-                <button
-                  key={p.user_id} onClick={() => pickPersona(p)}
-                  className={`flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition ${p.user_id === userId ? "bg-sky/15 ring-1 ring-sky/60" : "hover:bg-white/5"}`}
-                >
-                  <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display font-semibold ${p.user_id === userId ? "bg-sky text-navy" : "bg-white/10"}`}>
-                    {p.first_name[0]}
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-[14px] font-semibold">{p.name}</span>
-                    <span className="block truncate text-[12px] text-white/55">
-                      {p.occupation} · wants {inr(p.application.amount)}
+      {/* Main Feature Tabs */}
+      <nav className="flex items-center gap-2 border-b border-white/10 px-5 pt-2.5 lg:px-8 bg-white/[0.015]">
+        <button
+          onClick={() => setActiveTab("recovery")}
+          className={`flex items-center gap-2 pb-3 px-3 text-[13.5px] font-display font-semibold transition border-b-2 cursor-pointer ${
+            activeTab === "recovery"
+              ? "border-sky text-white"
+              : "border-transparent text-white/45 hover:text-white/80"
+          }`}
+        >
+          <ShieldCheck size={16} className={activeTab === "recovery" ? "text-sky" : "text-white/40"} />
+          <span>Tab 1: Loan Rejection to Approval</span>
+          <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10.5px] font-mono text-white/60">
+            3 Rejection Personas
+          </span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab("detox")}
+          className={`flex items-center gap-2 pb-3 px-3 text-[13.5px] font-display font-semibold transition border-b-2 cursor-pointer ${
+            activeTab === "detox"
+              ? "border-sky text-white"
+              : "border-transparent text-white/45 hover:text-white/80"
+          }`}
+        >
+          <Zap size={16} className={activeTab === "detox" ? "text-sky fill-sky" : "text-white/40"} />
+          <span>Tab 2: EMI Detox Agent</span>
+          <span className="rounded-full bg-brand/40 border border-sky/30 px-2 py-0.5 text-[10.5px] font-bold uppercase tracking-wider text-sky">
+            Proactive Debt Refinance
+          </span>
+        </button>
+      </nav>
+
+      {/* View Switching */}
+      {activeTab === "detox" ? (
+        <main className="mx-auto w-full max-w-[1480px] flex-1 p-4 lg:p-6">
+          <EMIDetoxView initialUserId={userId} />
+        </main>
+      ) : (
+        <main className="mx-auto grid w-full max-w-[1480px] flex-1 grid-cols-1 gap-5 p-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:p-6 xl:grid-cols-[minmax(280px,360px)_auto_minmax(300px,1fr)]">
+          {/* left: customer and data */}
+          <section className="order-2 flex flex-col gap-4 xl:order-1 xl:h-[780px]">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Customer</p>
+              <div className="mt-2.5 space-y-2">
+                {personas.map((p) => (
+                  <button
+                    key={p.user_id} onClick={() => pickPersona(p)}
+                    className={`flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition ${p.user_id === userId ? "bg-sky/15 ring-1 ring-sky/60" : "hover:bg-white/5"}`}
+                  >
+                    <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display font-semibold ${p.user_id === userId ? "bg-sky text-navy" : "bg-white/10"}`}>
+                      {p.first_name[0]}
                     </span>
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
-            <div className="flex items-center justify-between">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Demo clock</p>
-              <p className="font-mono text-[12px] text-sky">Day {journey?.day ?? 0}</p>
-            </div>
-            <div className="mt-3 flex items-center">
-              {[0, 30, 60, 90].map((d, i) => (
-                <div key={d} className="flex flex-1 items-center last:flex-none">
-                  <span className={`flex h-7 w-7 items-center justify-center rounded-full text-[10.5px] font-bold ${(journey?.day ?? 0) >= d && started ? "bg-sky text-navy" : "bg-white/10 text-white/50"}`}>{d}</span>
-                  {i < 3 && <span className={`mx-1 h-0.5 flex-1 rounded ${(journey?.day ?? 0) > d ? "bg-sky" : "bg-white/10"}`} />}
-                </div>
-              ))}
-            </div>
-            <button
-              onClick={onAdvance} disabled={!journey?.can_advance || busy}
-              className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-sky py-2.5 text-[13.5px] font-semibold text-navy transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-white/35"
-            >
-              <FastForward size={15} /> Simulate +30 days
-            </button>
-            <p className="mt-2 text-[11.5px] leading-snug text-white/45">
-              Plays the next month of Paytm and bureau events, then the eligibility watcher re-runs the lender rules.
-            </p>
-          </div>
-
-          <div className="flex min-h-[220px] flex-1 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-4">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">What the rules see</p>
-            <div className="mt-2.5 grid grid-cols-3 gap-2">
-              <Metric label="Credit score" value={snap?.score ? String(snap.score) : "none"} good={!!snap?.score && snap.score >= 700} />
-              <Metric label="On-time months" value={String(snap?.on_time_cycles ?? "–")} />
-              <Metric label="Card use" value={snap?.utilisation != null ? `${snap.utilisation}%` : "none"} good={snap?.utilisation != null && snap.utilisation <= 30} />
-              <Metric label={snap?.income_verified ? "Income ✓ verified" : "Income (declared)"} value={snap ? inr(snap.income) : "–"} good={!!snap?.income_verified} />
-              <Metric label="EMI load with loan" value={snap ? `${snap.foir}%` : "–"} good={!!snap && snap.foir <= 50} />
-              <Metric label="Hidden debts" value={snap?.income_verified ? (snap.hidden_emi ? inr(snap.hidden_emi) : "none") : "?"} />
+                    <span className="min-w-0">
+                      <span className="block text-[14px] font-semibold">{p.name}</span>
+                      <span className="block truncate text-[12px] text-white/55">
+                        {p.occupation} · wants {inr(p.application.amount)}
+                      </span>
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {journey?.cashflow ? (
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+              <div className="flex items-center justify-between">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Demo clock</p>
+                <p className="font-mono text-[12px] text-sky">Day {journey?.day ?? 0}</p>
+              </div>
+              <div className="mt-3 flex items-center">
+                {[0, 30, 60, 90].map((d, i) => (
+                  <div key={d} className="flex flex-1 items-center last:flex-none">
+                    <span className={`flex h-7 w-7 items-center justify-center rounded-full text-[10.5px] font-bold ${(journey?.day ?? 0) >= d && started ? "bg-sky text-navy" : "bg-white/10 text-white/50"}`}>{d}</span>
+                    {i < 3 && <span className={`mx-1 h-0.5 flex-1 rounded ${(journey?.day ?? 0) > d ? "bg-sky" : "bg-white/10"}`} />}
+                  </div>
+                ))}
+              </div>
+              <button
+                onClick={onAdvance} disabled={!journey?.can_advance || busy}
+                className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-sky py-2.5 text-[13.5px] font-semibold text-navy transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-white/35"
+              >
+                <FastForward size={15} /> Simulate +30 days
+              </button>
+              <p className="mt-2 text-[11.5px] leading-snug text-white/45">
+                Plays the next month of Paytm and bureau events, then the eligibility watcher re-runs the lender rules.
+              </p>
+            </div>
+
+            <div className="flex min-h-[220px] flex-1 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">What the rules see</p>
+              <div className="mt-2.5 grid grid-cols-3 gap-2">
+                <Metric label="Credit score" value={snap?.score ? String(snap.score) : "none"} good={!!snap?.score && snap.score >= 700} />
+                <Metric label="On-time months" value={String(snap?.on_time_cycles ?? "–")} />
+                <Metric label="Card use" value={snap?.utilisation != null ? `${snap.utilisation}%` : "none"} good={snap?.utilisation != null && snap.utilisation <= 30} />
+                <Metric label={snap?.income_verified ? "Income ✓ verified" : "Income (declared)"} value={snap ? inr(snap.income) : "–"} good={!!snap?.income_verified} />
+                <Metric label="EMI load with loan" value={snap ? `${snap.foir}%` : "–"} good={!!snap && snap.foir <= 50} />
+                <Metric label="Hidden debts" value={snap?.income_verified ? (snap.hidden_emi ? inr(snap.hidden_emi) : "none") : "?"} />
+              </div>
+
+              {journey?.cashflow ? (
+                <>
+                  <div className="mt-4 flex items-center justify-between">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Statement reader (AA, mock data)</p>
+                    <span className="text-[10.5px] text-[#c4b5fd]">{journey.cashflow.model}</span>
+                  </div>
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    <div className="rounded-2xl bg-[#a78bfa]/15 p-2.5">
+                      <p className="text-[10.5px] text-white/55">Raah&apos;s reader</p>
+                      <p className="font-display text-[18px] font-semibold text-[#c4b5fd]">{journey.cashflow.accuracy.reader}% right</p>
+                      <p className="text-[10.5px] text-white/50">income {inr(journey.cashflow.verified_income)}</p>
+                    </div>
+                    <div className="rounded-2xl bg-white/[0.05] p-2.5">
+                      <p className="text-[10.5px] text-white/55">Keyword rules</p>
+                      <p className="font-display text-[18px] font-semibold text-white/70">{journey.cashflow.accuracy.keywords}% right</p>
+                      <p className="text-[10.5px] text-white/50">income {inr(journey.cashflow.keyword_income)}</p>
+                    </div>
+                  </div>
+                  <div className="thin-scroll mt-2 flex-1 space-y-1.5 overflow-y-auto pr-1">
+                    {journey.cashflow.feed.map((r) => (
+                      <motion.div key={r.id} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-xl bg-white/[0.04] px-2.5 py-2">
+                        <div className="flex items-center gap-2">
+                          <span className="min-w-0 flex-1 truncate font-mono text-[10.5px] text-white/60">{r.narration}</span>
+                          <span className={`shrink-0 font-mono text-[11px] ${r.dir === "in" ? "text-[#5fe0a8]" : "text-white/70"}`}>
+                            {r.dir === "in" ? "+" : "−"}{inr(r.amount)}
+                          </span>
+                        </div>
+                        <div className="mt-1 flex items-center gap-1.5 text-[10.5px]">
+                          <span className="rounded bg-[#a78bfa]/20 px-1.5 py-px font-semibold text-[#c4b5fd]">{r.label}</span>
+                          {r.keyword !== r.label && <span className="rounded bg-white/5 px-1.5 py-px text-white/35 line-through">{r.keyword}</span>}
+                          <span className="ml-auto truncate text-white/30">{r.source} · day {r.day}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </>
+              ) : (
               <>
-                <div className="mt-4 flex items-center justify-between">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-white/45">Statement reader (AA, mock data)</p>
-                  <span className="text-[10.5px] text-[#c4b5fd]">{journey.cashflow.model}</span>
-                </div>
-                <div className="mt-2 grid grid-cols-2 gap-2">
-                  <div className="rounded-2xl bg-[#a78bfa]/15 p-2.5">
-                    <p className="text-[10.5px] text-white/55">Raah&apos;s reader</p>
-                    <p className="font-display text-[18px] font-semibold text-[#c4b5fd]">{journey.cashflow.accuracy.reader}% right</p>
-                    <p className="text-[10.5px] text-white/50">income {inr(journey.cashflow.verified_income)}</p>
-                  </div>
-                  <div className="rounded-2xl bg-white/[0.05] p-2.5">
-                    <p className="text-[10.5px] text-white/55">Keyword rules</p>
-                    <p className="font-display text-[18px] font-semibold text-white/70">{journey.cashflow.accuracy.keywords}% right</p>
-                    <p className="text-[10.5px] text-white/50">income {inr(journey.cashflow.keyword_income)}</p>
-                  </div>
-                </div>
-                <div className="thin-scroll mt-2 flex-1 space-y-1.5 overflow-y-auto pr-1">
-                  {journey.cashflow.feed.map((r) => (
-                    <motion.div key={r.id} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-xl bg-white/[0.04] px-2.5 py-2">
-                      <div className="flex items-center gap-2">
-                        <span className="min-w-0 flex-1 truncate font-mono text-[10.5px] text-white/60">{r.narration}</span>
-                        <span className={`shrink-0 font-mono text-[11px] ${r.dir === "in" ? "text-[#5fe0a8]" : "text-white/70"}`}>
-                          {r.dir === "in" ? "+" : "−"}{inr(r.amount)}
-                        </span>
-                      </div>
-                      <div className="mt-1 flex items-center gap-1.5 text-[10.5px]">
-                        <span className="rounded bg-[#a78bfa]/20 px-1.5 py-px font-semibold text-[#c4b5fd]">{r.label}</span>
-                        {r.keyword !== r.label && <span className="rounded bg-white/5 px-1.5 py-px text-white/35 line-through">{r.keyword}</span>}
-                        <span className="ml-auto truncate text-white/30">{r.source} · day {r.day}</span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+              <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-white/45">Paytm activity (mock data)</p>
+              <div className="thin-scroll mt-2 flex-1 space-y-1.5 overflow-y-auto pr-1">
+                {(journey?.feed ?? []).map((e, i) => (
+                  <motion.div key={`${e.day}-${e.text}-${i}`} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2.5 rounded-xl bg-white/[0.04] px-2.5 py-2">
+                    <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${e.dir === "in" ? "bg-[#5fe0a8]/15 text-[#5fe0a8]" : "bg-white/10 text-white/60"}`}>
+                      {e.dir === "in" ? <ArrowDownLeft size={13} /> : <ArrowUpRight size={13} />}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-[12.5px] text-white/90">{e.text}</span>
+                      <span className="block text-[10.5px] text-white/40">{e.source} · day {e.day}</span>
+                    </span>
+                    {e.amount > 0 && <span className="shrink-0 font-mono text-[11.5px] text-white/70">{inr(e.amount)}</span>}
+                  </motion.div>
+                ))}
+              </div>
               </>
-            ) : (
-            <>
-            <p className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-white/45">Paytm activity (mock data)</p>
-            <div className="thin-scroll mt-2 flex-1 space-y-1.5 overflow-y-auto pr-1">
-              {(journey?.feed ?? []).map((e, i) => (
-                <motion.div key={`${e.day}-${e.text}-${i}`} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2.5 rounded-xl bg-white/[0.04] px-2.5 py-2">
-                  <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${e.dir === "in" ? "bg-[#5fe0a8]/15 text-[#5fe0a8]" : "bg-white/10 text-white/60"}`}>
-                    {e.dir === "in" ? <ArrowDownLeft size={13} /> : <ArrowUpRight size={13} />}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[12.5px] text-white/90">{e.text}</span>
-                    <span className="block text-[10.5px] text-white/40">{e.source} · day {e.day}</span>
-                  </span>
-                  {e.amount > 0 && <span className="shrink-0 font-mono text-[11.5px] text-white/70">{inr(e.amount)}</span>}
-                </motion.div>
-              ))}
+              )}
             </div>
-            </>
+          </section>
+
+          {/* centre: what the customer sees */}
+          <section className="order-1 flex justify-center xl:order-2">
+            {persona && (
+              <Phone
+                persona={persona} journey={journey} lang={lang} screen={screen} step={step}
+                setStep={setStep} setScreen={setScreen} onApply={onApply}
+                onAcceptOffer={async (id) => setJourney(await api.acceptOffer(userId, id, lang))}
+                onReapply={async () => { const j = await api.reapply(userId, lang); setBanner(null); sync(j); }}
+                onReadStatements={async () => setJourney(await api.readStatements(userId, lang))}
+                onAnswerGap={async (gap, answer) => setJourney(await api.answerGap(userId, gap, answer, lang))}
+                onRestart={onReset} banner={banner} dismissBanner={() => setBanner(null)}
+              />
             )}
-          </div>
-        </section>
+          </section>
 
-        {/* centre: what the customer sees */}
-        <section className="order-1 flex justify-center xl:order-2">
-          {persona && (
-            <Phone
-              persona={persona} journey={journey} lang={lang} screen={screen} step={step}
-              setStep={setStep} setScreen={setScreen} onApply={onApply}
-              onAcceptOffer={async (id) => setJourney(await api.acceptOffer(userId, id, lang))}
-              onReapply={async () => { const j = await api.reapply(userId, lang); setBanner(null); sync(j); }}
-              onReadStatements={async () => setJourney(await api.readStatements(userId, lang))}
-              onAnswerGap={async (gap, answer) => setJourney(await api.answerGap(userId, gap, answer, lang))}
-              onRestart={onReset} banner={banner} dismissBanner={() => setBanner(null)}
-            />
-          )}
-        </section>
-
-        {/* right: proof for the judges */}
-        <section className="order-3 lg:col-span-2 xl:col-span-1 xl:h-[780px]">
-          <TracePanel userId={userId} epoch={epoch} health={health} />
-        </section>
-      </main>
+          {/* right: proof for the judges */}
+          <section className="order-3 lg:col-span-2 xl:col-span-1 xl:h-[780px]">
+            <TracePanel userId={userId} epoch={epoch} health={health} />
+          </section>
+        </main>
+      )}
 
       <footer className="px-6 pb-4 text-center text-[11px] text-white/35">
         Raah by Team Alltra · Lender, bureau and Paytm data are mocked behind adapters · Rules engine, agent, voice and consent flow are real

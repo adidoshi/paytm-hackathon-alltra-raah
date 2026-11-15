@@ -2,7 +2,12 @@
 __pycache__/
 *.pyc
 .env
+.env.local
 api/data/raah.db
+api/data/audio/
+api/data/llm_cache/
 node_modules/
+web/node_modules/
 .next/
+web/.next/
 .pytest_cache/
