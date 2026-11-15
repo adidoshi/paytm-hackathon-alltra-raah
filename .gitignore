@@ -11,3 +11,4 @@ web/node_modules/
 .next/
 web/.next/
 .pytest_cache/
+demo/out/

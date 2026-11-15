@@ -66,7 +66,7 @@ Measured on the demo statements (each row hand-labelled; the labels never reach 
 
 | Customer | Reader (Sarvam-105B) | Keyword rules | Monthly income found: reader vs keywords |
 |---|---|---|---|
-| Ravi, delivery partner | 99% | 71% | ₹28,295 vs ₹20,900 |
+| Ravi, delivery partner | 99% | 71% | ₹27,725 vs ₹20,900 |
 | Priya, salaried | 97% | 62% | ₹45,000 vs ₹45,000, plus 2 debts missing from her bureau report |
 | Sameer, shop employee | 100% | 76% | ₹32,000 vs **₹0** |
 
@@ -115,7 +115,7 @@ Mocked behind adapters in `api/services/clients.py`: the lender decision, the bu
 
 1. Ravi, a delivery partner, applies for ₹1,00,000. The lender says no with a one-line sorry: today's dead end.
 2. Raah appears: "This is not the end." It explains in Marathi, by voice, that he has no credit history.
-3. **Proof**: "Your credit report isn't the whole story." One Account Aggregator consent. The reader goes through 129 transactions: ₹28,295 a month from Swiggy, Zomato and Rapido payouts, which keyword rules would mostly miss. Point at the stage: reader 99% right, keyword rules 71%.
+3. **Proof**: "Your credit report isn't the whole story." One Account Aggregator consent. The reader goes through 129 transactions: about ₹28,000 a month from Swiggy, Zomato and Rapido payouts, which keyword rules would mostly miss. Point at the stage: reader 99% right, keyword rules 71%.
 4. **Today**: a ₹40,000 cash-flow loan, approved on his statements, plus an FD-backed card to build his credit record.
 5. **Plan**: tap **Simulate +30 days** three times; the reader labels each new month, the ring fills, nudges arrive.
 6. Day 90: "You now qualify." Consent sheet → re-apply → **Approved** for the full ₹1,00,000.
@@ -129,6 +129,23 @@ Switch to Priya (hidden debts found, honest smaller offer, plan paid for from he
 - **What does bureau data add, and what do the transactions add?** The bureau is the past credit record, and the lender's reason for the no. The statements are real income, real obligations (including debts the bureau never sees), bill discipline and spending. One explains the no; the other is how it becomes a yes.
 - **What if the customer pays with other UPI apps?** It doesn't matter: Raah reads bank statements via Account Aggregator, and every UPI app debits a bank account.
 - **Does the AI decide credit?** No. It returns labels only. Every amount is summed in code, and every decision is a rule in a YAML file the lender owns.
+
+## Demo video
+
+`demo/` records the pitch video by driving the real app in Chrome: a visible cursor clicks through Ravi's journey and Priya's findings, with captions, spotlights, an English narrator (Sarvam Bulbul) and Raah's own Marathi voice.
+
+```bash
+# once
+cd demo && npm install && cd ..
+uv pip install --python api/.venv imageio-ffmpeg
+
+# with the API (8000) and web (3000) running
+api/.venv/Scripts/python -m demo.narrate   # narration from demo/scenes.json
+node demo/record.mjs                       # drives the app, captures frames
+api/.venv/Scripts/python -m demo.build     # -> demo/out/raah-demo.mp4
+```
+
+Edit the lines in `demo/scenes.json` and re-run all three steps; the scene timing follows the narration length.
 
 ## Deploy
 
