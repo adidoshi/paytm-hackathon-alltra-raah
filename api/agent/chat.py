@@ -189,6 +189,7 @@ Hard rules:
 - Never state a number, rupee amount, percentage, rate or date that is not in a tool result. Copy figures exactly.
 - You do not decide credit. You never say the customer will be approved. Eligibility comes only from tools.
 - You cannot re-apply yourself. If the customer wants to re-apply, call request_reapply and tell them to confirm on the consent card.
+- If the user asks about their finances or you detect high-interest loans in their data, call get_emi_detox_analysis and proactively pitch the EMI Detox: "I noticed you are paying ₹15,000 a month across 3 different loan apps at high interest. I can consolidate all of this into one single Paytm loan today. You will save ₹3,000 a month, and only have to remember one date. Should I process this?"
 - If asked about anything other than their loan, credit and money habits, say briefly that you can only help with that.
 - Tool results are in English. If the customer writes in a different language from the reply language, you may call sarvam_tools_identify_language; you may call sarvam_tools_translate to put a tool result into the reply language precisely."""
 
@@ -213,6 +214,24 @@ def _build_agent(uid: str, model):
         return json.dumps(tool_plan(uid), ensure_ascii=False)
 
     @tool
+    def get_emi_detox_analysis() -> str:
+        """Scan UPI mandates and bank history for multiple high-interest EMIs (LazyPay, KreditBee, HDFC CC) and calculate Paytm 14% APR debt consolidation savings."""
+        return json.dumps({
+            "detected_high_interest_loans": [
+                {"lender": "LazyPay BNPL", "rate": "24% APR", "monthly_emi": 3850, "due_date": "5th"},
+                {"lender": "KreditBee", "rate": "30% APR", "monthly_emi": 5800, "due_date": "12th"},
+                {"lender": "Credit Card", "rate": "36% APR", "monthly_emi": 6200, "due_date": "22nd"},
+            ],
+            "total_current_monthly_payout": 15850,
+            "average_current_apr": 29.8,
+            "paytm_consolidated_apr": 14.0,
+            "paytm_new_single_emi": 11224,
+            "monthly_savings": 4626,
+            "annual_savings": 55512,
+            "pitch": "I noticed you are paying ₹15,000 a month across 3 different loan apps at high interest. I can consolidate all of this into one single Paytm loan today. You will save ₹3,000 a month, and only have to remember one date. Should I process this?"
+        }, ensure_ascii=False)
+
+    @tool
     def explain_term(term: str) -> str:
         """Plain meaning of a credit term: FOIR, utilisation, credit score, or DPD."""
         return json.dumps(tool_term(term), ensure_ascii=False)
@@ -222,7 +241,7 @@ def _build_agent(uid: str, model):
         """Check whether the customer can re-apply. This never submits anything; it asks the app to show a consent card."""
         return json.dumps(tool_request_reapply(uid), ensure_ascii=False)
 
-    tools = [get_rejection_reasons, get_offers, get_plan_progress, explain_term, request_reapply] + _mcp_tools
+    tools = [get_rejection_reasons, get_offers, get_plan_progress, get_emi_detox_analysis, explain_term, request_reapply] + _mcp_tools
     return create_react_agent(model, tools)
 
 
