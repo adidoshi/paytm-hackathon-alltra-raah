@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { api, type TraceEntry } from "@/lib/api";
+import { api, type Health, type TraceEntry } from "@/lib/api";
 
 const KIND: Record<string, { label: string; cls: string }> = {
   event: { label: "EVENT", cls: "bg-white/10 text-white/70" },
@@ -16,7 +16,7 @@ const KIND: Record<string, { label: string; cls: string }> = {
   nudge: { label: "NUDGE", cls: "bg-brand/40 text-white" },
 };
 
-export default function TracePanel({ userId, epoch, health }: { userId: string; epoch: number; health: { llm: boolean; voice: boolean } | null }) {
+export default function TracePanel({ userId, epoch, health }: { userId: string; epoch: number; health: Health | null }) {
   const [entries, setEntries] = useState<TraceEntry[]>([]);
   const [consents, setConsents] = useState(0);
   const last = useRef(0);
@@ -62,11 +62,15 @@ export default function TracePanel({ userId, epoch, health }: { userId: string; 
         <p className="mt-1 text-[12px] leading-snug text-white/55">Rules decide. The LLM explains. The user consents.</p>
         <div className="mt-2.5 flex flex-wrap gap-1.5 text-[10.5px] font-medium">
           <span className="rounded-full bg-sky/15 px-2 py-0.5 text-sky">Rules engine: on</span>
-          <span className={`rounded-full px-2 py-0.5 ${health?.llm ? "bg-[#f472b6]/20 text-[#f9a8d4]" : "bg-white/10 text-white/50"}`}>
-            Gemini: {health?.llm ? "on" : "off, templates"}
+          <span className={`rounded-full px-2 py-0.5 ${health?.agent_models?.length ? "bg-[#f472b6]/20 text-[#f9a8d4]" : "bg-white/10 text-white/50"}`}>
+            Agent: {health?.agent_models?.[0] ?? "intent router"}
+            {health && health.agent_models.length > 1 && <span className="opacity-60"> → {health.agent_models[1]}</span>}
           </span>
           <span className={`rounded-full px-2 py-0.5 ${health?.voice ? "bg-[#fbbf24]/20 text-[#fcd34d]" : "bg-white/10 text-white/50"}`}>
-            Sarvam voice: {health?.voice ? "on" : "off"}
+            {health?.voice ? `Sarvam voice: ${health.tts} · ${health.stt}` : "Sarvam voice: off"}
+          </span>
+          <span className={`rounded-full px-2 py-0.5 ${health?.mcp?.startsWith("on") ? "bg-[#fbbf24]/20 text-[#fcd34d]" : "bg-white/10 text-white/50"}`}>
+            Sarvam MCP: {health?.mcp ?? "off"}
           </span>
           <span className="rounded-full bg-[#5fe0a8]/15 px-2 py-0.5 text-[#5fe0a8]">Consents logged: {consents}</span>
         </div>

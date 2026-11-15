@@ -8,4 +8,5 @@ langgraph>=0.2
 langchain-core>=0.3
 langchain-google-genai>=2.0
 langchain-mcp-adapters>=0.1
+sarvamai>=0.1.46
 pytest>=8.0

@@ -46,12 +46,24 @@ export type Journey = {
   can_advance: boolean;
   application: { product: string; amount: number; tenure_months: number; emi: number; reference: string | null };
   reasons: { code: string; title: string; detail: string; resolved: boolean }[];
-  explanation: { text: string; source: "llm" | "template" } | null;
+  explanation: { text: string; source: "llm" | "template"; model?: string } | null;
   offers: Offer[];
   plan: { readiness: number; eligible: boolean; actions: Action[] };
   notifications: { id: number; day: number; kind: "month" | "done" | "eligible"; title: string; body: string }[];
   feed: { day: number; source: string; text: string; amount: number; dir: "in" | "out" }[];
   snapshot: { score: number | null; utilisation: number | null; foir: number; on_time_cycles: number };
+};
+
+export type Health = {
+  ok: boolean;
+  llm: boolean;
+  voice: boolean;
+  explain_models: string[];
+  agent_models: string[];
+  tts: string | null;
+  stt: string | null;
+  speakers: Record<Lang, string>;
+  mcp: string;
 };
 
 export type TraceEntry = { id: number; ts: number; kind: string; title: string; detail: string };
@@ -63,6 +75,7 @@ export type ChatReply = {
   tools: string[];
   card: "consent" | null;
   source: "llm" | "template";
+  model?: string;
   lang: Lang;
   audio: Audio;
   transcript?: string;
@@ -84,7 +97,7 @@ const post = <T,>(path: string, body: unknown) =>
   call<T>(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
 
 export const api = {
-  health: () => call<{ ok: boolean; llm: boolean; voice: boolean; model: string }>("/api/health"),
+  health: () => call<Health>("/api/health"),
   personas: () => call<Persona[]>("/api/personas"),
   journey: (user_id: string, lang: Lang) => call<Journey>(`/api/journey/${user_id}?lang=${lang}`),
   apply: (user_id: string, amount: number, tenure_months: number, lang: Lang) =>

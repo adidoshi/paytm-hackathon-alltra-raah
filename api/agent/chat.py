@@ -5,7 +5,9 @@ Without one (or if the guard fails): a deterministic intent router over the same
 """
 from __future__ import annotations
 
+import asyncio
 import json
+import os
 
 from .. import config, db
 from ..rules import engine
@@ -14,32 +16,54 @@ from ..services import journey
 from . import llm
 
 _mcp_tools: list = []
+_mcp_status = "off"
+_mcp_stop: asyncio.Event | None = None
+MCP_KEEP = {"sarvam_tools_translate", "sarvam_tools_identify_language"}
 
 
-async def load_mcp_tools() -> int:
-    """Optional: attach Sarvam's MCP tools (translate etc.) to the agent."""
-    global _mcp_tools
-    if not (config.SARVAM_MCP_URL and config.SARVAM_API_KEY):
-        return 0
+async def run_mcp() -> None:
+    """Runs for the life of the API: one Sarvam MCP server (uvx sarvam-mcp) over stdio,
+    one open session, and its translate / identify-language tools attached to the agent.
+    Entering and leaving the session in the same task keeps anyio happy."""
+    global _mcp_tools, _mcp_status, _mcp_stop
+    if not (config.SARVAM_MCP and config.SARVAM_API_KEY):
+        return
+    _mcp_status = "starting"
+    _mcp_stop = asyncio.Event()
     try:
         from langchain_mcp_adapters.client import MultiServerMCPClient
+        from langchain_mcp_adapters.tools import load_mcp_tools
 
         client = MultiServerMCPClient(
             {
                 "sarvam": {
-                    "url": config.SARVAM_MCP_URL,
-                    "transport": "streamable_http",
-                    "headers": {"api-subscription-key": config.SARVAM_API_KEY},
+                    "command": "uvx",
+                    "args": ["sarvam-mcp"],
+                    "transport": "stdio",
+                    "env": {**os.environ, "SARVAM_API_KEY": config.SARVAM_API_KEY},
                 }
             }
         )
-        tools = await client.get_tools()
-        # Text tools only: live audio goes through the REST client, not through the LLM.
-        _mcp_tools = [x for x in tools if "translate" in x.name and "document" not in x.name]
-    except Exception as e:  # the app must start without it
+        async with client.session("sarvam") as session:
+            tools = await load_mcp_tools(session)
+            _mcp_tools = [x for x in tools if x.name in MCP_KEEP]
+            _mcp_status = f"on ({len(_mcp_tools)} tools)"
+            print(f"[raah] Sarvam MCP attached: {', '.join(x.name for x in _mcp_tools)}")
+            await _mcp_stop.wait()
+    except Exception as e:  # the app must work without it
         print(f"[raah] Sarvam MCP not attached: {e}")
+        _mcp_status = "unavailable"
+    finally:
         _mcp_tools = []
-    return len(_mcp_tools)
+
+
+def stop_mcp() -> None:
+    if _mcp_stop is not None:
+        _mcp_stop.set()
+
+
+def mcp_status() -> str:
+    return _mcp_status
 
 
 # ------------------------------------------------------------ tool bodies
@@ -157,18 +181,19 @@ def _fallback(uid: str, message: str, lang: str) -> dict:
 
 # ------------------------------------------------------------ LLM agent
 
-SYSTEM = """You are Raah, a respectful guide inside the Paytm app for a customer whose loan was rejected.
-Reply in {language}. Keep it to 2 or 3 short sentences that sound natural when spoken aloud. No markdown, no lists.
+SYSTEM = """You are Raah, a warm and respectful guide inside the Paytm app for a customer whose loan was rejected.
+Reply in {language}; common words like loan, EMI, credit card and FD may stay in English. Keep it to 2 or 3 short sentences that sound natural when spoken aloud. No markdown, no lists.
 
 Hard rules:
 - Always call a tool before answering anything about this customer's loan, reasons, offers, plan or progress.
 - Never state a number, rupee amount, percentage, rate or date that is not in a tool result. Copy figures exactly.
 - You do not decide credit. You never say the customer will be approved. Eligibility comes only from tools.
 - You cannot re-apply yourself. If the customer wants to re-apply, call request_reapply and tell them to confirm on the consent card.
-- If asked about anything other than their loan, credit and money habits, say briefly that you can only help with that."""
+- If asked about anything other than their loan, credit and money habits, say briefly that you can only help with that.
+- Tool results are in English. If the customer writes in a different language from the reply language, you may call sarvam_tools_identify_language; you may call sarvam_tools_translate to put a tool result into the reply language precisely."""
 
 
-def _build_agent(uid: str):
+def _build_agent(uid: str, model):
     from langchain_core.tools import tool
     from langgraph.prebuilt import create_react_agent
 
@@ -198,36 +223,56 @@ def _build_agent(uid: str):
         return json.dumps(tool_request_reapply(uid), ensure_ascii=False)
 
     tools = [get_rejection_reasons, get_offers, get_plan_progress, explain_term, request_reapply] + _mcp_tools
-    return create_react_agent(llm.get_llm(), tools)
+    return create_react_agent(model, tools)
+
+
+async def _run_agent(uid: str, provider: str, message: str, lang: str) -> dict | None:
+    model = llm.agent_model(provider)
+    name = llm.model_name(provider)
+    if model is None:
+        return None
+    try:
+        agent = _build_agent(uid, model)
+        out = await asyncio.wait_for(
+            agent.ainvoke(
+                {"messages": [("system", SYSTEM.format(language=llm.LANG_NAMES.get(lang, llm.LANG_NAMES["en"]))), ("human", message)]},
+                {"recursion_limit": 8},
+            ),
+            timeout=25,
+        )
+    except Exception as e:
+        db.trace(uid, "llm", f"Agent ({name}) failed, trying the next option", (str(e) or type(e).__name__)[:160])
+        return None
+    msgs = out["messages"]
+    tool_outputs = [m.content for m in msgs if getattr(m, "type", "") == "tool"]
+    used = [m.name for m in msgs if getattr(m, "type", "") == "tool"]
+    reply = llm.text_of(msgs[-1])
+    for tname in used:
+        if tname.startswith("sarvam_"):
+            db.trace(uid, "voice", f"Sarvam MCP: {tname}", f"called by the agent ({name}) over MCP")
+        else:
+            db.trace(uid, "tool", tname, f"called by the agent ({name})")
+    if not used:
+        db.trace(uid, "guard", f"No tool called by {name}, reply discarded", "Answers about the loan must come from a tool")
+        return None
+    ok, bad = llm.numbers_ok(reply, tool_outputs)
+    if not (reply and ok):
+        db.trace(uid, "guard", f"Number check FAILED for {name}", f"Unverified figures: {', '.join(bad)}")
+        return None
+    db.trace(uid, "guard", "Number check passed", "Every figure in the reply exists in a tool result")
+    card = "consent" if any('"consent_required"' in str(o) for o in tool_outputs) else None
+    return {"reply": reply, "tools": used, "card": card, "source": "llm", "model": name}
 
 
 async def answer(uid: str, message: str, lang: str) -> dict:
     db.trace(uid, "event", "User asked Raah", message[:160])
     result = None
-    if llm.get_llm() is not None:
-        try:
-            agent = _build_agent(uid)
-            out = await agent.ainvoke(
-                {"messages": [("system", SYSTEM.format(language=llm.LANG_NAMES.get(lang, llm.LANG_NAMES["en"]))), ("human", message)]},
-                {"recursion_limit": 8},
-            )
-            msgs = out["messages"]
-            tool_outputs = [m.content for m in msgs if getattr(m, "type", "") == "tool"]
-            used = [m.name for m in msgs if getattr(m, "type", "") == "tool"]
-            reply = llm.text_of(msgs[-1])
-            for name in used:
-                db.trace(uid, "tool", name, "called by the agent")
-            ok, bad = llm.numbers_ok(reply, tool_outputs)
-            if reply and ok:
-                db.trace(uid, "guard", "Number check passed", "Every figure in the reply exists in a tool result")
-                card = "consent" if any('"consent_required"' in str(o) for o in tool_outputs) else None
-                result = {"reply": reply, "tools": used, "card": card, "source": "llm"}
-            else:
-                db.trace(uid, "guard", "Number check FAILED, fixed reply used", f"Unverified figures: {', '.join(bad)}")
-        except Exception as e:
-            db.trace(uid, "llm", "Agent error, fixed reply used", str(e)[:160])
+    for provider in llm.agent_providers():
+        result = await _run_agent(uid, provider, message, lang)
+        if result:
+            break
     if result is None:
-        result = {**_fallback(uid, message, lang), "source": "template"}
+        result = {**_fallback(uid, message, lang), "source": "template", "model": "intent router"}
         for name in result["tools"]:
             db.trace(uid, "tool", name, "intent router")
     if result["card"] == "consent":
