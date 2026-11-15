@@ -132,7 +132,7 @@ export default function EMIDetoxView({
     const dueDay = Math.min(31, Math.max(1, Number(modalForm.dueDayOfMonth) || 15));
 
     const newLoanItem: ExistingLoanItem = {
-      id: `manual-${Date.now()}`,
+      id: `manual-${Date.now()}`, 
       lenderName: modalForm.lenderName.trim(),
       accountNumber:
         modalForm.accountNumber.trim() || `LN-${Math.floor(1000 + Math.random() * 9000)}`,
